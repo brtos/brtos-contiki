@@ -984,47 +984,6 @@ void echo (char *string, char Terminalbackup)
     }
 }
 
-#include "esp8266_at.h"
-
-//const INT8U esp_buffer_send[];
-//INT8U esp_buffer_rx[64];
-
-void cmd_esp(char *param)
-{	
-	printf_usb("\r\n");
-	switch (param[0])
-	{
-		case '1': at_esp_init();
-			break;
-		case '2': at_esp_open();
-			break;
-		case '3': at_esp_send(1,"power","150");
-					break;
-		case '4': at_esp_receive(NULL,NULL);
-					break;					
-		case '5': at_esp_close();
-			break;
-		case '6':
-			at_esp_init();
-			at_esp_open();
-			at_esp_send(1,"power","150");
-			break;
-		default:
-			printf_usb(	"\r\n usage:\r\n"
-						"1 - init \r\n"
-						"2 - open \r\n"
-						"3 - send \r\n"
-						"4 - receive \r\n"
-						"5 - close \r\n"
-					  );
-	}
-}
-
-const command_t esp_cmd = {
-  "esp", cmd_esp, "Control ESP8266"
-};
-
-
 // D/A converter sin wave Command
 INT16S wave[32]={2048,2447,2831,3185,3495,3750,3939,4056,4095,4056,3939,3750,3495,3185,2831,2447,
 		2048,1649,1265,911,601,346,157,40,1,40,157,346,601,911,1265,1649};
