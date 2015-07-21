@@ -401,6 +401,10 @@ main_minimal_net(void)
 			 {
 				 break;
 			 }
+    		 if(slip_twopackets > 0)
+			 {
+				 break;
+			 }
     		 
 		 }else
 		 {

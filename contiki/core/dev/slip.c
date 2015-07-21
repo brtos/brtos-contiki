@@ -52,7 +52,7 @@ PROCESS(slip_process, "SLIP driver");
 
 uint8_t slip_active;
 
-#if 1
+#if 0
 #define SLIP_STATISTICS(statement)
 #else
 uint16_t slip_rubbish, slip_twopackets, slip_overflow, slip_ip_drop;
