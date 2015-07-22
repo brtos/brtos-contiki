@@ -83,10 +83,76 @@ PROCINIT(&tcpip_process);
 
 /* hack for "rand", because "rand" does not work in CFv1 */
 #if BRTOS_CPU == COLDFIRE_V1 
+
+/* see: http://www.embedded.com/design/configurable-systems/4024972/Generating-random-numbers 
+ * Listing 3: Hard real-time PRNG*/
+
+
 int rand(void)
 {
-	return 1;
+
+#if 0
+static unsigned int Y = 31468; // seed
+const static unsigned int xorTable[128] = {
+		0x81E4262E,0xC3736621,0x66B7C685,0xA2EA37B9,0x78268572,0xB5291A81,0x9DB2EA0C,0x91849EC4,
+		0x13FCEB2B,0xAD07AB40,0x8BF9FA57,0x588A04D7,0xC0A3A591,0xC3EAB5C4,0xF9A870F0,0x7FBA9402,
+		0xF241DEAE,0x03846579,0x14E84790,0xABD3C878,0x3F6B7C6C,0xA1E8BD41,0xA8729FD0,0x72642C9B,
+		0xA9563B94,0x0C1C4AE8,0x68E2CCB2,0xA29DB861,0x1E5D399D,0x539FE57F,0x3205B629,0x270714F4,
+		0xF8E6AAC0,0x60DC3E8D,0x8B5C5D69,0x8D71EF2B,0xCB8F2CFE,0x2E180841,0x5B7F0D8C,0x1C334D26,
+		0x1CCD5A88,0x821ED40A,0x9FFAD1BF,0xC61D1FAF,0xC08E9056,0xAC3244BE,0xCF60C9B8,0x71BA4779,
+		0x109E9A78,0x42F80EDC,0xFCCD97CB,0x0ABC7BBA,0xF826B21D,0xB58A9C90,0xCA89B5B7,0xEC714D43,
+		0xA34C0E13,0x64B8646C,0x3F3505EF,0xE29936B6,0xC9FD1329,0x96DADD03,0xF22DE290,0xC02B44D3,
+		0x81E4262E,0xC3736621,0x66B7C685,0xA2EA37B9,0x78268572,0xB5291A81,0x9DB2EA0C,0x91849EC4,
+		0x13FCEB2B,0xAD07AB40,0x8BF9FA57,0x588A04D7,0xC0A3A591,0xC3EAB5C4,0xF9A870F0,0x7FBA9402,
+		0xF241DEAE,0x03846579,0x14E84790,0xABD3C878,0x3F6B7C6C,0xA1E8BD41,0xA8729FD0,0x72642C9B,
+		0xA9563B94,0x0C1C4AE8,0x68E2CCB2,0xA29DB861,0x1E5D399D,0x539FE57F,0x3205B629,0x270714F4,
+		0xF8E6AAC0,0x60DC3E8D,0x8B5C5D69,0x8D71EF2B,0xCB8F2CFE,0x2E180841,0x5B7F0D8C,0x1C334D26,
+		0x1CCD5A88,0x821ED40A,0x9FFAD1BF,0xC61D1FAF,0xC08E9056,0xAC3244BE,0xCF60C9B8,0x71BA4779,
+		0x109E9A78,0x42F80EDC,0xFCCD97CB,0x0ABC7BBA,0xF826B21D,0xB58A9C90,0xCA89B5B7,0xEC714D43,
+		0xA34C0E13,0x64B8646C,0x3F3505EF,0xE29936B6,0xC9FD1329,0x96DADD03,0xF22DE290,0xC02B44D3		
+}; // random data
+	
+	static unsigned int iterations = 0, lastUpper = 0;	
+	unsigned int r, n, pos1, pos2, choice;
+	
+	OS_SR_SAVE_VAR;
+
+	OSEnterCritical(); // begin critical section
+		r = Y;
+		n = iterations;
+		choice = lastUpper;
+	OSExitCritical();// end critical section
+	
+	pos1 = (r ^ xorTable[choice & 0x3f]) + xorTable[n & 0x3f];
+	pos2 = ~pos1;
+	
+r += ~r + ~n ^
+   (xorTable[(n+r) & 0x7f] < (((r&=0x1f000000)>> 24))) ^
+   (xorTable[choice & 0x7f] < (((r&=0x000f0000)>> 16))) ^
+   (xorTable[pos2 & 0x7f] < (((r&=0x00001f00)>> 8))) ^
+   (xorTable[pos1 & 0x7f] < (((r&=0x0000000f))))>
+   (xorTable[(n+pos1) & 0x7f] >> (((r & 0x1f000000) >> 24))) ^
+   (xorTable[choice & 0x7f] >> (((r & 0x001f0000) >> 16))) ^
+   (xorTable[pos2 & 0x7f] >> (((r & 0x00000f00) >> 8))) ^
+   (xorTable[(r+pos2) & 0x7f] >> (((r & 0x0000001f) )));
+
+	choice=r>>24;
+	
+	OSEnterCritical(); // begin critical section
+		Y = r;
+		n++;
+		lastUpper = r >> 24;
+	OSExitCritical();// end critical section
+	
+	return (int)(Y);
 }
+#else
+
+	static INT32U next = 1;	
+	next = next * 1103515245 + 12345;
+	return (int)(next>>16) & RAND_MAX;
+}
+#endif
 #endif
 
 
