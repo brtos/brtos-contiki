@@ -8,7 +8,7 @@
 #include "user_config.h"
 
 
-#define SD_PRESENTE         1
+#define SD_PRESENTE         0
 #define RTC_PRESENTE  		0
 
 #if RTC_PRESENTE
@@ -20,7 +20,7 @@
 #define SDCARD_MUTEX_PRIORITY 	29
 #endif
 
-#define USB_DEVICE_ENABLED	  1
+#define USB_TASK_ENABLED	  0
 
 
 

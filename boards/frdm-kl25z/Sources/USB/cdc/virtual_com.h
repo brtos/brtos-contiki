@@ -42,7 +42,7 @@
    supported is 16 Bytes
 */
 #ifndef _MC9S08JS16_H
-#define  DATA_BUFF_SIZE     (64)
+#define  DATA_BUFF_SIZE     (64+1)
 #else
 #define  DATA_BUFF_SIZE     (16)
 #endif

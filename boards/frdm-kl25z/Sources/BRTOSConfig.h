@@ -125,7 +125,7 @@
 
 
 // Stack Size of the Idle Task
-#define IDLE_STACK_SIZE             (INT16U)384
+#define IDLE_STACK_SIZE             (INT16U)192
 
 
 /// Stack Defines

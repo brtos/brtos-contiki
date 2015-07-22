@@ -40,7 +40,7 @@
 #define UIP_CONF_DS6_ADDR_NBU    		4
 #define UIP_CONF_DS6_MADDR_NBU   		0
 #define UIP_CONF_DS6_AADDR_NBU   		0
-#define NETSTACK_CONF_NETWORK			rime_driver //null_network_driver //sicslowpan_driver
+#define NETSTACK_CONF_NETWORK			sicslowpan_driver //rime_driver //null_network_driver
 #else
 #define UIP_CONF_IP_FORWARD          1
 #endif /* NETSTACK_CONF_WITH_IPV6 */

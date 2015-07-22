@@ -32,8 +32,8 @@
  *
  */
 /**
- * \file main.c
- * Entry point, system initialization
+ * \file contiki-main.c
+ * Contiki OS task
  * \author
  * Carlos H. Barriquello <barriquello@gmail.com>
  *
@@ -61,11 +61,12 @@
 #include "BRTOS.h"
 extern BRTOS_Queue 	*USB;
 
-int main_win(void);
+int main_win(void); // for simulation on Win32
 int main_minimal_net(void);
+
 void contiki_main(void);
 
-/* for printf support */
+/* for printf support on CW */
 extern void InitializeUART(void);
 extern char ReadUARTN(void);
 extern void WriteUARTN(char c);
@@ -76,17 +77,15 @@ extern void WriteUARTN(char c);
 #define PRINTF(...)	printf_lib(__VA_ARGS__)
 
 
-
 void print_lladdrs(void) ;
 
 PROCINIT(&tcpip_process);
 
-/* hack for "rand", because "rand" does not work in CFv1 */
+/* hack for "rand", because rand() does not work in CFv1 */
 #if BRTOS_CPU == COLDFIRE_V1 
 
 /* see: http://www.embedded.com/design/configurable-systems/4024972/Generating-random-numbers 
  * Listing 3: Hard real-time PRNG*/
-
 
 int rand(void)
 {
@@ -226,7 +225,6 @@ int main_win(void)
 #endif
 #endif
 
-  //fflush(stderr);
   while(1)
   {
 		 process_run();
@@ -234,11 +232,6 @@ int main_win(void)
   }
 
   return 0;
-
-  for(;;)
-  {
-
-  } /* loop forever */
 
 }
 
@@ -264,9 +257,9 @@ debug_printf(char *format, ...)
 #endif
   while(1)
   {
-#if BRTOS_CPU == COLDFIRE_V1		
+	#if BRTOS_CPU == COLDFIRE_V1		
 		__RESET_WATCHDOG();
-#endif		
+	#endif		
   }
 }
 /*-----------------------------------------------------------------------------------*/
@@ -284,7 +277,6 @@ log_message(const char *part1, const char *part2)
 /*-----------------------------------------------------------------------------------*/
 
 /** minimal net */
-
 
 #if RPL_BORDER_ROUTER
 #include "net/rpl/rpl.h"
@@ -403,7 +395,7 @@ sprint_ip6(uip_ip6addr_t addr)
 #endif /* NETSTACK_CONF_WITH_IPV6 */
 /*---------------------------------------------------------------------------*/
 
-
+/* declare a LL MAC address */
 const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x32}};
 
 int
@@ -412,14 +404,12 @@ main_minimal_net(void)
 
 	clock_init();
 	
-	linkaddr_set_node_addr(&addr);
+	linkaddr_set_node_addr((linkaddr_t*)&addr);
 	memcpy(&uip_lladdr.addr, &linkaddr_node_addr.u8, sizeof(uip_lladdr.addr));
 	
-#if 0	
+#if 1	
   	queuebuf_init();
-  	NETSTACK_RDC.init();
-  	NETSTACK_MAC.init();
-  	NETSTACK_NETWORK.init();
+  	netstack_init();
 #endif  	
   	
   process_init();
@@ -434,7 +424,7 @@ main_minimal_net(void)
   autostart_start(autostart_processes);
 #endif
 
- #define DEBUG_ANNOTATE  1
+ #define DEBUG_ANNOTATE  0
  #if DEBUG_ANNOTATE
 	print_lladdrs();
   #endif
@@ -451,9 +441,8 @@ main_minimal_net(void)
     do{
     	n = process_run();
     } while(n > 0);
-    
-         
-#if 1    
+      
+ 
      poll = 0;
      next_event = 2;
      do 
@@ -490,8 +479,7 @@ main_minimal_net(void)
 			 break;
 		 }
     	    	 
-     }while(1);     
-#endif     
+     }while(1);  
      
      etimer_request_poll();
   }
@@ -513,9 +501,9 @@ sensors_light1(void)
 void InitializeUART(void)
 {
 	while(1){
-#if BRTOS_CPU == COLDFIRE_V1		
-		__RESET_WATCHDOG();
-#endif		
+	#if BRTOS_CPU == COLDFIRE_V1		
+			__RESET_WATCHDOG();
+	#endif		
 	}
 	
 }
@@ -523,9 +511,9 @@ void InitializeUART(void)
 char ReadUARTN(void)
 {
 	while(1){
-#if BRTOS_CPU == COLDFIRE_V1		
-		__RESET_WATCHDOG();
-#endif		
+	#if BRTOS_CPU == COLDFIRE_V1		
+			__RESET_WATCHDOG();
+	#endif		
 		}
 }
 
@@ -533,9 +521,9 @@ void WriteUARTN(char c)
 {
 	(void)c;
 	while(1){
-#if BRTOS_CPU == COLDFIRE_V1		
-		__RESET_WATCHDOG();
-#endif		
+	#if BRTOS_CPU == COLDFIRE_V1		
+			__RESET_WATCHDOG();
+	#endif		
 	}
 }
 #endif

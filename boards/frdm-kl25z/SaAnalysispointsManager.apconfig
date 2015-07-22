@@ -1,6 +1,6 @@
 <Analysispoints>
 	<Name>AnalysispointsManager</Name>
-	<ProjectPath>C:/DADOS_LOCAIS/GITHUB/colduino_br/boards/frdm-kl25z/SaAnalysispointsManager.apconfig</ProjectPath>
+	<ProjectPath>C:/DADOS_LOCAIS/GITHUB/brtos-contiki/boards/frdm-kl25z/SaAnalysispointsManager.apconfig</ProjectPath>
 	<MaxNumberOfCores>1</MaxNumberOfCores>
 	<Comments>Analysispoints Manager</Comments>
 	<IgnoreAll>false</IgnoreAll>

@@ -3,9 +3,8 @@
 
 #if PROCESSOR == COLDFIRE_V1
 #include "drivers.h"
+#include "AppConfig.h"
 #endif
-
-//#include "AppConfig.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -31,8 +30,6 @@ void contiki_main(void);
 
 void main_app(void)
 {
-	
-#if 1
 
 	/* init the MCU system */
 #if PROCESSOR == COLDFIRE_V1	
@@ -42,7 +39,7 @@ void main_app(void)
 	// Initialize BRTOS
 	BRTOS_Init();
 
-	if (InstallTask(&System_Time, "System Time", 256, 31, NULL) != OK)
+	if (InstallTask(&System_Time, "System Time", 192, 31, NULL) != OK)
 	{
 		while (1){};
 	};
@@ -59,7 +56,7 @@ void main_app(void)
 	};
 #endif
 	
-#if USB_DEVICE_ENABLED
+#if USB_TASK_ENABLED
 #if (USB_CLASS_TYPE == BRTOS_USB_MSD)
 	if(InstallTask(&Mass_Storage_Device_Task,"Mass Storage Device Task",512,15,NULL) != OK)
 	{
@@ -92,11 +89,10 @@ void main_app(void)
 	};
 #endif
 
-	// Start Task Scheduler
+	// Start BRTOS Scheduler
 	if (BRTOSStart() != OK)
 	{
 		while (1){};
 	};
-#endif	
 }
 

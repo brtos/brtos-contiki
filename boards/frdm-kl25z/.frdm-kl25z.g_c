@@ -1,7 +1,7 @@
 <GenerationInfo_G_C>
   <Options>
     <ProjectName>frdm-kl25z</ProjectName>
-    <ProjectDirectory>C:\DADOS_LOCAIS\GITHUB\colduino_br\boards\frdm-kl25z\</ProjectDirectory>
+    <ProjectDirectory>C:\DADOS_LOCAIS\GITHUB\brtos-contiki\boards\frdm-kl25z\</ProjectDirectory>
     <ProjectMainModuleName>main</ProjectMainModuleName>
     <DestEventsDirectory>Sources\</DestEventsDirectory>
     <DestDriversSubDirectory>..\Generated_Code\</DestDriversSubDirectory>
@@ -18,16 +18,16 @@
         <Line>PE_Const</Line>
         <Line>IO_Map</Line>
       </GenSharedModules>
-      <ShrdHeaderAge0>1190022722</ShrdHeaderAge0>
+      <ShrdHeaderAge0>1190549926</ShrdHeaderAge0>
       <ShrdCodeAge0>-1</ShrdCodeAge0>
       <ShrdAsemblAge0>-1</ShrdAsemblAge0>
-      <ShrdHeaderAge1>1190022722</ShrdHeaderAge1>
+      <ShrdHeaderAge1>1190549926</ShrdHeaderAge1>
       <ShrdCodeAge1>-1</ShrdCodeAge1>
       <ShrdAsemblAge1>-1</ShrdAsemblAge1>
-      <ShrdHeaderAge2>1190022722</ShrdHeaderAge2>
+      <ShrdHeaderAge2>1190549926</ShrdHeaderAge2>
       <ShrdCodeAge2>-1</ShrdCodeAge2>
       <ShrdAsemblAge2>-1</ShrdAsemblAge2>
-      <ShrdHeaderAge3>1190022722</ShrdHeaderAge3>
+      <ShrdHeaderAge3>1190549926</ShrdHeaderAge3>
       <ShrdCodeAge3>-1</ShrdCodeAge3>
       <ShrdAsemblAge3>-1</ShrdAsemblAge3>
       <GenExtraFiles lines_count="9">
@@ -42,9 +42,9 @@
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
       <GenExtraFileSrcDir3>lib\doxygen\</GenExtraFileSrcDir3>
-      <XtraAge5>1190022722</XtraAge5>
-      <XtraAge6>1190022722</XtraAge6>
-      <XtraAge8>1190022722</XtraAge8>
+      <XtraAge5>1190549926</XtraAge5>
+      <XtraAge6>1190549926</XtraAge6>
+      <XtraAge8>1190549926</XtraAge8>
       <GenExtraFileType8>4</GenExtraFileType8>
       <GenExtraFileType7>4</GenExtraFileType7>
       <GenExtraFileType6>4</GenExtraFileType6>
@@ -298,8 +298,8 @@
     <GenComponentVersion>01.025</GenComponentVersion>
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1190022722</HeaderAge>
-    <CodeAge>1190022722</CodeAge>
+    <HeaderAge>1190549926</HeaderAge>
+    <CodeAge>1190549926</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -370,8 +370,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190022722</HeaderAge>
-    <CodeAge>1190022722</CodeAge>
+    <HeaderAge>1190549926</HeaderAge>
+    <CodeAge>1190549926</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -388,8 +388,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190022722</HeaderAge>
-    <CodeAge>1190022722</CodeAge>
+    <HeaderAge>1190549926</HeaderAge>
+    <CodeAge>1190549926</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -406,8 +406,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190022722</HeaderAge>
-    <CodeAge>1190022722</CodeAge>
+    <HeaderAge>1190549926</HeaderAge>
+    <CodeAge>1190549926</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -424,8 +424,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190022722</HeaderAge>
-    <CodeAge>1190022722</CodeAge>
+    <HeaderAge>1190549926</HeaderAge>
+    <CodeAge>1190549926</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>

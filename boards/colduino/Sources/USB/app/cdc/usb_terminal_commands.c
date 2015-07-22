@@ -289,6 +289,7 @@ const command_t setget_time_cmd = {
 };
 
 
+#if (defined FATFS_ENABLE && FATFS_ENABLE == 1)
 // SD Card Read Command
 void cmd_cat(char *param)
 {  
@@ -830,6 +831,8 @@ void cmd_wt(char *param)
 const command_t wt_cmd = {
   "wt", cmd_wt, "SD Card - Write Uptime - Test for write file"
 };
+
+#endif
 
 static INT8U stdout = USE_USB;
 BRTOS_Queue *stdin_q = NULL;
