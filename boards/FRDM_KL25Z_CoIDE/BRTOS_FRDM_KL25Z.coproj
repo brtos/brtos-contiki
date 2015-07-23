@@ -21,11 +21,11 @@
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
         <Option name="Library" value="Not use C Library"/>
-        <Option name="UserEditLinker" value=""/>
+        <Option name="UserEditLinker" value="--specs=nano.specs"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
           <Memory name="IROM1" type="ReadOnly" size="0x00020000" startValue="0x00000000"/>
-          <Memory name="IRAM1" type="ReadWrite" size="0x00004000" startValue="0x1FFFF000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00005000" startValue="0x1FFFF000"/>
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
         </MemoryAreas>
@@ -164,9 +164,9 @@
     <File name="contiki/core/net/rime/collect-neighbor.c" path="../../contiki/core/net/rime/collect-neighbor.c" type="1"/>
     <File name="brtos/includes/BRTOS.h" path="../../brtos/includes/BRTOS.h" type="1"/>
     <File name="USB/driver/kinetis/usb_bdt_kinetis.h" path="USB/driver/kinetis/usb_bdt_kinetis.h" type="1"/>
-    <File name="USB/cdc/USB_Config.h" path="USB/cdc/USB_Config.h" type="1"/>
     <File name="contiki/core/lib/assert.c" path="../../contiki/core/lib/assert.c" type="1"/>
     <File name="USB/common/usb_framework.h" path="USB/common/usb_framework.h" type="1"/>
+    <File name="USB/cdc/USB_Config.h" path="USB/cdc/USB_Config.h" type="1"/>
     <File name="contiki/core/net/ipv6/multicast/roll-tm.c" path="../../contiki/core/net/ipv6/multicast/roll-tm.c" type="1"/>
     <File name="contiki/core/net/rpl/rpl-of0.c" path="../../contiki/core/net/rpl/rpl-of0.c" type="1"/>
     <File name="contiki/core/net/linkaddr.h" path="../../contiki/core/net/linkaddr.h" type="1"/>
@@ -198,8 +198,8 @@
     <File name="contiki/core/net/mac/framer.h" path="../../contiki/core/net/mac/framer.h" type="1"/>
     <File name="contiki/core/lib/assert.h" path="../../contiki/core/lib/assert.h" type="1"/>
     <File name="contiki/core/net/rime" path="" type="2"/>
-    <File name="contiki/examples/rpl-border-router/project-conf.h" path="../../contiki/examples/rpl-border-router/project-conf.h" type="1"/>
     <File name="USB/class/usb_cdc.c" path="USB/class/usb_cdc.c" type="1"/>
+    <File name="contiki/examples/rpl-border-router/project-conf.h" path="../../contiki/examples/rpl-border-router/project-conf.h" type="1"/>
     <File name="brtos/mutex.c" path="../../brtos/mutex.c" type="1"/>
     <File name="contiki/examples/rpl-border-router/slip-bridge.c" path="../../contiki/examples/rpl-border-router/slip-bridge.c" type="1"/>
     <File name="contiki/platform/brtos/contiki-conf.h" path="../../contiki/platform/brtos/contiki-conf.h" type="1"/>
@@ -210,8 +210,8 @@
     <File name="contiki/core/net/ipv6/multicast/smrf.c" path="../../contiki/core/net/ipv6/multicast/smrf.c" type="1"/>
     <File name="contiki/core/net/rime/chameleon-bitopt.c" path="../../contiki/core/net/rime/chameleon-bitopt.c" type="1"/>
     <File name="brtos/queue.c" path="../../brtos/queue.c" type="1"/>
-    <File name="USB/class/usb_cdc.h" path="USB/class/usb_cdc.h" type="1"/>
     <File name="contiki/core/net/netstack.c" path="../../contiki/core/net/netstack.c" type="1"/>
+    <File name="USB/class/usb_cdc.h" path="USB/class/usb_cdc.h" type="1"/>
     <File name="contiki/core/net/ip/udp-socket.h" path="../../contiki/core/net/ip/udp-socket.h" type="1"/>
     <File name="contiki/core/contiki-net.h" path="../../contiki/core/contiki-net.h" type="1"/>
     <File name="Drivers/FLASH/FLASH1.h" path="Drivers/FLASH/FLASH1.h" type="1"/>
@@ -222,8 +222,8 @@
     <File name="contiki/core/net/ipv6/sicslowpan.h" path="../../contiki/core/net/ipv6/sicslowpan.h" type="1"/>
     <File name="contiki/core/dev/rom.h" path="../../contiki/core/dev/rom.h" type="1"/>
     <File name="contiki/core/net/mac/framer-802154.h" path="../../contiki/core/net/mac/framer-802154.h" type="1"/>
-    <File name="contiki/platform/brtos/cpu/xmem.c" path="../../contiki/platform/brtos/cpu/xmem.c" type="1"/>
     <File name="USB/common/usb_class.h" path="USB/common/usb_class.h" type="1"/>
+    <File name="contiki/platform/brtos/cpu/xmem.c" path="../../contiki/platform/brtos/cpu/xmem.c" type="1"/>
     <File name="contiki/core/net/rime/rmh.c" path="../../contiki/core/net/rime/rmh.c" type="1"/>
     <File name="contiki/core/sys/rtimer.h" path="../../contiki/core/sys/rtimer.h" type="1"/>
     <File name="contiki/core/net/ip/resolv.c" path="../../contiki/core/net/ip/resolv.c" type="1"/>
@@ -286,7 +286,6 @@
     <File name="contiki/core/net/ipv6/multicast/uip-mcast6-stats.c" path="../../contiki/core/net/ipv6/multicast/uip-mcast6-stats.c" type="1"/>
     <File name="contiki/core/net/mac" path="" type="2"/>
     <File name="contiki/core/cfs/cfs.h" path="../../contiki/core/cfs/cfs.h" type="1"/>
-    <File name="USB/common/types.h" path="USB/common/types.h" type="1"/>
     <File name="contiki/core/net/mac/sicslowmac/sicslowmac.h" path="../../contiki/core/net/mac/sicslowmac/sicslowmac.h" type="1"/>
     <File name="contiki/core/sys/loader.h" path="../../contiki/core/sys/loader.h" type="1"/>
     <File name="contiki/core/net/rime/rudolph2.c" path="../../contiki/core/net/rime/rudolph2.c" type="1"/>
@@ -300,9 +299,9 @@
     <File name="contiki/core/sys/process.c" path="../../contiki/core/sys/process.c" type="1"/>
     <File name="contiki/core/net/rime/channel.h" path="../../contiki/core/net/rime/channel.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
+    <File name="Drivers/CPU/cpu.c" path="Drivers/CPU/cpu.c" type="1"/>
     <File name="Drivers/UART.h" path="Drivers/UART.h" type="1"/>
     <File name="contiki/core/net/ip/uip-udp-packet.c" path="../../contiki/core/net/ip/uip-udp-packet.c" type="1"/>
-    <File name="Drivers/CPU/cpu.c" path="Drivers/CPU/cpu.c" type="1"/>
     <File name="contiki/core/net/mac/framer-nullmac.h" path="../../contiki/core/net/mac/framer-nullmac.h" type="1"/>
     <File name="contiki/core/net/ip/slipdev.h" path="../../contiki/core/net/ip/slipdev.h" type="1"/>
     <File name="Drivers/utils.h" path="Drivers/utils.h" type="1"/>
@@ -341,6 +340,7 @@
     <File name="contiki/core/lib/me_tabs.c" path="../../contiki/core/lib/me_tabs.c" type="1"/>
     <File name="contiki/core/sys" path="" type="2"/>
     <File name="contiki/core/dev/slip.h" path="../../contiki/core/dev/slip.h" type="1"/>
+    <File name="USB/user_config.h" path="USB/user_config.h" type="1"/>
     <File name="contiki/platform/brtos/cpu/rtimer-arch.c" path="../../contiki/platform/brtos/cpu/rtimer-arch.c" type="1"/>
     <File name="brtos/semaphore.c" path="../../brtos/semaphore.c" type="1"/>
     <File name="contiki/core/dev/eeprom.h" path="../../contiki/core/dev/eeprom.h" type="1"/>
@@ -375,7 +375,9 @@
     <File name="contiki/core/net/rime/polite.h" path="../../contiki/core/net/rime/polite.h" type="1"/>
     <File name="hal/HAL.h" path="../../hal/GCC_CORTEX-M0/HAL.h" type="1"/>
     <File name="contiki/core/dev" path="" type="2"/>
+    <File name="USB/derivative.h" path="USB/derivative.h" type="1"/>
     <File name="contiki/core/lib/settings.c" path="../../contiki/core/lib/settings.c" type="1"/>
+    <File name="USB/types.h" path="USB/types.h" type="1"/>
     <File name="contiki/core/net/ipv6/uip-ds6.h" path="../../contiki/core/net/ipv6/uip-ds6.h" type="1"/>
     <File name="USB/driver" path="" type="2"/>
     <File name="contiki/core/net/rime/abc.c" path="../../contiki/core/net/rime/abc.c" type="1"/>
@@ -421,8 +423,8 @@
     <File name="CoX/CoX_Peripheral/inc/xhw_types.h" path="CoX/CoX_Peripheral/inc/xhw_types.h" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xwdt.c" path="CoX/CoX_Peripheral/src/xwdt.c" type="1"/>
     <File name="contiki/core/net/mac/sicslowmac" path="" type="2"/>
-    <File name="contiki/core/net/mac/mac-sequence.h" path="../../contiki/core/net/mac/mac-sequence.h" type="1"/>
     <File name="USB/driver/kinetis/usb_dci_kinetis.c" path="USB/driver/kinetis/usb_dci_kinetis.c" type="1"/>
+    <File name="contiki/core/net/mac/mac-sequence.h" path="../../contiki/core/net/mac/mac-sequence.h" type="1"/>
     <File name="contiki/core/net/queuebuf.c" path="../../contiki/core/net/queuebuf.c" type="1"/>
     <File name="contiki/core/net/mac/nullmac.h" path="../../contiki/core/net/mac/nullmac.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_gpio.h" path="CoX/CoX_Peripheral/inc/xhw_gpio.h" type="1"/>
@@ -459,8 +461,8 @@
     <File name="contiki/core/net/ip/tcpip.h" path="../../contiki/core/net/ip/tcpip.h" type="1"/>
     <File name="contiki/core/sys/dsc.h" path="../../contiki/core/sys/dsc.h" type="1"/>
     <File name="contiki/core/net/rime/chameleon-raw.h" path="../../contiki/core/net/rime/chameleon-raw.h" type="1"/>
-    <File name="CoX/CoX_Peripheral/inc/xhw_rtc.h" path="CoX/CoX_Peripheral/inc/xhw_rtc.h" type="1"/>
     <File name="contiki/platform/brtos/cpu/mtarch.c" path="../../contiki/platform/brtos/cpu/mtarch.c" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xhw_rtc.h" path="CoX/CoX_Peripheral/inc/xhw_rtc.h" type="1"/>
     <File name="Drivers/MMA8451/accel.h" path="Drivers/MMA8451/accel.h" type="1"/>
     <File name="Drivers" path="" type="2"/>
     <File name="contiki/core/net/rime/rime.c" path="../../contiki/core/net/rime/rime.c" type="1"/>

@@ -313,7 +313,8 @@ typedef struct _USB_EP_STRUCT
 }ALIGN USB_EP_STRUCT, *USB_EP_STRUCT_PTR;
 
 #if (defined(__CWCC__)||defined(__GNUC__))
-	#pragma options align = reset
+	//#pragma options align = reset
+	#pragma pack()
 #elif defined(__IAR_SYSTEMS_ICC__) || defined(__CC_ARM)
 	#pragma pack()
 #endif

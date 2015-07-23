@@ -50,16 +50,16 @@
 /*****************************************************************************
  * Global variables
  *****************************************************************************/
+// Declara um ponteiro para o bloco de controle da Porta Serial
+extern BRTOS_Queue *USB;
 
 /*****************************************************************************
  * Global Functions
  *****************************************************************************/
 extern void cdc_Init(void);
 extern void cdc_process(void);
-extern void usb_init(void);
-extern uint_8 cdc_putch(char c);
+extern void USB_Init(void);
+unsigned char cdc_putch(char c);
 extern uint_8 GetStart_transactions(void);
-// Declara um ponteiro para o bloco de controle da Porta Serial
-extern BRTOS_Queue *USB;
 
 #endif 

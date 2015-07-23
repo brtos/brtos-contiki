@@ -42,6 +42,7 @@
 #include "usb_bdt_kinetis.h"    /* USB BDT Structure Header File */
 //#include "wdt_kinetis.h"
 #include "usb_class.h"
+#include "BRTOS.h"
 
 /*****************************************************************************
  * Constant and Macro's - None
@@ -1733,7 +1734,13 @@ void USBHS_ISR(void){
 #if !HIGH_SPEED_DEVICE
 void USB_ISR(void)
 {
-    /* Which interrupt occured and also was enabled */
+	  // ************************
+	  // Interrupt Exit
+	  // ************************
+	  OS_INT_EXIT_EXT();
+	  // ************************
+
+	/* Which interrupt occured and also was enabled */
 	uint_8 v1 = USB0_ISTAT;
 	uint_8 v2 = USB0_INTEN;
     uint_8 intr_stat = (uint_8)(v1 & v2);
