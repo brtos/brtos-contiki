@@ -63,11 +63,11 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BRTOS_FRDM_KL25Z/contiki/platform/brtos/contiki-conf.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1566" selectionTopPixel="901"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="BRTOSConfig.h" partName="BRTOSConfig.h" path="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/boards/FRDM_KL25Z_CoIDE/CONFIG/BRTOSConfig.h" title="BRTOSConfig.h" tooltip="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/boards/FRDM_KL25Z_CoIDE/CONFIG/BRTOSConfig.h" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="BRTOSConfig.h" partName="BRTOSConfig.h" path="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/boards/FRDM_KL25Z_CoIDE/CONFIG/BRTOSConfig.h" title="BRTOSConfig.h" tooltip="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/boards/FRDM_KL25Z_CoIDE/CONFIG/BRTOSConfig.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BRTOS_FRDM_KL25Z/CONFIG/BRTOSConfig.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3751" selectionTopPixel="1910"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2857" selectionTopPixel="1485"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="slip-arch.c" partName="slip-arch.c" path="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/contiki/platform/brtos/cpu/slip-arch.c" title="slip-arch.c" tooltip="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/contiki/platform/brtos/cpu/slip-arch.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="slip-arch.c" partName="slip-arch.c" path="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/contiki/platform/brtos/cpu/slip-arch.c" title="slip-arch.c" tooltip="C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/contiki/platform/brtos/cpu/slip-arch.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BRTOS_FRDM_KL25Z/contiki/platform/brtos/cpu/slip-arch.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1935" selectionTopPixel="595"/>
 </editor>
@@ -88,6 +88,9 @@
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
+<expanded>
+<element path="/BRTOS_FRDM_KL25Z"/>
+</expanded>
 <selection>
 <element path="/BRTOS_FRDM_KL25Z"/>
 </selection>
@@ -300,7 +303,6 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/CONFIG/BRTOSConfig.h"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/contiki/core/sys/rtimer.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/contiki/platform/brtos/contiki-main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/stdio/printf.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/contiki/examples/rpl-border-router/slip-bridge.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/contiki/core/net/rime/unicast.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/brtos/BRTOS.c"/>
@@ -321,10 +323,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/CONFIG/hardware.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/tasks.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/USB/cdc/virtual_com.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/BRTOS_FRDM_KL25Z/CONFIG/BRTOSConfig.h"/>
 </editors>
-<item historyLabel="printf.c" index="6">
-<position info="not_deleted" x="2960" y="0"/>
-</item>
 <item historyLabel="contiki-main.c" index="5">
 <position info="not_deleted" x="2575" y="0"/>
 </item>
@@ -346,28 +346,28 @@
 <item historyLabel="main.c" index="0">
 <position info="not_deleted" x="257" y="0"/>
 </item>
-<item historyLabel="slip-bridge.c" index="7">
+<item historyLabel="slip-bridge.c" index="6">
 <position info="not_deleted" x="1854" y="0"/>
 </item>
-<item historyLabel="unicast.c" index="8">
+<item historyLabel="unicast.c" index="7">
 <position info="not_deleted" x="2024" y="17"/>
 </item>
-<item historyLabel="slip-bridge.c" index="7">
+<item historyLabel="slip-bridge.c" index="6">
 <position info="not_deleted" x="1854" y="0"/>
 </item>
-<item historyLabel="BRTOS.c" index="9">
+<item historyLabel="BRTOS.c" index="8">
 <position info="not_deleted" x="4971" y="0"/>
 </item>
-<item historyLabel="HAL.c" index="10">
+<item historyLabel="HAL.c" index="9">
 <position info="not_deleted" x="194" y="0"/>
 </item>
-<item historyLabel="BRTOS.c" index="9">
+<item historyLabel="BRTOS.c" index="8">
 <position info="not_deleted" x="4992" y="0"/>
 </item>
-<item historyLabel="HAL.h" index="11">
+<item historyLabel="HAL.h" index="10">
 <position info="not_deleted" x="1527" y="0"/>
 </item>
-<item historyLabel="BRTOS.h" index="12">
+<item historyLabel="BRTOS.h" index="11">
 <position info="not_deleted" x="151" y="0"/>
 </item>
 <item historyLabel="BRTOSConfig.h" index="3">
@@ -376,22 +376,22 @@
 <item historyLabel="BRTOSConfig.h" index="3">
 <position info="not_deleted" x="1863" y="5"/>
 </item>
-<item historyLabel="BRTOS.c" index="9">
+<item historyLabel="BRTOS.c" index="8">
 <position/>
 </item>
-<item historyLabel="OSInfo.c" index="13">
+<item historyLabel="OSInfo.c" index="12">
 <position info="not_deleted" x="7" y="5"/>
 </item>
-<item historyLabel="OSInfo.h" index="14">
+<item historyLabel="OSInfo.h" index="13">
 <position info="not_deleted" x="88" y="5"/>
 </item>
 <item historyLabel="BRTOSConfig.h" index="3">
 <position info="not_deleted" x="895" y="0"/>
 </item>
-<item historyLabel="BRTOS.c" index="9">
+<item historyLabel="BRTOS.c" index="8">
 <position info="not_deleted" x="4937" y="0"/>
 </item>
-<item historyLabel="uip.h" index="15">
+<item historyLabel="uip.h" index="14">
 <position info="not_deleted" x="2167" y="11"/>
 </item>
 <item historyLabel="contiki-conf.h" index="2">
@@ -406,17 +406,17 @@
 <item historyLabel="BRTOSConfig.h" index="3">
 <position info="not_deleted" x="3666" y="0"/>
 </item>
-<item historyLabel="Configuration" index="16"/>
+<item historyLabel="Configuration" index="15"/>
 <item historyLabel="BRTOSConfig.h" index="3">
 <position info="not_deleted" x="3666" y="0"/>
 </item>
-<item historyLabel="slip-arch.c" index="17">
+<item historyLabel="slip-arch.c" index="16">
 <position info="not_deleted" x="1818" y="0"/>
 </item>
 <item historyLabel="platform-conf.h" index="1">
 <position info="not_deleted" x="1889" y="0"/>
 </item>
-<item historyLabel="slip-arch.c" index="17">
+<item historyLabel="slip-arch.c" index="16">
 <position info="not_deleted" x="1690" y="0"/>
 </item>
 <item historyLabel="platform-conf.h" index="1">
@@ -425,48 +425,51 @@
 <item historyLabel="platform-conf.h" index="1">
 <position info="not_deleted" x="1891" y="0"/>
 </item>
-<item historyLabel="Configuration" index="18"/>
+<item historyLabel="Configuration" index="17"/>
 <item historyLabel="platform-conf.h" index="1">
 <position info="not_deleted" x="1887" y="0"/>
 </item>
-<item historyLabel="HAL.h" index="11">
+<item historyLabel="HAL.h" index="10">
 <position info="not_deleted" x="1269" y="0"/>
 </item>
-<item historyLabel="HAL.c" index="10">
+<item historyLabel="HAL.c" index="9">
 <position info="not_deleted" x="153" y="0"/>
 </item>
 <item historyLabel="BRTOSConfig.h" index="3">
 <position info="not_deleted" x="3751" y="0"/>
 </item>
-<item historyLabel="virtual_com.c" index="19">
+<item historyLabel="virtual_com.c" index="18">
 <position info="not_deleted" x="1084" y="0"/>
 </item>
-<item historyLabel="hardware.h" index="20">
+<item historyLabel="hardware.h" index="19">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="virtual_com.c" index="19">
+<item historyLabel="virtual_com.c" index="18">
 <position info="not_deleted" x="15798" y="0"/>
 </item>
-<item historyLabel="tasks.h" index="21">
+<item historyLabel="tasks.h" index="20">
 <position/>
 </item>
-<item historyLabel="virtual_com.c" index="19">
+<item historyLabel="virtual_com.c" index="18">
 <position info="not_deleted" x="15796" y="0"/>
 </item>
-<item historyLabel="tasks.h" index="21">
+<item historyLabel="tasks.h" index="20">
 <position info="not_deleted" x="1167" y="0"/>
 </item>
-<item historyLabel="virtual_com.c" index="19">
+<item historyLabel="virtual_com.c" index="18">
 <position info="not_deleted" x="3269" y="0"/>
 </item>
-<item historyLabel="virtual_com.h" index="22">
+<item historyLabel="virtual_com.h" index="21">
 <position info="not_deleted" x="1438" y="0"/>
 </item>
-<item historyLabel="virtual_com.c" index="19">
+<item historyLabel="virtual_com.c" index="18">
 <position info="not_deleted" x="3104" y="0"/>
 </item>
-<item active="true" historyLabel="slip-arch.c" index="17">
+<item historyLabel="slip-arch.c" index="16">
 <position info="not_deleted" x="1841" y="15"/>
+</item>
+<item active="true" historyLabel="BRTOSConfig.h" index="22">
+<position info="not_deleted" x="3754" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -475,51 +478,47 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="BRTOS_FRDM_KL25Z.coproj" tooltip="C:\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\BRTOS_FRDM_KL25Z.coproj">
+<persistable uri="file:/C:/Users/Gustavo/Documents/Git_Contiki/brtos-contiki/boards/FRDM_KL25Z_CoIDE/BRTOS_FRDM_KL25Z.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="BRTOS_FRDM_KL25Z.coproj" tooltip="C:\CooCox\CoIDE\workspace\CARRO_FRDM_KL25Z(1.8)\BRTOS_FRDM_KL25Z.coproj">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/CARRO_FRDM_KL25Z(1.8)/BRTOS_FRDM_KL25Z.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="BRTOS_FRDM_KL25Z.coproj" tooltip="C:\CooCox\CoIDE\workspace\CARRO_FRDM_KL25Z(1.8)\BRTOS_FRDM_KL25Z.coproj">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/CARRO_FRDM_KL25Z(1.8)/BRTOS_FRDM_KL25Z.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usb_terminal.c" tooltip="BRTOS_FRDM_KL25Z/USB/app/cdc/usb_terminal.c">
+<persistable path="/BRTOS_FRDM_KL25Z/USB/app/cdc/usb_terminal.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="virtual_com.c" tooltip="BRTOS_FRDM_KL25Z/USB/app/cdc/virtual_com.c">
+<persistable path="/BRTOS_FRDM_KL25Z/USB/app/cdc/virtual_com.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spi.c" tooltip="BRTOS_FRDM_KL25Z/Drivers/SPI/spi.c">
+<persistable path="/BRTOS_FRDM_KL25Z/Drivers/SPI/spi.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="BRTOS_FRDM_KL25Z.coproj" tooltip="C:\CooCox\CoIDE\workspace\BRTOS_FRDM_KL25Z\BRTOS_FRDM_KL25Z.coproj">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/BRTOS_FRDM_KL25Z/BRTOS_FRDM_KL25Z.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="BRTOS_STM32F4x_Target/main.c">
+<persistable path="/BRTOS_STM32F4x_Target/main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="BRTOS_STM32F4x.coproj" tooltip="C:\CooCox\CoIDE\workspace\BRTOS_STM32F4x\BRTOS_STM32F4x.coproj">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/BRTOS_STM32F4x/BRTOS_STM32F4x.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="BRTOS_FRDM_KL25Z.coproj" tooltip="C:\CooCox\CoIDE\workspace\BRTOS_FRDM_KL25Z_TESTE_SERIAL\BRTOS_FRDM_KL25Z.coproj">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/BRTOS_FRDM_KL25Z_TESTE_SERIAL/BRTOS_FRDM_KL25Z.coproj"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="touch_7846.c" tooltip="BRTOS_STM32F4x_Target/TouchScreen/touch_7846.c">
+<persistable path="/BRTOS_STM32F4x_Target/TouchScreen/touch_7846.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BRTOSConfig.h" tooltip="BRTOS_FRDM_KL25Z/includes/BRTOSConfig.h">
+<persistable path="/BRTOS_FRDM_KL25Z/includes/BRTOSConfig.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="virtual_com.h" tooltip="BRTOS_FRDM_KL25Z/USB/cdc/virtual_com.h">
 <persistable path="/BRTOS_FRDM_KL25Z/USB/cdc/virtual_com.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="tasks.h" tooltip="BRTOS_FRDM_KL25Z/tasks.h">
 <persistable path="/BRTOS_FRDM_KL25Z/tasks.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="hardware.h" tooltip="BRTOS_FRDM_KL25Z/CONFIG/hardware.h">
-<persistable path="/BRTOS_FRDM_KL25Z/CONFIG/hardware.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="virtual_com.c" tooltip="BRTOS_FRDM_KL25Z/USB/cdc/virtual_com.c">
-<persistable path="/BRTOS_FRDM_KL25Z/USB/cdc/virtual_com.c"/>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="platform-conf.h" tooltip="BRTOS_FRDM_KL25Z/contiki/platform/brtos/platform-conf.h">
-<persistable path="/BRTOS_FRDM_KL25Z/contiki/platform/brtos/platform-conf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="slip-arch.c" tooltip="BRTOS_FRDM_KL25Z/contiki/platform/brtos/cpu/slip-arch.c">
-<persistable path="/BRTOS_FRDM_KL25Z/contiki/platform/brtos/cpu/slip-arch.c"/>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BRTOSConfig.h" tooltip="BRTOS_FRDM_KL25Z/CONFIG/BRTOSConfig.h">
-<persistable path="/BRTOS_FRDM_KL25Z/CONFIG/BRTOSConfig.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BRTOS.h" tooltip="BRTOS_FRDM_KL25Z/brtos/includes/BRTOS.h">
-<persistable path="/BRTOS_FRDM_KL25Z/brtos/includes/BRTOS.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="HAL.h" tooltip="BRTOS_FRDM_KL25Z/hal/HAL.h">
-<persistable path="/BRTOS_FRDM_KL25Z/hal/HAL.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="HAL.c" tooltip="BRTOS_FRDM_KL25Z/hal/HAL.c">
-<persistable path="/BRTOS_FRDM_KL25Z/hal/HAL.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="BRTOS.c" tooltip="BRTOS_FRDM_KL25Z/brtos/BRTOS.c">
-<persistable path="/BRTOS_FRDM_KL25Z/brtos/BRTOS.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="unicast.c" tooltip="BRTOS_FRDM_KL25Z/contiki/core/net/rime/unicast.c">
-<persistable path="/BRTOS_FRDM_KL25Z/contiki/core/net/rime/unicast.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="slip-bridge.c" tooltip="BRTOS_FRDM_KL25Z/contiki/examples/rpl-border-router/slip-bridge.c">
 <persistable path="/BRTOS_FRDM_KL25Z/contiki/examples/rpl-border-router/slip-bridge.c"/>
