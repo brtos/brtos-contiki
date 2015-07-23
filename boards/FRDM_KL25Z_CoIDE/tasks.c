@@ -53,7 +53,6 @@ void System_Time(void)
    /* task setup */
    INT16U i = 0;
 
-   (void)param;
    OSResetTime();
    
 #if (WATCHDOG == 1)
@@ -87,30 +86,5 @@ void System_Time(void)
    }
 }
 
-
-
-#if (USB_DEMO)
-void Task_USB(void)
-{
-	/* task setup */
-
-	//usb_init();
-
-	// Set USB IRQ priority to 3
-	//set_irq_priority (73, 3);
-
-	/* Initialize the USB Test Application */
-	(void)cdc_Init();
-
-	usb_terminal_init(cdc_putch);
-	(void)usb_terminal_add_cmd((command_t*)&usb_ver_cmd);
-
-    while(1)
-    {
-       /* Call the application task */
-    	usb_terminal_process();
-    }
-}
-#endif
 
 

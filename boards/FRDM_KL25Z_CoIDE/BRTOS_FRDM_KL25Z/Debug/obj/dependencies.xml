@@ -1,21 +1,264 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
+   <includePath signature="/I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\LPO /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\DAC /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral\inc /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\brtos\includes /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\brtos /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CONFIG /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\CPU /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\hal\GCC_CORTEX-M0 /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\MMA8451 /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\SPI /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\FLASH /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\hal">
+      <source file="..\..\..\Drivers\FLASH\FLASH1.c" lastModified="147f453c360">
+         <include file="..\..\..\Drivers\FLASH\FLASH1.h"/>
+         <include file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h" lastModified="13e3a190b80">
+      </source>
+      <source file="..\..\..\startup_coide.c" lastModified="14ebbf52cda">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\Drivers\drivers.h" lastModified="147d7a059e0">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xuart.h" lastModified="14098628c50">
+      </source>
+      <source file="..\..\..\..\..\brtos\includes\BRTOS.h" lastModified="14ebbe88566">
+         <include file="..\..\..\..\..\brtos\includes\OS_types.h"/>
+         <include file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.h"/>
+         <include file="..\..\..\..\..\brtos\includes\OS_RTC.h"/>
+         <include file="..\..\..\CONFIG\BRTOSConfig.h"/>
+      </source>
+      <source file="..\..\..\..\..\app\main_app.c" lastModified="14ebbe88666">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\tasks.h"/>
+         <include file="..\..\..\Drivers\drivers.h"/>
+      </source>
+      <source file="..\..\..\Drivers\SPI\spi.h" lastModified="147d79f38d0">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\Drivers\system.h" lastModified="147e954a380">
+      </source>
+      <source file="..\..\..\Drivers\SPI\spi.c" lastModified="1446f789f60">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\Drivers\SPI\spi.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\BRTOS.c" lastModified="14ebbe8855b">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.h" lastModified="14ebbe88b78">
+         <include file="..\..\..\..\..\brtos\includes\OS_types.h"/>
+      </source>
+      <source file="..\..\..\Drivers\system.c" lastModified="14e3521e605">
+         <include file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.h"/>
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+         <include file="..\..\..\Drivers\system.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="147ee9a5ad8">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_adc.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\timers.c" lastModified="14ebbe8857d">
+         <include file="..\..\..\..\..\brtos\includes\timers.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\queue.c" lastModified="14ebbe88960">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.c" lastModified="14ebc34936b">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\Drivers\LPO\LPO.h"/>
+      </source>
+      <source file="..\..\..\CONFIG\BoardConfig.h" lastModified="14ebbf31982">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
+         <include file="..\..\..\Drivers\system.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xwdt.c" lastModified="147ef3dda50">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_wdt.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xuart.c" lastModified="14e44f15fd2">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_uart.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xuart.h"/>
+      </source>
+      <source file="..\..\..\Drivers\CPU\cpu.h" lastModified="13f52e809d0">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+      </source>
+      <source file="..\..\..\tasks.h" lastModified="14ebc029b25">
+      </source>
+      <source file="..\..\..\..\..\brtos\semaphore.c" lastModified="14ebbe8857b">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\Drivers\CPU\cpu.c" lastModified="13f52e809d0">
+         <include file="..\..\..\Drivers\CPU\cpu.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\mutex.c" lastModified="14ebbe88575">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\includes\timers.h" lastModified="14ebbe88570">
+         <include file="..\..\..\..\..\brtos\includes\OS_types.h"/>
+         <include file="..\..\..\CONFIG\BRTOSConfig.h"/>
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h" lastModified="13ed6408a10">
+      </source>
+      <source file="..\..\..\stdio\printf.c" lastModified="13e3a168ae0">
+      </source>
+      <source file="..\..\..\CONFIG\BRTOSConfig.h" lastModified="14ebbf38958">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h" lastModified="140ab4451a0">
+      </source>
+      <source file="..\..\..\syscalls\syscalls.c" lastModified="13e3a168310">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\..\..\brtos\OS_RTC.c" lastModified="14ebbe88560">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\main.c" lastModified="14ebbfa7913">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+         <include file="..\..\..\Drivers\system.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h"/>
+         <include file="..\..\..\CONFIG\BoardConfig.h"/>
+         <include file="..\..\..\tasks.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\includes\OS_types.h" lastModified="14ebbe8856d">
+      </source>
+      <source file="..\..\..\Drivers\DAC\DAC.c" lastModified="141c2a3d9a0">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+      </source>
+      <source file="..\..\..\Drivers\FLASH\FLASH.h" lastModified="147f622fd50">
+      </source>
+      <source file="..\..\..\Drivers\MKL25Z4.h" lastModified="13dda555fc8">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h" lastModified="148342011b0">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xdebug.c" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\Drivers\FLASH\FLASH.c" lastModified="1480e50c740">
+         <include file="..\..\..\Drivers\FLASH\FLASH1.h"/>
+      </source>
+      <source file="..\..\..\Drivers\MMA8451\accel.h" lastModified="13f1b4f99e8">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\..\..\brtos\includes\OS_RTC.h" lastModified="14ebbe8856b">
+         <include file="..\..\..\..\..\brtos\includes\OS_types.h"/>
+      </source>
+      <source file="..\..\..\Drivers\UART.h" lastModified="1454b9272a0">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+      </source>
+      <source file="..\..\..\Drivers\utils.h" lastModified="14e4975302a">
+      </source>
+      <source file="..\..\..\Drivers\LPO\LPO.h" lastModified="147ae092a30">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+      </source>
+      <source file="..\..\..\Drivers\MMA8451\accel.c" lastModified="13f1b506120">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+         <include file="..\..\..\Drivers\MMA8451\accel.h"/>
+      </source>
+      <source file="..\..\..\Drivers\UART.c" lastModified="14e44e6c6cf">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\Drivers\UART.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_uart.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xuart.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+      </source>
+      <source file="..\..\..\Drivers\utils.c" lastModified="14e497539a3">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\Drivers\utils.h"/>
+      </source>
+      <source file="..\..\..\Drivers\LPO\LPO.c" lastModified="147ab3a0c70">
+         <include file="..\..\..\Drivers\LPO\LPO.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\..\..\brtos\OSInfo.c" lastModified="14ebbe8855e">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\..\..\brtos\includes\OSInfo.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_adc.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_wdt.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xgpio.c" lastModified="14834202150">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h" lastModified="13e3a16a250">
+      </source>
+      <source file="..\..\..\..\..\brtos\mbox.c" lastModified="14ebbe88572">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\..\..\brtos\includes\OSInfo.h" lastModified="14ebbe88568">
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\src\xcore.c" lastModified="13e3a16a250">
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
+         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
+      </source>
+      <source file="..\..\..\Drivers\FLASH\FLASH1.h" lastModified="147f61f6f28">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+         <include file="..\..\..\Drivers\FLASH\FLASH.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_uart.h" lastModified="13e3a4d98a0">
+      </source>
+   </includePath>
    <includePath signature="/I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\LPO /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\DAC /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral\inc /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\brtos\includes /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CONFIG /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\CPU /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\brtos /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\MMA8451 /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\SPI /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\hal /I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\FLASH">
-      <source file="..\..\..\brtos\includes\OSInfo.h" lastModified="14e4974b134">
-      </source>
-      <source file="..\..\..\brtos\BRTOS.c" lastModified="14a48ab212d">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-      </source>
       <source file="..\..\..\Drivers\FLASH\FLASH1.c" lastModified="147f453c360">
          <include file="..\..\..\Drivers\FLASH\FLASH1.h"/>
          <include file="..\..\..\hal\HAL.h"/>
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h" lastModified="13e3a190b80">
-      </source>
-      <source file="..\..\..\brtos\queue.c" lastModified="14a48ab2550">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-      </source>
-      <source file="..\..\..\brtos\includes\OS_types.h" lastModified="14e3542f760">
       </source>
       <source file="..\..\..\startup_coide.c" lastModified="14ebbf52cda">
          <include file="..\..\..\brtos\includes\BRTOS.h"/>
@@ -23,14 +266,6 @@
       <source file="..\..\..\Drivers\drivers.h" lastModified="147d7a059e0">
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xuart.h" lastModified="14098628c50">
-      </source>
-      <source file="..\..\..\..\..\app\main_app.c" lastModified="14ebbe88666">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-         <include file="..\..\..\tasks.h"/>
-         <include file="..\..\..\Drivers\drivers.h"/>
-      </source>
-      <source file="..\..\..\brtos\mutex.c" lastModified="14a48ab2160">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
       </source>
       <source file="..\..\..\Drivers\SPI\spi.h" lastModified="147d79f38d0">
          <include file="..\..\..\Drivers\MKL25Z4.h"/>
@@ -55,23 +290,6 @@
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
          <include file="..\..\..\Drivers\system.h"/>
       </source>
-      <source file="..\..\..\brtos\timers.c" lastModified="14ebc243147">
-         <include file="..\..\..\brtos\includes\timers.h"/>
-      </source>
-      <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="147ee9a5ad8">
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_adc.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-         <include file="..\..\..\hal\HAL.h"/>
-      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\src\xwdt.c" lastModified="147ef3dda50">
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
@@ -83,13 +301,6 @@
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h"/>
-      </source>
-      <source file="..\..\..\CONFIG\BoardConfig.h" lastModified="14ebbf31982">
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xsysctl.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h"/>
-         <include file="..\..\..\Drivers\system.h"/>
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\src\xuart.c" lastModified="14e44f15fd2">
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
@@ -107,9 +318,6 @@
       </source>
       <source file="..\..\..\tasks.h" lastModified="14ebc029b25">
       </source>
-      <source file="..\..\..\brtos\semaphore.c" lastModified="14d1fdfd051">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-      </source>
       <source file="..\..\..\Drivers\CPU\cpu.c" lastModified="13f52e809d0">
          <include file="..\..\..\Drivers\CPU\cpu.h"/>
       </source>
@@ -117,77 +325,35 @@
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h" lastModified="13ed6408a10">
       </source>
-      <source file="..\..\..\brtos\includes\timers.h" lastModified="14e354baf23">
-         <include file="..\..\..\brtos\includes\OS_types.h"/>
-         <include file="..\..\..\CONFIG\BRTOSConfig.h"/>
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-      </source>
-      <source file="..\..\..\stdio\printf.c" lastModified="13e3a168ae0">
-      </source>
-      <source file="..\..\..\CONFIG\BRTOSConfig.h" lastModified="14ebbf38958">
-      </source>
-      <source file="..\..\..\brtos\OS_RTC.c" lastModified="14a48ab2134">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-      </source>
-      <source file="..\..\..\brtos\mbox.c" lastModified="14a48ab2159">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_sysctl.h" lastModified="140ab4451a0">
       </source>
-      <source file="..\..\..\syscalls\syscalls.c" lastModified="13e3a168310">
-      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_gpio.h" lastModified="13e3a16a250">
-      </source>
-      <source file="..\..\..\main.c" lastModified="14ebbfa7913">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-         <include file="..\..\..\Drivers\MKL25Z4.h"/>
-         <include file="..\..\..\Drivers\system.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xwdt.h"/>
-         <include file="..\..\..\CONFIG\BoardConfig.h"/>
-         <include file="..\..\..\tasks.h"/>
       </source>
       <source file="..\..\..\Drivers\DAC\DAC.c" lastModified="141c2a3d9a0">
          <include file="..\..\..\Drivers\MKL25Z4.h"/>
       </source>
       <source file="..\..\..\Drivers\FLASH\FLASH.h" lastModified="147f622fd50">
       </source>
-      <source file="..\..\..\Drivers\MKL25Z4.h" lastModified="13dda555fc8">
-      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h" lastModified="148342011b0">
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\src\xdebug.c" lastModified="13e3a16a250">
       </source>
-      <source file="..\..\..\hal\HAL.h" lastModified="14ebc0246a7">
-         <include file="..\..\..\brtos\includes\OS_types.h"/>
-      </source>
       <source file="..\..\..\Drivers\FLASH\FLASH.c" lastModified="1480e50c740">
          <include file="..\..\..\Drivers\FLASH\FLASH1.h"/>
-      </source>
-      <source file="..\..\..\Drivers\MMA8451\accel.h" lastModified="13f1b4f99e8">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h" lastModified="13e3a16a250">
       </source>
       <source file="..\..\..\Drivers\UART.h" lastModified="1454b9272a0">
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
       </source>
-      <source file="..\..\..\hal\HAL.c" lastModified="147d770ed40">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-         <include file="..\..\..\Drivers\LPO\LPO.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
-         <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
-      </source>
       <source file="..\..\..\Drivers\utils.h" lastModified="14e4975302a">
-      </source>
-      <source file="..\..\..\Drivers\MMA8451\accel.c" lastModified="13f1b506120">
-         <include file="..\..\..\Drivers\MKL25Z4.h"/>
-         <include file="..\..\..\Drivers\MMA8451\accel.h"/>
       </source>
       <source file="..\..\..\Drivers\LPO\LPO.h" lastModified="147ae092a30">
          <include file="..\..\..\Drivers\MKL25Z4.h"/>
       </source>
-      <source file="..\..\..\brtos\includes\OS_RTC.h" lastModified="14a48ab2148">
-         <include file="..\..\..\brtos\includes\OS_types.h"/>
+      <source file="..\..\..\Drivers\MMA8451\accel.c" lastModified="13f1b506120">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+         <include file="..\..\..\Drivers\MMA8451\accel.h"/>
       </source>
       <source file="..\..\..\Drivers\UART.c" lastModified="14e44e6c6cf">
          <include file="..\..\..\brtos\includes\BRTOS.h"/>
@@ -210,24 +376,11 @@
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h" lastModified="13e3a16a250">
       </source>
-      <source file="..\..\..\brtos\OSInfo.c" lastModified="14e4975ea27">
-         <include file="..\..\..\brtos\includes\BRTOS.h"/>
-         <include file="..\..\..\brtos\includes\OSInfo.h"/>
-         <include file="..\..\..\Drivers\utils.h"/>
-      </source>
-      <source file="..\..\..\brtos\includes\BRTOS.h" lastModified="14d1fddf951">
-         <include file="..\..\..\brtos\includes\OS_types.h"/>
-         <include file="..\..\..\hal\HAL.h"/>
-         <include file="..\..\..\brtos\includes\OS_RTC.h"/>
-         <include file="..\..\..\CONFIG\BRTOSConfig.h"/>
-      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_adc.h" lastModified="13e3a16a250">
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_wdt.h" lastModified="13e3a16a250">
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_memmap.h" lastModified="13e3a16a250">
-      </source>
-      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h" lastModified="13e3a16a250">
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\src\xgpio.c" lastModified="14834202150">
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
@@ -241,6 +394,8 @@
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h"/>
       </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h" lastModified="13e3a16a250">
+      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\src\xcore.c" lastModified="13e3a16a250">
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
@@ -248,10 +403,6 @@
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_nvic.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xdebug.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
-      </source>
-      <source file="..\..\..\Drivers\FLASH\FLASH1.h" lastModified="147f61f6f28">
-         <include file="..\..\..\Drivers\MKL25Z4.h"/>
-         <include file="..\..\..\Drivers\FLASH\FLASH.h"/>
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_uart.h" lastModified="13e3a4d98a0">
       </source>

@@ -1,95 +1,98 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0plus -mthumb -Wall -ffunction-sections -g -O2 -c -DMKL25Z128VLK4 -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\LPO -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\DAC -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral\inc -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\brtos\includes -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CONFIG -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\CPU -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\brtos -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\MMA8451 -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\SPI -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\hal -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\FLASH">
-      <target file="spi.o" lastModified="14ebc25eb09">
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0plus -mthumb -Wall -ffunction-sections -g -O2 -c -DMKL25Z128VLK4 -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\LPO -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\DAC -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral\inc -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\brtos\includes -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\brtos -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CONFIG -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\CPU -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\hal\GCC_CORTEX-M0 -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\CoX\CoX_Peripheral -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\MMA8451 -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\SPI -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\boards\FRDM_KL25Z_CoIDE\Drivers\FLASH -I..\..\..\..\..\Users\Gustavo\Documents\Git_Contiki\brtos-contiki\hal">
+      <target file="spi.o" lastModified="14ebc3498a8">
          <source file="..\..\..\Drivers\SPI\spi.c" lastModified="1446f789f60"/>
       </target>
-      <target file="mbox.o" lastModified="14ebc25f21f">
-         <source file="..\..\..\brtos\mbox.c" lastModified="14a48ab2159"/>
+      <target file="mbox.o" lastModified="14ebc349fde">
+         <source file="..\..\..\..\..\brtos\mbox.c" lastModified="14ebbe88572"/>
       </target>
-      <target file="OSInfo.o" lastModified="14ebc25f8ce">
-         <source file="..\..\..\brtos\OSInfo.c" lastModified="14e4975ea27"/>
+      <target file="tasks.o" lastModified="14ebc355dfa">
+         <source file="..\..\..\tasks.c" lastModified="14ebc3554cb"/>
       </target>
-      <target file="FLASH1.o" lastModified="14ebc25f6e2">
+      <target file="mutex.o" lastModified="14ebc34a248">
+         <source file="..\..\..\..\..\brtos\mutex.c" lastModified="14ebbe88575"/>
+      </target>
+      <target file="FLASH1.o" lastModified="14ebc34a441">
          <source file="..\..\..\Drivers\FLASH\FLASH1.c" lastModified="147f453c360"/>
       </target>
-      <target file="mutex.o" lastModified="14ebc25f504">
-         <source file="..\..\..\brtos\mutex.c" lastModified="14a48ab2160"/>
-      </target>
-      <target file="startup_coide.o" lastModified="14ebc25ea85">
+      <target file="startup_coide.o" lastModified="14ebc34981e">
          <source file="..\..\..\startup_coide.c" lastModified="14ebbf52cda"/>
       </target>
-      <target file="xgpio.o" lastModified="14ebc25ec5f">
+      <target file="OSInfo.o" lastModified="14ebc34a63e">
+         <source file="..\..\..\..\..\brtos\OSInfo.c" lastModified="14ebbe8855e"/>
+      </target>
+      <target file="xgpio.o" lastModified="14ebc349a0d">
          <source file="..\..\..\CoX\CoX_Peripheral\src\xgpio.c" lastModified="14834202150"/>
       </target>
-      <target file="FLASH.o" lastModified="14ebc25ee6c">
+      <target file="FLASH.o" lastModified="14ebc349c1e">
          <source file="..\..\..\Drivers\FLASH\FLASH.c" lastModified="1480e50c740"/>
       </target>
-      <target file="printf.o" lastModified="14ebc25f043">
+      <target file="printf.o" lastModified="14ebc349dff">
          <source file="..\..\..\stdio\printf.c" lastModified="13e3a168310"/>
       </target>
-      <target file="UART.o" lastModified="14ebc25f663">
-         <source file="..\..\..\Drivers\UART.c" lastModified="14e44e6c6cf"/>
-      </target>
-      <target file="xsysctl.o" lastModified="14ebc25f1c1">
+      <target file="xsysctl.o" lastModified="14ebc349f7f">
          <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="147ee9a56f0"/>
       </target>
-      <target file="HAL.o" lastModified="14ebc25f277">
-         <source file="..\..\..\hal\HAL.c" lastModified="147d770ed40"/>
+      <target file="UART.o" lastModified="14ebc34a3bf">
+         <source file="..\..\..\Drivers\UART.c" lastModified="14e44e6c6cf"/>
       </target>
-      <target file="main_app.o" lastModified="14ebc25ebbc">
+      <target file="main_app.o" lastModified="14ebc349966">
          <source file="..\..\..\..\..\app\main_app.c" lastModified="14ebbe8827e"/>
       </target>
-      <target file="xdebug.o" lastModified="14ebc25eab0">
+      <target file="HAL.o" lastModified="14ebc34a03c">
+         <source file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.c" lastModified="14ebc34936b"/>
+      </target>
+      <target file="xdebug.o" lastModified="14ebc349849">
          <source file="..\..\..\CoX\CoX_Peripheral\src\xdebug.c" lastModified="13e3a16a250"/>
       </target>
-      <target file="queue.o" lastModified="14ebc25f4a4">
-         <source file="..\..\..\brtos\queue.c" lastModified="14a48ab2168"/>
+      <target file="queue.o" lastModified="14ebc34a1e2">
+         <source file="..\..\..\..\..\brtos\queue.c" lastModified="14ebbe88578"/>
       </target>
-      <target file="utils.o" lastModified="14ebc25ee1f">
+      <target file="utils.o" lastModified="14ebc349bd1">
          <source file="..\..\..\Drivers\utils.c" lastModified="14e497539a3"/>
       </target>
-      <target file="xcore.o" lastModified="14ebc25eb83">
+      <target file="xcore.o" lastModified="14ebc34992b">
          <source file="..\..\..\CoX\CoX_Peripheral\src\xcore.c" lastModified="13e3a16a250"/>
       </target>
-      <target file="xwdt.o" lastModified="14ebc25ef9b">
+      <target file="xwdt.o" lastModified="14ebc349d56">
          <source file="..\..\..\CoX\CoX_Peripheral\src\xwdt.c" lastModified="147ef3dda50"/>
       </target>
-      <target file="OS_RTC.o" lastModified="14ebc25f566">
-         <source file="..\..\..\brtos\OS_RTC.c" lastModified="14a48ab2134"/>
+      <target file="OS_RTC.o" lastModified="14ebc34a2be">
+         <source file="..\..\..\..\..\brtos\OS_RTC.c" lastModified="14ebbe88560"/>
       </target>
-      <target file="timers.o" lastModified="14ebc25ef0c">
-         <source file="..\..\..\brtos\timers.c" lastModified="14ebc243147"/>
+      <target file="timers.o" lastModified="14ebc349cc1">
+         <source file="..\..\..\..\..\brtos\timers.c" lastModified="14ebbe8857d"/>
       </target>
-      <target file="syscalls.o" lastModified="14ebc25f38a">
+      <target file="syscalls.o" lastModified="14ebc34a0c7">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="13e3a167370"/>
       </target>
-      <target file="cpu.o" lastModified="14ebc25f71f">
+      <target file="cpu.o" lastModified="14ebc34a480">
          <source file="..\..\..\Drivers\CPU\cpu.c" lastModified="13f52e809d0"/>
       </target>
-      <target file="LPO.o" lastModified="14ebc25f3d3">
+      <target file="LPO.o" lastModified="14ebc34a10f">
          <source file="..\..\..\Drivers\LPO\LPO.c" lastModified="147ab3a0c70"/>
       </target>
-      <target file="semaphore.o" lastModified="14ebc25f431">
-         <source file="..\..\..\brtos\semaphore.c" lastModified="14d1fdfd051"/>
+      <target file="semaphore.o" lastModified="14ebc34a16e">
+         <source file="..\..\..\..\..\brtos\semaphore.c" lastModified="14ebbe8857b"/>
       </target>
-      <target file="xuart.o" lastModified="14ebc25f803">
+      <target file="xuart.o" lastModified="14ebc34a567">
          <source file="..\..\..\CoX\CoX_Peripheral\src\xuart.c" lastModified="14e44f15fd2"/>
       </target>
-      <target file="system.o" lastModified="14ebc25ef64">
+      <target file="BRTOS.o" lastModified="14ebc349b28">
+         <source file="..\..\..\..\..\brtos\BRTOS.c" lastModified="14ebbe8855b"/>
+      </target>
+      <target file="system.o" lastModified="14ebc349d1d">
          <source file="..\..\..\Drivers\system.c" lastModified="14e3521e605"/>
       </target>
-      <target file="BRTOS.o" lastModified="14ebc25ed76">
-         <source file="..\..\..\brtos\BRTOS.c" lastModified="14a48ab212d"/>
-      </target>
-      <target file="accel.o" lastModified="14ebc25f5e8">
-         <source file="..\..\..\Drivers\MMA8451\accel.c" lastModified="13f1b506120"/>
-      </target>
-      <target file="DAC.o" lastModified="14ebc25eca2">
+      <target file="DAC.o" lastModified="14ebc349a50">
          <source file="..\..\..\Drivers\DAC\DAC.c" lastModified="141c2a3d9a0"/>
       </target>
-      <target file="main.o" lastModified="14ebc25edb9">
+      <target file="main.o" lastModified="14ebc349b6b">
          <source file="..\..\..\main.c" lastModified="14ebbfa752b"/>
+      </target>
+      <target file="accel.o" lastModified="14ebc34a342">
+         <source file="..\..\..\Drivers\MMA8451\accel.c" lastModified="13f1b506120"/>
       </target>
    </processor>
 </history>

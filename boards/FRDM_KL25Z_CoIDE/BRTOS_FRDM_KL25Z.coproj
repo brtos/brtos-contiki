@@ -77,23 +77,23 @@
   </Components>
   <Files>
     <File name="Drivers/MMA8451" path="" type="2"/>
-    <File name="BRTOS/timers.c" path="brtos/timers.c" type="1"/>
     <File name="Drivers/DAC/DAC.c" path="Drivers/DAC/DAC.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_spi.h" path="CoX/CoX_Peripheral/inc/xhw_spi.h" type="1"/>
     <File name="CoX/CoX_Peripheral/src" path="" type="2"/>
     <File name="app" path="" type="2"/>
-    <File name="Drivers/CPU/cpu.h" path="Drivers/CPU/cpu.h" type="1"/>
+    <File name="brtos/OS_RTC.c" path="../../brtos/OS_RTC.c" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xcore.c" path="CoX/CoX_Peripheral/src/xcore.c" type="1"/>
-    <File name="CoX/CoX_Peripheral/inc/xhw_tpm.h" path="CoX/CoX_Peripheral/inc/xhw_tpm.h" type="1"/>
+    <File name="Drivers/CPU/cpu.h" path="Drivers/CPU/cpu.h" type="1"/>
+    <File name="brtos/mbox.c" path="../../brtos/mbox.c" type="1"/>
     <File name="Drivers/MMA8451/accel.h" path="Drivers/MMA8451/accel.h" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xhw_tpm.h" path="CoX/CoX_Peripheral/inc/xhw_tpm.h" type="1"/>
     <File name="Drivers" path="" type="2"/>
     <File name="startup_coide.c" path="startup_coide.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xgpio.h" path="CoX/CoX_Peripheral/inc/xgpio.h" type="1"/>
+    <File name="brtos/timers.c" path="../../brtos/timers.c" type="1"/>
     <File name="tasks.h" path="tasks.h" type="1"/>
     <File name="app/main_app.c" path="../../app/main_app.c" type="1"/>
-    <File name="BRTOS/includes/timers.h" path="brtos/includes/timers.h" type="1"/>
     <File name="Drivers/utils.c" path="Drivers/utils.c" type="1"/>
-    <File name="BRTOS/mbox.c" path="brtos/mbox.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_wdt.h" path="CoX/CoX_Peripheral/inc/xhw_wdt.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_ints.h" path="CoX/CoX_Peripheral/inc/xhw_ints.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xsysctl.h" path="CoX/CoX_Peripheral/inc/xsysctl.h" type="1"/>
@@ -103,70 +103,70 @@
     <File name="CoX/CoX_Peripheral/inc/xhw_adc.h" path="CoX/CoX_Peripheral/inc/xhw_adc.h" type="1"/>
     <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_i2c.h" path="CoX/CoX_Peripheral/inc/xhw_i2c.h" type="1"/>
-    <File name="Drivers/MKL25Z4.h" path="Drivers/MKL25Z4.h" type="1"/>
-    <File name="BRTOS/OS_RTC.c" path="brtos/OS_RTC.c" type="1"/>
     <File name="Drivers/system.h" path="Drivers/system.h" type="1"/>
+    <File name="Drivers/MKL25Z4.h" path="Drivers/MKL25Z4.h" type="1"/>
     <File name="Drivers/FLASH/FLASH1.c" path="Drivers/FLASH/FLASH1.c" type="1"/>
+    <File name="brtos/includes/timers.h" path="../../brtos/includes/timers.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_types.h" path="CoX/CoX_Peripheral/inc/xhw_types.h" type="1"/>
-    <File name="BRTOS" path="" type="2"/>
     <File name="Drivers/LPO/LPO.h" path="Drivers/LPO/LPO.h" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xwdt.c" path="CoX/CoX_Peripheral/src/xwdt.c" type="1"/>
     <File name="Drivers/UART.c" path="Drivers/UART.c" type="1"/>
     <File name="Drivers/SPI" path="" type="2"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_nvic.h" path="CoX/CoX_Peripheral/inc/xhw_nvic.h" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xuart.c" path="CoX/CoX_Peripheral/src/xuart.c" type="1"/>
-    <File name="BRTOS/includes/OS_types.h" path="brtos/includes/OS_types.h" type="1"/>
-    <File name="CoX/CoX_Peripheral/inc/xhw_gpio.h" path="CoX/CoX_Peripheral/inc/xhw_gpio.h" type="1"/>
     <File name="stdio/printf.c" path="stdio/printf.c" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xhw_gpio.h" path="CoX/CoX_Peripheral/inc/xhw_gpio.h" type="1"/>
     <File name="Drivers/DAC/DAC.h" path="Drivers/DAC/DAC.h" type="1"/>
-    <File name="CONFIG/BoardConfig.h" path="CONFIG/BoardConfig.h" type="1"/>
     <File name="Drivers/MMA8451/accel.c" path="Drivers/MMA8451/accel.c" type="1"/>
+    <File name="CONFIG/BoardConfig.h" path="CONFIG/BoardConfig.h" type="1"/>
+    <File name="brtos/mutex.c" path="../../brtos/mutex.c" type="1"/>
     <File name="tasks.c" path="tasks.c" type="1"/>
-    <File name="HAL" path="" type="2"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_acmp.h" path="CoX/CoX_Peripheral/inc/xhw_acmp.h" type="1"/>
     <File name="stdio" path="" type="2"/>
-    <File name="BRTOS/queue.c" path="brtos/queue.c" type="1"/>
+    <File name="brtos/queue.c" path="../../brtos/queue.c" type="1"/>
+    <File name="hal/HAL.h" path="../../hal/GCC_CORTEX-M0/HAL.h" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xgpio.c" path="CoX/CoX_Peripheral/src/xgpio.c" type="1"/>
     <File name="Drivers/FLASH/FLASH1.h" path="Drivers/FLASH/FLASH1.h" type="1"/>
-    <File name="BRTOS/BRTOS.c" path="brtos/BRTOS.c" type="1"/>
     <File name="Drivers/LPO" path="" type="2"/>
     <File name="Drivers/system.c" path="Drivers/system.c" type="1"/>
     <File name="CONFIG" path="" type="2"/>
-    <File name="BRTOS/OSInfo.c" path="brtos/OSInfo.c" type="1"/>
-    <File name="HAL/HAL.c" path="hal/HAL.c" type="1"/>
+    <File name="brtos/includes" path="" type="2"/>
+    <File name="brtos/includes/BRTOS.h" path="../../brtos/includes/BRTOS.h" type="1"/>
+    <File name="hal" path="" type="2"/>
+    <File name="brtos/OSInfo.c" path="../../brtos/OSInfo.c" type="1"/>
     <File name="CoX" path="" type="2"/>
     <File name="Drivers/FLASH/FLASH.c" path="Drivers/FLASH/FLASH.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xuart.h" path="CoX/CoX_Peripheral/inc/xuart.h" type="1"/>
-    <File name="BRTOS/includes/OSInfo.h" path="brtos/includes/OSInfo.h" type="1"/>
+    <File name="brtos/semaphore.c" path="../../brtos/semaphore.c" type="1"/>
+    <File name="brtos" path="" type="2"/>
     <File name="CoX/CoX_Peripheral/inc/xwdt.h" path="CoX/CoX_Peripheral/inc/xwdt.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_sysctl.h" path="CoX/CoX_Peripheral/inc/xhw_sysctl.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xdebug.h" path="CoX/CoX_Peripheral/inc/xdebug.h" type="1"/>
     <File name="Drivers/drivers.h" path="Drivers/drivers.h" type="1"/>
     <File name="Drivers/FLASH" path="" type="2"/>
-    <File name="Drivers/SPI/spi.c" path="Drivers/SPI/spi.c" type="1"/>
     <File name="CoX/CoX_Peripheral/src/xdebug.c" path="CoX/CoX_Peripheral/src/xdebug.c" type="1"/>
-    <File name="BRTOS/includes" path="" type="2"/>
+    <File name="Drivers/SPI/spi.c" path="Drivers/SPI/spi.c" type="1"/>
     <File name="CONFIG/BRTOSConfig.h" path="CONFIG/BRTOSConfig.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_dma.h" path="CoX/CoX_Peripheral/inc/xhw_dma.h" type="1"/>
     <File name="Drivers/DAC" path="" type="2"/>
-    <File name="BRTOS/mutex.c" path="brtos/mutex.c" type="1"/>
-    <File name="syscalls" path="" type="2"/>
     <File name="Drivers/SPI/spi.h" path="Drivers/SPI/spi.h" type="1"/>
-    <File name="Drivers/CPU/cpu.c" path="Drivers/CPU/cpu.c" type="1"/>
+    <File name="syscalls" path="" type="2"/>
+    <File name="hal/HAL.c" path="../../hal/GCC_CORTEX-M0/HAL.c" type="1"/>
+    <File name="brtos/BRTOS.c" path="../../brtos/BRTOS.c" type="1"/>
     <File name="Drivers/UART.h" path="Drivers/UART.h" type="1"/>
+    <File name="Drivers/CPU/cpu.c" path="Drivers/CPU/cpu.c" type="1"/>
     <File name="Drivers/CPU" path="" type="2"/>
     <File name="CONFIG/hardware.h" path="CONFIG/hardware.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xcore.h" path="CoX/CoX_Peripheral/inc/xcore.h" type="1"/>
-    <File name="BRTOS/includes/OS_RTC.h" path="brtos/includes/OS_RTC.h" type="1"/>
     <File name="Drivers/LPO/LPO.c" path="Drivers/LPO/LPO.c" type="1"/>
-    <File name="CoX/CoX_Peripheral/src/xsysctl.c" path="CoX/CoX_Peripheral/src/xsysctl.c" type="1"/>
     <File name="CoX/CoX_Peripheral" path="" type="2"/>
+    <File name="CoX/CoX_Peripheral/src/xsysctl.c" path="CoX/CoX_Peripheral/src/xsysctl.c" type="1"/>
     <File name="Drivers/utils.h" path="Drivers/utils.h" type="1"/>
-    <File name="HAL/HAL.h" path="hal/HAL.h" type="1"/>
+    <File name="brtos/includes/OS_types.h" path="../../brtos/includes/OS_types.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_memmap.h" path="CoX/CoX_Peripheral/inc/xhw_memmap.h" type="1"/>
-    <File name="BRTOS/includes/BRTOS.h" path="brtos/includes/BRTOS.h" type="1"/>
-    <File name="BRTOS/semaphore.c" path="brtos/semaphore.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_uart.h" path="CoX/CoX_Peripheral/inc/xhw_uart.h" type="1"/>
+    <File name="brtos/includes/OS_RTC.h" path="../../brtos/includes/OS_RTC.h" type="1"/>
+    <File name="brtos/includes/OSInfo.h" path="../../brtos/includes/OSInfo.h" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_rtc.h" path="CoX/CoX_Peripheral/inc/xhw_rtc.h" type="1"/>
   </Files>
