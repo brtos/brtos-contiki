@@ -27,7 +27,6 @@
 #pragma warn_implicitconv off
 
 #include <stdarg.h>
-#include "usb_terminal.h"
 #include "printf_lib.h"
 
 #define PRINTF_BUFSIZE 		32

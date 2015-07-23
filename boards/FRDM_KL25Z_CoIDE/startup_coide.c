@@ -153,6 +153,7 @@ static void DefaultIntHandler(void);
 void SwitchContextToFirstTask(void);
 void SwitchContext(void);
 void TickTimer(void);
+extern void USB_ISR(void);
 //void Radio_Interrupt(void);
 
 //
@@ -204,7 +205,7 @@ void (* const g_pfnVectors[])(void) =
     RTCSIntHandler,                         // RTCS handler
     PITIntHandler,                          // PIT handler
     0,                                      // Reserved    
-    USBOTGIntHandler,                       // USBOTG handler
+    USB_ISR,                       			// USBOTG handler
     DACIntHandler,                          // DAC handler
     TSIIntHandler,                          // TSI handler
     MCGIntHandler,                          // MCG handler

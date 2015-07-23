@@ -72,10 +72,6 @@ void System_Time(void)
 	   #endif
 
       DelayTask(10); /* wait 10 ticks -> 10 ms */
-
-      #if RADIO_DRIVER_WATCHDOG == 1
-           //Radio_Count_states();
-      #endif
       
       i++;
       if (i >= 100)
