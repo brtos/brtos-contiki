@@ -8,14 +8,18 @@
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
+/// Define the platform for BRTOS + Contiki
+#define BOARD_NONE				 	 0
+#define BOARD_COLDUINO				 1
+#define BOARD_FRDM_KL25Z			 2
+
+#define BRTOS_PLATFORM 			BOARD_FRDM_KL25Z
+
 /// Define MCU endianess
 #define BRTOS_ENDIAN			BRTOS_LITTLE_ENDIAN
 
 /// Define Thread-Metric use
 #define THREAD_METRIC 	0
-
-/// Define if simulation or DEBUG
-#define DEBUG 					1
 
 /// Define if verbose info is available
 #define VERBOSE 				0
@@ -55,10 +59,10 @@
 #endif
 
 /// Define if TimerHook function is active
-#define TIMER_HOOK_EN 0
+#define TIMER_HOOK_EN 			1
 
 /// Define if IdleHook function is active
-#define IDLE_HOOK_EN 0
+#define IDLE_HOOK_EN 			0
 
 /// Enable or disable timers service
 #define BRTOS_TMR_EN           1
@@ -70,7 +74,7 @@
 #define BRTOS_MUTEX_EN         1
 
 /// Enable or disable mailbox controls
-#define BRTOS_MBOX_EN          1
+#define BRTOS_MBOX_EN          0
 
 /// Enable or disable queue controls
 #define BRTOS_QUEUE_EN         1
@@ -82,15 +86,15 @@
 #define BRTOS_QUEUE_16_EN      0
 
 /// Enable or disable queue 32 bits controls
-#define BRTOS_QUEUE_32_EN      0
+#define BRTOS_QUEUE_32_EN      1
 
 /// Defines the maximum number of semaphores\n
 /// Limits the memory allocation for semaphores
-#define BRTOS_MAX_SEM          10
+#define BRTOS_MAX_SEM          4
 
 /// Defines the maximum number of mutexes\n
 /// Limits the memory allocation for mutex
-#define BRTOS_MAX_MUTEX        4
+#define BRTOS_MAX_MUTEX        2
 
 /// Defines the maximum number of mailboxes\n
 /// Limits the memory allocation mailboxes
@@ -99,7 +103,6 @@
 /// Defines the maximum number of queues\n
 /// Limits the memory allocation for queues
 #define BRTOS_MAX_QUEUE        3
-
 
 /// TickTimer Defines
 #define configCPU_CLOCK_HZ          	(INT32U)48000000   ///< CPU clock in Hertz
@@ -118,13 +121,13 @@
 
 
 // Stack Size of the Idle Task
-#define IDLE_STACK_SIZE             (INT16U)384
+#define IDLE_STACK_SIZE             (INT16U)192
 
 
 /// Stack Defines
-/// 16KB of RAM (total): 34 * 128 bytes = 4.25KB of Virtual Stack
-#define HEAP_SIZE 34*128
+/// 4KB of RAM: 19 * 128 bytes = 2.4KB of Virtual Stack
+#define HEAP_SIZE 14*128
 
 // Queue heap defines
-// Configurado com 896 bytes p/ filas
-#define QUEUE_HEAP_SIZE 8*128
+// Configurado com 256 bytes p/ filas
+#define QUEUE_HEAP_SIZE 2*128
