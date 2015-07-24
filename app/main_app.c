@@ -25,6 +25,9 @@ extern "C"
  * @param       None
  * @return      None
  *****************************************************************************/
+#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+#include "UART.h"
+#endif
 void main_app(void);
 void contiki_main(void);
 
@@ -48,6 +51,10 @@ void main_app(void)
 	{
 		while (1){};
 	};
+
+	#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+	Init_UART0();
+	#endif
 
 #if 0
 	if (InstallTask(&Tarefa_termometro, "Tarefa de Termometro", 256, 19, NULL) != OK)

@@ -256,9 +256,9 @@
     <File name="brtos/OS_RTC.c" path="../../brtos/OS_RTC.c" type="1"/>
     <File name="Drivers/CPU/cpu.h" path="Drivers/CPU/cpu.h" type="1"/>
     <File name="contiki/core/sys/etimer.c" path="../../contiki/core/sys/etimer.c" type="1"/>
+    <File name="CoX/CoX_Peripheral/inc/xgpio.h" path="CoX/CoX_Peripheral/inc/xgpio.h" type="1"/>
     <File name="contiki/core/dev/radio.h" path="../../contiki/core/dev/radio.h" type="1"/>
     <File name="contiki/core/net/ip/dhcpc.c" path="../../contiki/core/net/ip/dhcpc.c" type="1"/>
-    <File name="CoX/CoX_Peripheral/inc/xgpio.h" path="CoX/CoX_Peripheral/inc/xgpio.h" type="1"/>
     <File name="contiki/core/net/ip/uip-nameserver.h" path="../../contiki/core/net/ip/uip-nameserver.h" type="1"/>
     <File name="contiki/core/net/rime/channel.c" path="../../contiki/core/net/rime/channel.c" type="1"/>
     <File name="contiki/core/net/rime/timesynch.h" path="../../contiki/core/net/rime/timesynch.h" type="1"/>
@@ -299,9 +299,9 @@
     <File name="contiki/core/sys/process.c" path="../../contiki/core/sys/process.c" type="1"/>
     <File name="contiki/core/net/rime/channel.h" path="../../contiki/core/net/rime/channel.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
+    <File name="contiki/core/net/ip/uip-udp-packet.c" path="../../contiki/core/net/ip/uip-udp-packet.c" type="1"/>
     <File name="Drivers/CPU/cpu.c" path="Drivers/CPU/cpu.c" type="1"/>
     <File name="Drivers/UART.h" path="Drivers/UART.h" type="1"/>
-    <File name="contiki/core/net/ip/uip-udp-packet.c" path="../../contiki/core/net/ip/uip-udp-packet.c" type="1"/>
     <File name="contiki/core/net/mac/framer-nullmac.h" path="../../contiki/core/net/mac/framer-nullmac.h" type="1"/>
     <File name="contiki/core/net/ip/slipdev.h" path="../../contiki/core/net/ip/slipdev.h" type="1"/>
     <File name="Drivers/utils.h" path="Drivers/utils.h" type="1"/>
@@ -481,9 +481,9 @@
     <File name="brtos/includes/timers.h" path="../../brtos/includes/timers.h" type="1"/>
     <File name="contiki/core/net/rime/route-discovery.h" path="../../contiki/core/net/rime/route-discovery.h" type="1"/>
     <File name="contiki/core/sys/mt.h" path="../../contiki/core/sys/mt.h" type="1"/>
+    <File name="contiki/core/lib/me_tabs.h" path="../../contiki/core/lib/me_tabs.h" type="1"/>
     <File name="contiki/core/sys/compower.h" path="../../contiki/core/sys/compower.h" type="1"/>
     <File name="contiki/core/net/mac/frame802154.c" path="../../contiki/core/net/mac/frame802154.c" type="1"/>
-    <File name="contiki/core/lib/me_tabs.h" path="../../contiki/core/lib/me_tabs.h" type="1"/>
     <File name="contiki/core/sys/timer.h" path="../../contiki/core/sys/timer.h" type="1"/>
     <File name="contiki/core/net/rime/rime.h" path="../../contiki/core/net/rime/rime.h" type="1"/>
     <File name="USB/driver/usbevent.c" path="USB/driver/usbevent.c" type="1"/>
@@ -523,9 +523,9 @@
     <File name="contiki/core/net/ipv6/multicast/uip-mcast6-route.c" path="../../contiki/core/net/ipv6/multicast/uip-mcast6-route.c" type="1"/>
     <File name="contiki/core/sys/log.h" path="../../contiki/core/sys/log.h" type="1"/>
     <File name="contiki/core/sys/compower.c" path="../../contiki/core/sys/compower.c" type="1"/>
+    <File name="contiki/core/dev/button-sensor.h" path="../../contiki/core/dev/button-sensor.h" type="1"/>
     <File name="contiki/core/net/mac/phase.h" path="../../contiki/core/net/mac/phase.h" type="1"/>
     <File name="contiki/core/contiki-default-conf.h" path="../../contiki/core/contiki-default-conf.h" type="1"/>
-    <File name="contiki/core/dev/button-sensor.h" path="../../contiki/core/dev/button-sensor.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_uart.h" path="CoX/CoX_Peripheral/inc/xhw_uart.h" type="1"/>
   </Files>
 </Project>

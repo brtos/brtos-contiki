@@ -429,7 +429,7 @@ main_minimal_net(void)
 	print_lladdrs();
   #endif
 
-  PRINTF("\n*******%s online*******\n",CONTIKI_VERSION_STRING);
+  PRINTF("\n*******%s online*******\n\r",CONTIKI_VERSION_STRING);
 
   while(1) {
 

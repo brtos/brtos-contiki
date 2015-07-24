@@ -234,7 +234,7 @@ void Init_UART0(void)
 	  while(1){};
 	};
 
-	if (OSQueueCreate(&SerialPortBuffer0,128, &Serial0) != ALLOC_EVENT_OK)
+	if (OSQueueCreate(&SerialPortBuffer0,64, &Serial0) != ALLOC_EVENT_OK)
 	{
 	  // Oh Oh
 	  // Não deveria entrar aqui !!!

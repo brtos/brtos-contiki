@@ -264,13 +264,13 @@ void UARTConfigSet(unsigned long ulBase,
     // Configure UART Baud Rate.
     //
     //ulUartClock = GetUartClock(ulBase);
-    ulUartClock = 24000000;
+    ulUartClock = 48000000;
     if (ulBase == UART0_BASE)
     {
     	ulDivisor = ulUartClock / (ulBaud * (ulSampleRate + 1));
     }else
     {
-    	ulDivisor = 24000000U / (ulBaud * 16);
+    	ulDivisor = 48000000U / (ulBaud * 16);
     }
 
     ulTmpReg = xHWREGB(ulBase + UART_012_BDH);
