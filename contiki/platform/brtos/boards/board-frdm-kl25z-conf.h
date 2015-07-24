@@ -22,7 +22,7 @@
 
 #define NETSTACK_CONF_WITH_RIME		  1
 
-#define UIP_CONF_BUFFER_SIZE          1280
+#define UIP_CONF_BUFFER_SIZE          1024
 #define UIP_CONF_TCP_SPLIT            0
 #define UIP_CONF_LOGGING              1
 #define UIP_CONF_IP_FORWARD           0
