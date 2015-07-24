@@ -58,7 +58,9 @@ typedef uint16_t 	uip_stats_t;
 /* hack for CW compiler. It is not finding this defines in uip.h */
 /* Header sizes. */
 #if NETSTACK_CONF_WITH_IPV6
+#if defined(__CWCC__)
 #define UIP_IPH_LEN    40
+#endif
 #define UIP_FRAGH_LEN  8
 #else /* NETSTACK_CONF_WITH_IPV6 */
 #define UIP_IPH_LEN    20    /* Size of IP header */
