@@ -57,6 +57,7 @@
 
 #include "dev/serial-line.h"
 #include "dev/slip.h"
+#include "platform-conf.h"
  
 #include "BRTOS.h"
 extern BRTOS_Queue 	*USB;

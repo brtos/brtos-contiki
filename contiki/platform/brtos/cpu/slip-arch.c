@@ -29,6 +29,7 @@
  */
 
 #include "dev/slip.h"
+#include "platform-conf.h"
 
 #if (SLIP_COMM == SLIP_USB)
 #include "virtual_com.h"
