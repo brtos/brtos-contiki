@@ -448,7 +448,13 @@ main_minimal_net(void)
      do 
      {    
     	 wait_next_event:
-    	 ret = OSQueuePend(USB, &c, (INT16U)next_event);    	 
+		 #if (SLIP_COMM == SLIP_USB)
+    	 ret = OSQueuePend(USB, &c, (INT16U)next_event);
+		 #endif
+
+		 #if (SLIP_COMM == SLIP_UART)
+    	 ret = UARTGetChar(0x4006A000, &c, (INT16U)next_event);
+		 #endif
     	 if(ret != TIMEOUT) 
 		 {
     		 poll = 1;

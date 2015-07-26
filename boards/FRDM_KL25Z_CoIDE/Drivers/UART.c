@@ -43,7 +43,7 @@ unsigned long USART0IntHandler(void *pvCBData,
 		if (OSQueuePost(Serial0, receive_byte) == BUFFER_UNDERRUN)
 		{
 			// Problema: Estouro de buffer
-			//OSCleanQueue(Serial0);
+			OSCleanQueue(Serial0);
 		}
 	}
 
@@ -206,7 +206,7 @@ unsigned char UARTGetChar(unsigned long ulBase, unsigned char *data, int timeout
 }
 
 
-void Init_UART0(void)
+void Init_UART0(int baud, int buffer_size)
 {
 	xtEventCallback UART0_INT_HANDLE = USART0IntHandler;
 
@@ -225,7 +225,7 @@ void Init_UART0(void)
 	UARTDisable(UART0_BASE, UART_TX | UART_RX);
 
 	// Configure UART Baud 115200
-	UARTConfigSet(UART0_BASE, 115200, UART_CONFIG_SAMPLE_RATE_DEFAULT | UART_CONFIG_WLEN_9 | UART_CONFIG_PAR_EVEN | UART_CONFIG_STOP_1);
+	UARTConfigSet(UART0_BASE, baud, UART_CONFIG_SAMPLE_RATE_DEFAULT | UART_CONFIG_WLEN_9 | UART_CONFIG_PAR_EVEN | UART_CONFIG_STOP_1);
 
 	if (OSSemCreate(0, &SerialTX0) != ALLOC_EVENT_OK)
 	{
@@ -234,7 +234,7 @@ void Init_UART0(void)
 	  while(1){};
 	};
 
-	if (OSQueueCreate(&SerialPortBuffer0,64, &Serial0) != ALLOC_EVENT_OK)
+	if (OSQueueCreate(&SerialPortBuffer0,buffer_size, &Serial0) != ALLOC_EVENT_OK)
 	{
 	  // Oh Oh
 	  // Não deveria entrar aqui !!!

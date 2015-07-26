@@ -14,6 +14,11 @@
 
 #define NETSTACK_CONF_WITH_IPV6		  1
 
+#define SLIP_USB	1
+#define SLIP_UART	2
+
+#define SLIP_COMM	SLIP_UART
+
 #define UIP_CONF_UDP                  0
 #define UIP_CONF_TCP                  1
 

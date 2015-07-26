@@ -29,19 +29,33 @@
  */
 
 #include "dev/slip.h"
+
+#if (SLIP_COMM == SLIP_USB)
 #include "virtual_com.h"
+#endif
+
+#if (SLIP_COMM == SLIP_UART)
+#include "uart.h"
+#endif
 
 void
 slip_arch_init(unsigned long ubr)
 {	
    
 	(void)ubr;
+
+#if (SLIP_COMM == SLIP_USB)
 #if BRTOS_CPU == COLDFIRE_V1	
     (void)CDC_Init(); /* Initialize the USB CDC Application */
 #elif  BRTOS_CPU == ARM_Cortex_M0 
 	USB_Init();	
 	(void)cdc_Init(); /* Initialize the USB CDC Application */
-#endif    	    
+#endif
+#endif
+
+#if (SLIP_COMM == SLIP_UART)
+	Init_UART0(115200, 128);
+#endif
 }
 
 #define SLIP_END     0300
@@ -50,6 +64,7 @@ slip_arch_init(unsigned long ubr)
 void
 slip_arch_writeb(unsigned char c)
 {
+#if (SLIP_COMM == SLIP_USB)
 	while(GetStart_transactions() == FALSE)
 	{
 		DelayTask(1000);
@@ -62,6 +77,11 @@ slip_arch_writeb(unsigned char c)
 	{
 		cdc_process();
 	}
+#endif
+
+#if (SLIP_COMM == SLIP_UART)
+	(void)UARTPutChar(0x4006A000, (char)c);
+#endif
 	
 }
 

@@ -10,6 +10,10 @@
 
 #include "BRTOS.h"
 
+#define SLIP_USB	1
+#define SLIP_UART	2
+
+#define SLIP_COMM	SLIP_USB
 
 #define BRTOS_ENDIAN           		  BRTOS_BIG_ENDIAN
 #define NETSTACK_CONF_WITH_IPV6		  1

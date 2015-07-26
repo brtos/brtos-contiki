@@ -35,8 +35,8 @@ static printf_idx;
 char printf_buf[PRINTF_BUFSIZE];
 
 #if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
-#include "UART.h"
-#define putchar(x)  UARTPutChar(0x4006A000, x)
+//#include "UART.h"
+#define putchar(x)  putchar_buf(x)//UARTPutChar(0x4006A000, x)
 #else
 #define putchar(x)  putchar_buf(x) //putchar_usb(x)
 #endif

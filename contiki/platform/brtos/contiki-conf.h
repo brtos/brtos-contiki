@@ -51,9 +51,7 @@ typedef uint16_t 	uip_stats_t;
 #define UIP_CONF_BYTE_ORDER           UIP_LITTLE_ENDIAN
 #endif	
 
-#ifndef NETSTACK_CONF_WITH_IPV6
 #define NETSTACK_CONF_WITH_IPV6		  1
-#endif
 
 /* hack for CW compiler. It is not finding this defines in uip.h */
 /* Header sizes. */
