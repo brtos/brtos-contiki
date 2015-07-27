@@ -43,6 +43,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+#include "slip.h"
+extern BRTOS_Sem *Contiki_Sem;
+
+
 /*****************************************************************************
  * Constant and Macro's - None
  *****************************************************************************/
@@ -291,6 +296,7 @@ static void USB_App_Callback (
 			{            
 				//if (dp_rcv->data_ptr[index] != 0)
 				//{
+#if 0				
 					if (OSQueuePost(USB, dp_rcv->data_ptr[index]) == BUFFER_UNDERRUN)
 					{
 					  // Buffer overflow 		
@@ -300,6 +306,12 @@ static void USB_App_Callback (
 					   }
 #endif					   
 					}
+#else
+					if (slip_input_byte(dp_rcv->data_ptr[index]) == 1) 
+					{
+						OSSemPost(Contiki_Sem);
+					}
+#endif
 				//}
 			}
 			/* Previous Send is complete. Queue next receive */

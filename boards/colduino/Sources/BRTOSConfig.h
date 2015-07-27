@@ -19,7 +19,7 @@
 #define PSP_ENDIAN			BRTOS_BIG_ENDIAN
 
 /// Define if simulation or DEBUG
-#define DEBUG 1
+#define DEBUG 0
 
 /// Define if verbose info is available
 #define VERBOSE 0
@@ -60,6 +60,9 @@
 
 /// Enable or disable semaphore controls
 #define BRTOS_SEM_EN           1
+
+/// Enable or disable binary semaphore controls
+#define BRTOS_BINARY_SEM_EN    1
 
 /// Enable or disable mutex controls
 #define BRTOS_MUTEX_EN         1

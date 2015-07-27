@@ -50,8 +50,10 @@
 #include "net/ip/uip-debug.h"
 #endif
 
-//#define PRINTF(...)
-//#define PRINT6ADDR(...)
+#if DEBUG==0
+#define PRINTF(...)
+#define PRINT6ADDR(...)
+#endif
 
 void set_prefix_64(uip_ipaddr_t *);
 
