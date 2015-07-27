@@ -1,5 +1,6 @@
 #include "BRTOS.h"
 #include "tasks.h"
+#include "platform-conf.h"
 
 #if PROCESSOR == COLDFIRE_V1
 #include "drivers.h"
@@ -25,9 +26,17 @@ extern "C"
  * @param       None
  * @return      None
  *****************************************************************************/
+// Se estiver usando USB no SLIP, usa UART no debug e vice-versa
 #if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
-#include "UART.h"
+#if (SLIP_COMM == SLIP_USB)
+#include "uart.h"
 #endif
+
+#if (SLIP_COMM == SLIP_UART)
+#include "virtual_com.h"
+#endif
+#endif
+
 void main_app(void);
 void contiki_main(void);
 
@@ -51,6 +60,18 @@ void main_app(void)
 	{
 		while (1){};
 	};
+
+	// Se estiver usando USB no SLIP, usa UART no debug e vice-versa
+#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+#if (SLIP_COMM == SLIP_USB)
+	Init_UART0(115200, 128);
+#endif
+
+#if (SLIP_COMM == SLIP_UART)
+	USB_Init();
+	(void)cdc_Init(); /* Initialize the USB CDC Application */
+#endif
+#endif
 
 #if 0
 	if (InstallTask(&Tarefa_termometro, "Tarefa de Termometro", 256, 19, NULL) != OK)
