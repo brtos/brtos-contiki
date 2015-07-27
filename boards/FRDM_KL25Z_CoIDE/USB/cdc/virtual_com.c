@@ -231,7 +231,7 @@ static void USB_App_Callback (
 			{
 			  // Problema: Estouro de buffer
 			  // Novas teclas n�o ser�o armazenadas at� que o buffer tenha espa�o dispon�vel novamente
-			  //OSCleanQueue(USB);
+			  OSCleanQueue(USB);
 			}
         }
     }

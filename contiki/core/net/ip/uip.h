@@ -57,7 +57,7 @@
 #define UIP_IPH_LEN    40
 #define UIP_FRAGH_LEN  8
 #else /* NETSTACK_CONF_WITH_IPV6 */
-#define UIP_IPH_LEN    40    /* Size of IP header */
+#define UIP_IPH_LEN    20    /* Size of IP header */
 #endif /* NETSTACK_CONF_WITH_IPV6 */
 
 #define UIP_UDPH_LEN    8    /* Size of UDP header */

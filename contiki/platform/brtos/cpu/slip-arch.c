@@ -68,7 +68,7 @@ slip_arch_writeb(unsigned char c)
 #if (SLIP_COMM == SLIP_USB)
 	while(GetStart_transactions() == FALSE)
 	{
-		DelayTask(1000);
+		DelayTask(10);
 	}
 	while(cdc_putch(c) != c)
 	{
