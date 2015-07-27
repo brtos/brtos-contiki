@@ -68,8 +68,8 @@ void main_app(void)
 #endif
 
 #if (SLIP_COMM == SLIP_UART)
-	USB_Init();
-	(void)cdc_Init(); /* Initialize the USB CDC Application */
+	//USB_Init();
+	//(void)cdc_Init(); /* Initialize the USB CDC Application */
 #endif
 #endif
 

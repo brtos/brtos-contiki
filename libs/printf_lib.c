@@ -44,7 +44,7 @@ char printf_buf[PRINTF_BUFSIZE];
 
 #if (SLIP_COMM == SLIP_UART)
 #include "virtual_com.h"
-#define putchar(x)  cdc_putch(x)
+#define putchar(x)  putchar_buf(x) //cdc_putch(x)
 #endif
 
 #else
