@@ -61,6 +61,7 @@
  
 #include "BRTOS.h"
 extern BRTOS_Queue 	*USB;
+BRTOS_Sem *Contiki_Sem;
 
 int main_win(void); // for simulation on Win32
 int main_minimal_net(void);
@@ -430,6 +431,8 @@ main_minimal_net(void)
 	print_lladdrs();
   #endif
 
+  OSSemBinaryCreate (0, &Contiki_Sem);
+
   PRINTF("\n*******%s online*******\n\r",CONTIKI_VERSION_STRING);
 
   while(1) {
@@ -442,8 +445,10 @@ main_minimal_net(void)
     do{
     	n = process_run();
     } while(n > 0);
+
+    OSSemPend(Contiki_Sem, 0);
       
- 
+#if 0
      poll = 0;
      next_event = 2;
      do 
@@ -489,6 +494,7 @@ main_minimal_net(void)
      }while(1);  
      
      etimer_request_poll();
+#endif
   }
 
   return 0;

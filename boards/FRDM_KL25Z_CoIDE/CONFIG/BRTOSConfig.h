@@ -70,6 +70,8 @@
 /// Enable or disable semaphore controls
 #define BRTOS_SEM_EN           1
 
+#define BRTOS_BINARY_SEM_EN	   1
+
 /// Enable or disable mutex controls
 #define BRTOS_MUTEX_EN         1
 

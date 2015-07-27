@@ -65,7 +65,30 @@ void clock_delay(unsigned int delay)
 }
 
 /* BRTOS Timer Hook is used to implement Contiki's clock */
+extern BRTOS_Sem *Contiki_Sem;
+//int count_sec = 0;
 void BRTOS_TimerHook(void)
 {
+	clock_time_t next_event;
+
 	clock++;
+#if 0
+	count_sec++;
+
+	if(count_sec >= CLOCK_CONF_SECOND)
+	{
+		count_sec = 0;
+		seconds++;
+	}
+#endif
+
+	next_event = etimer_next_expiration_time();
+	if(next_event){
+		next_event -= clock_time();
+		if (next_event ==0)
+		{
+			etimer_request_poll();
+			OSSemPost(Contiki_Sem);
+		}
+	}
 }

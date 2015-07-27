@@ -29,6 +29,9 @@ OS_QUEUE SerialPortBuffer2;
 // Declara um ponteiro para o bloco de controle da Porta Serial
 BRTOS_Queue  *Serial2;
 
+#include "slip.h"
+extern BRTOS_Sem *Contiki_Sem;
+
 unsigned long USART0IntHandler(void *pvCBData,
         unsigned long ulEvent,
         unsigned long ulMsgParam,
@@ -40,11 +43,17 @@ unsigned long USART0IntHandler(void *pvCBData,
 	{
 		receive_byte = xHWREGB(UART0_BASE + UART_012_D);
 
+		if (slip_input_byte(receive_byte) == 1) OSSemPost(Contiki_Sem);
+		//slip_input_byte(receive_byte);
+		//OSSemPost(Contiki_Sem);
+
+#if 0
 		if (OSQueuePost(Serial0, receive_byte) == BUFFER_UNDERRUN)
 		{
 			// Problema: Estouro de buffer
 			OSCleanQueue(Serial0);
 		}
+#endif
 	}
 
 	if ((ulEvent & UART_EVENT_TC) == UART_EVENT_TC)
@@ -234,12 +243,15 @@ void Init_UART0(int baud, int buffer_size)
 	  while(1){};
 	};
 
-	if (OSQueueCreate(&SerialPortBuffer0,buffer_size, &Serial0) != ALLOC_EVENT_OK)
-	{
-	  // Oh Oh
-	  // Não deveria entrar aqui !!!
-	  while(1){};
-	};
+	// Só cria fila se for passado um tamanho maior que 0
+	if (buffer_size){
+		if (OSQueueCreate(&SerialPortBuffer0,buffer_size, &Serial0) != ALLOC_EVENT_OK)
+		{
+		  // Oh Oh
+		  // Não deveria entrar aqui !!!
+		  while(1){};
+		};
+	}
 
 	UARTIntEnable(UART0_BASE, UART_INT_R);
 	UARTIntCallbackInit(UART0_BASE, UART0_INT_HANDLE);

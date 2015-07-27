@@ -55,7 +55,8 @@ slip_arch_init(unsigned long ubr)
 #endif
 
 #if (SLIP_COMM == SLIP_UART)
-	Init_UART0(115200, 128);
+	// Passado tamanho 0 de fila para não gerar fila do sistema
+	Init_UART0(115200, 0);
 #endif
 }
 
