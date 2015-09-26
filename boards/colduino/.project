@@ -74,37 +74,47 @@
 		<link>
 			<name>CodeWarrior_CFV1</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/hal/CodeWarrior_CFV1</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/hal/CodeWarrior_CFV1</locationURI>
 		</link>
 		<link>
 			<name>FatFS</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/FatFS</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/FatFS</locationURI>
 		</link>
 		<link>
 			<name>app</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/app</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/app</locationURI>
 		</link>
 		<link>
 			<name>brtos</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/brtos</locationURI>
+		</link>
+		<link>
+			<name>brtos-contiki-examples</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-examples</locationURI>
+		</link>
+		<link>
+			<name>brtos-contiki-platform</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-platform</locationURI>
 		</link>
 		<link>
 			<name>contiki</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/contiki</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/contiki</locationURI>
 		</link>
 		<link>
 			<name>devices</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/devices</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/devices</locationURI>
 		</link>
 		<link>
 			<name>libs</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/libs</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/libs</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
