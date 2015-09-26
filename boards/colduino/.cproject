@@ -322,7 +322,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-examples"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-platform"/>
-						<entry excluding="tools|regression-tests|doc|platform|cpu|dev|examples|apps|core/net/rime|platform/kl25z|apps/webserver|core/cfs/cfs-xmem.c|core/cfs/cfs-ram.c|core/cfs/cfs-posix-dir.c|core/cfs/cfs-posix.c|core/cfs/cfs-eeprom.c|core/ctk|core/loader|core/net/http-socket|core/net/ipv4|core/net/ip64|core/net/llsec/noncoresec" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
+						<entry excluding="core/cfs/cfs-coffee.c|tools|regression-tests|doc|platform|cpu|dev|examples|apps|core/net/rime|platform/kl25z|apps/webserver|core/cfs/cfs-xmem.c|core/cfs/cfs-ram.c|core/cfs/cfs-posix-dir.c|core/cfs/cfs-posix.c|core/cfs/cfs-eeprom.c|core/ctk|core/loader|core/net/http-socket|core/net/ipv4|core/net/ip64|core/net/llsec/noncoresec" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="devices"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
 					</sourceEntries>
