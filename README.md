@@ -14,7 +14,7 @@ Building:
 
 1) git clone https://github.com/brtos/brtos-contiki.git
 
-2) git subdmodule update
+2) git submodule update
 
 3) Import project from "/boards" folder and build it.
 
