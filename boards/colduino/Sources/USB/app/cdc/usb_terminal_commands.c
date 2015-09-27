@@ -105,6 +105,7 @@ const command_t usb_temp_cmd = {
 
 void cmd_setget_time(char *param){
 	
+#if 0	
 	OS_RTC datetime; /* dd/mm/yyyy hh:mm:ss */
 	
 	if(*param != NULL) // set
@@ -281,6 +282,8 @@ print_date:
 		printf_usb((CHAR8*)string);
 		printf_usb("\n\r");
 #endif		
+		
+#endif
 	
 }
 

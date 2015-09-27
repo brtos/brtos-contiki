@@ -1,3 +1,6 @@
 [submodule "contiki"]
 	path = contiki
 	url = https://github.com/contiki-os/contiki.git
+[submodule "brtos"]
+	path = brtos
+	url = git@github.com:brtos/brtos.git

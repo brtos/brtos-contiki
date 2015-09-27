@@ -72,11 +72,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>CodeWarrior_CFV1</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/hal/CodeWarrior_CFV1</locationURI>
-		</link>
-		<link>
 			<name>FatFS</name>
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/FatFS</locationURI>
@@ -94,12 +89,12 @@
 		<link>
 			<name>brtos-contiki-examples</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-examples</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/brtos-contiki-examples</locationURI>
 		</link>
 		<link>
 			<name>brtos-contiki-platform</name>
 			<type>2</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-platform</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/brtos-contiki-platform</locationURI>
 		</link>
 		<link>
 			<name>contiki</name>

@@ -27,11 +27,50 @@
 							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.addtools.printsize.1704837003" name="Print Size" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.option.addtools.printsize" value="true" valueType="boolean"/>
 							<option id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.model.882513191" name="Model" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.model" value="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.toolchain.sharedoption.model.ewl_c" valueType="enumerated"/>
 							<targetPlatform id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.platform.debug.1891636588" isAbstract="false" name="Windows Platform" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.platform.debug"/>
-							<builder buildPath="${ProjDirPath}/FLASH" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.CWDLocator" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.builder.debug.1613646872" keepEnvironmentInBuildfile="false" name="ARM Ltd Windows GNU Make builder" parallelBuildOn="true" parallelBuildWorkspaceOn="true" parallelizationNumber="-1" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.builder.debug"/>
+							<builder buildPath="${ProjDirPath}/FLASH" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.CWDLocator" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.builder.debug.1613646872" keepEnvironmentInBuildfile="false" name="ARM Ltd Windows GNU Make builder" parallelBuildOn="true" parallelBuildWorkspaceOn="true" parallelizationNumber="-1" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.builder.debug">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="FLASH"/>
+								</outputEntries>
+							</builder>
 							<tool errorParsers="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser" id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.assembler.debug.1269357536" name="ARM Ltd Windows GCC Assembler" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.assembler.debug">
 								<option id="org.eclipse.cdt.cross.arm.gnu.assembler.option.misc.enable.lstfilename.1377679074" name="Enable Assembler Listing" superClass="org.eclipse.cdt.cross.arm.gnu.assembler.option.misc.enable.lstfilename" value="false" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.assembler.option.include.paths.1562635189" name="Include paths (-I)" superClass="org.eclipse.cdt.cross.arm.gnu.assembler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Generated_Code&quot;"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Generated_Code"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Project_Headers"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Project_Settings/Startup_Code"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include&quot;"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Static_Code/PDD"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Static_Code/IO_Map"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/CPU"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/DAC"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/MCG"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/LPO"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/MMA8451"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/cdc"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/class"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/common"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/common/kinetis"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/driver"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/driver/kinetis"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/net/rpl"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/net/ip"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/libs"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/sys"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/lib"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/dev"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/cfs"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-examples/ipv6/rpl-border-router"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos/cpu"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos/boards"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/CoX_Peripheral/inc"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos/brtos/includes"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos/hal/GCC_CORTEX-M0"/>
 								</option>
 								<inputType id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.assembler.base.input.1263459098" superClass="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.assembler.base.input"/>
 							</tool>
@@ -39,42 +78,46 @@
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.level.782580157" name="Optimization level" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.level" value="org.eclipse.cdt.cross.arm.gnu.base.option.optimization.level.size" valueType="enumerated"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.misc.enable.lstfilename.330493327" name="Enable Assembler Listing" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.misc.enable.lstfilename" value="false" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.include.paths.1906585517" name="Include paths (-I)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Project_Headers&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Project_Settings/Startup_Code&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/EWL_C/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/EWL_Runtime/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Generated_Code&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources&quot;"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Generated_Code"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Project_Headers"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Project_Settings/Startup_Code"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include&quot;"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Static_Code/PDD"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Static_Code/IO_Map"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/CPU"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/DAC"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/MCG"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/LPO"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/MMA8451"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/cdc"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/class"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/common"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/common/kinetis"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/driver"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/driver/kinetis"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/net/rpl"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/net/ip"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/libs"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/sys"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/lib"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/dev"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/cfs"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-examples/ipv6/rpl-border-router"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos/cpu"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos/boards"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/CoX_Peripheral/inc"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos/hal/GCC_CORTEX-M0"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos/brtos/includes"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Static_Code\PDD&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Static_Code\IO_Map&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/CPU&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/DAC&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/MCG&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/LPO&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/MMA8451&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/cdc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/class&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/common&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/common/kinetis&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/driver&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/driver/kinetis&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/includes&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../hal/GCC_CORTEX-M0&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/rpl&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ip&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../libs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/sys&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/dev&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/cfs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-examples/ipv6/rpl-border-router&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/cpu&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/boards&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/CoX_Peripheral/inc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Generated_Code&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections.1254622906" name="Function sections (-ffunction-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections" value="true" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections.1515179762" name="Data sections (-fdata-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections" value="true" valueType="boolean"/>
@@ -89,9 +132,7 @@
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.otherflags.2078062142" name="Other flags" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.otherflags" value="-n" valueType="string"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.nostart.633324681" name="Do not use standard start files (-nostartfiles)" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.nostart" value="false" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.gcsections.979230262" name="Remove unused sections (-Xlinker --gc-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.gcsections" value="true" valueType="boolean"/>
-								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.paths.102089504" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/lib/armv6-m&quot;"/>
-								</option>
+								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.paths.102089504" name="Library search path (-L)" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.paths"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.scriptfile.2041223645" name="Script file (-T)" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.scriptfile" value="${ProjDirPath}/Project_Settings/Linker_Files/ProcessorExpert.ld" valueType="string"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.link.option.linkorder.542128530" name="Link Order" superClass="org.eclipse.cdt.cross.arm.gnu.c.link.option.linkorder" valueType="stringList">
 									<listOptionValue builtIn="false" value="GCC_CORTEX-M0/HAL.c"/>
@@ -299,10 +340,42 @@
 							<tool errorParsers="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser" id="com.freescale.cdt.cross.arm.gnu.sourcery.windows.elf.disassembler.debug.810688284" name="ARM Ltd Windows GCC Disassembler" superClass="com.freescale.cdt.cross.arm.gnu.sourcery.windows.elf.disassembler.debug"/>
 							<tool errorParsers="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser" id="com.freescale.cdt.cross.arm.gnu.sourcery.windows.elf.preprocessor.debug.741764657" name="ARM Ltd Windows GCC C Preprocessor" superClass="com.freescale.cdt.cross.arm.gnu.sourcery.windows.elf.preprocessor.debug">
 								<option id="com.freescale.cdt.cross.arm.gnu.preprocessor.dirs.include.paths.840568452" name="Include paths (-I)" superClass="com.freescale.cdt.cross.arm.gnu.preprocessor.dirs.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Project_Headers&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Project_Settings/Startup_Code&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/EWL_C/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${MCUToolsBaseDir}/ARM_GCC_Support/ewl/EWL_Runtime/include&quot;"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Generated_Code"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Project_Headers"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Project_Settings/Startup_Code"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Freescale/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_Runtime/include&quot;"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Static_Code/PDD"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Static_Code/IO_Map"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/CPU"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/DAC"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/MCG"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/LPO"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/MMA8451"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/cdc"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/class"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/common"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/common/kinetis"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/driver"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/USB/driver/kinetis"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/net/rpl"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/net/ip"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/libs"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/sys"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/lib"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/dev"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/contiki/core/cfs"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-examples/ipv6/rpl-border-router"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos/cpu"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos-contiki-platform/brtos/boards"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/boards/frdm-kl25z/Sources/drivers/CoX_Peripheral/inc"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos/brtos/includes"/>
+									<listOptionValue builtIn="false" value="E:/carlos/GIT_BRTOS/brtos-contiki-modular/brtos-contiki/brtos/hal/GCC_CORTEX-M0"/>
 								</option>
 								<inputType id="com.freescale.cdt.cross.arm.gnu.preprocessor.source.193428149" name="Preprocessor Input" superClass="com.freescale.cdt.cross.arm.gnu.preprocessor.source"/>
 							</tool>
@@ -324,13 +397,12 @@
 					</folderInfo>
 					<fileInfo id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug.380910533..settings/com.freescale.processorexpert.core.prefs" name="com.freescale.processorexpert.core.prefs" rcbsApplicability="disable" resourcePath=".settings/com.freescale.processorexpert.core.prefs" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="Sources/drivers/CoX_Peripheral/src/xi2c.c|brtos-contiki-platform|brtos-contiki-examples|FatFS|devices|boards|app|Sources/Vectors.c|Sources/drivers/utils.c|Sources/USB/cdc/debug_stack.c|libs|contiki|GCC_CORTEX-M0|brtos|.settings/com.freescale.processorexpert.core.prefs" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="GCC_CORTEX-M0"/>
+						<entry excluding="brtos|devices|Sources/drivers/CoX_Peripheral/src/xi2c.c|Sources/Vectors.c|contiki|boards|app|Sources/drivers/utils.c|libs|FatFS|.settings/com.freescale.processorexpert.core.prefs|Sources/USB/cdc/debug_stack.c|brtos-contiki-platform|GCC_CORTEX-M0|brtos-contiki-examples" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="app"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos"/>
+						<entry excluding="hal/MPLAB_PIC18|hal/LPCXpresso_LPC17xx|hal/LPCXpresso_LPC11xx|hal/HEW_GNU_RX600|hal/GCC_CORTEX-M4|hal/CodeWarrior_V10_Kinetis_nesting_int|hal/CodeWarrior_V10_Kinetis|hal/CodeWarrior_HCS08|hal/CodeWarrior_CFV1|hal/CodeComposer_TI_LM4F120|hal/CodeComposer_TI_LM3S8968|hal/CodeComposer_MSP430|hal/AVR_Studio_4_ATMEGA|hal/Atmel_Studio_6_ATMEGA|TouchScreen|LwIP|GLCD|ConfigExample" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-examples"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-platform"/>
-						<entry excluding="core/cfs/cfs-coffee.c|tools|regression-tests|platform|apps|examples|doc|dev|cpu|core/net/ipv6/sicslowpan.c|platform/kl25z|core/net/llsec/noncoresec|core/net/http-socket|core/loader|core/ctk|core/cfs/cfs-xmem.c|core/cfs/cfs-ram.c|core/cfs/cfs-posix-dir.c|core/cfs/cfs-posix.c|core/cfs/cfs-eeprom.c|apps/webserver|core/net/ipv4|core/net/ip64" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
+						<entry excluding="core/net/ipv6/sicslowpan.c|core/net/http-socket|core/ctk|cpu|examples|core/cfs/cfs-eeprom.c|doc|core/loader|platform/kl25z|apps/webserver|regression-tests|tools|core/net/llsec/noncoresec|dev|platform|core/net/ip64|core/net/ipv4|apps|core/cfs/cfs-xmem.c|core/cfs/cfs-coffee.c|core/cfs/cfs-ram.c|core/cfs/cfs-posix.c|core/cfs/cfs-posix-dir.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
 					</sourceEntries>
 				</configuration>

@@ -65,6 +65,8 @@ struct tm
 time_t mktime(struct tm *tmbuf);
 struct tm *localtime(const time_t *timer);
 size_t strftime(char *s, size_t maxsize, const char *format, const struct tm *t);
+#if 0
 time_t ConvertDateTimeToUnixTime(OSDateTime * dt);
+#endif
 
 #endif

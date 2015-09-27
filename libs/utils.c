@@ -435,6 +435,7 @@ void Print2Digits(INT8U number, INT8U align, CHAR8 *buff)
 	}
 }
 
+#if 0
 // formato yyyymmddhhmmss
 void PrintDateTime(OSDateTime *dt, CHAR8 *buff)
 {
@@ -445,3 +446,4 @@ void PrintDateTime(OSDateTime *dt, CHAR8 *buff)
 	Print2Digits(dt->time.RTC_Minute,ZEROS_ALIGN, &buff[10]);
 	Print2Digits(dt->time.RTC_Second,ZEROS_ALIGN, &buff[12]);
 }
+#endif

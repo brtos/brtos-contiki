@@ -51,7 +51,7 @@ void rs485_init(INT16U baudrate, INT8U mutex, INT8U priority)
 #endif	
 }
 
-void putchar_rs485(byte caracter)
+void rs485_putchar(INT8U caracter)
 {
 	RS485_TXRX_PIN = RS485_TX;
 	RS485_RX_DISABLE();
@@ -60,7 +60,7 @@ void putchar_rs485(byte caracter)
 	RS485_TXRX_PIN = RS485_RX;
 }
 
-void printf_rs485(CHAR8 *string)
+void rs485_print(CHAR8 *string)
 {
 	RS485_TXRX_PIN = RS485_TX;
 	RS485_RX_DISABLE();
@@ -69,13 +69,13 @@ void printf_rs485(CHAR8 *string)
 	RS485_TXRX_PIN = RS485_RX;
 }
 
-void tx_rs485(INT8U *data, INT16U len)
+void rs485_tx(INT8U *data, INT16U len)
 {
 	RS485_TXRX_PIN = RS485_TX;
 	RS485_RX_DISABLE();
 	while(len > 0)
 	{
-		RS485_PUTCHAR(data);
+		RS485_PUTCHAR(*data);
 		data++;		
 		len--;
 	}
@@ -83,7 +83,7 @@ void tx_rs485(INT8U *data, INT16U len)
 	RS485_TXRX_PIN = RS485_RX;
 }
 
-void rx_rs485(CHAR8* caracter)
+void rs485_rx(CHAR8* caracter)
 {	
 	RS485_TXRX_PIN = RS485_RX;
 	OSQueuePend(RS485_QUEUE, caracter, 0);	

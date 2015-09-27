@@ -28,7 +28,9 @@ void Print4Digits(unsigned short int number, unsigned char align, char *buff);
 void Print3Digits(unsigned short int number, unsigned char align, char *buff);
 void Print2Digits(unsigned char number, unsigned char align, char *buff);
 void PrintDecimal(signed short int val, char *buff);
+#if 0
 void PrintDateTime(OSDateTime *dt, CHAR8 *buff);
+#endif
 
 #define ByteSwap(A)     (A=(A<<8)+(A>>8))
 INT32U LWordSwap(INT32U u32DataSwap);

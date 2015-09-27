@@ -15,6 +15,8 @@
 
 #define BRTOS_PLATFORM 			BOARD_COLDUINO
 
+#define TASK_WITH_PARAMETERS 	0
+
 /// Define the endianess of the microcontroller
 #define PSP_ENDIAN			BRTOS_BIG_ENDIAN
 

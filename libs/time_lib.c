@@ -201,7 +201,7 @@ time_t mktime(struct tm *tmbuf)
   return (time_t) seconds;
 }
 
-
+#if 0
 time_t ConvertDateTimeToUnixTime(OSDateTime * dt)
 {
 	struct tm tm;
@@ -219,6 +219,7 @@ time_t ConvertDateTimeToUnixTime(OSDateTime * dt)
 	
 	return unix_time;
 }
+#endif
 
 #if 0
 extern long _timezone;
