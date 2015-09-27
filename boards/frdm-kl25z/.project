@@ -106,6 +106,16 @@
 			<locationURI>PARENT-2-PROJECT_LOC/brtos</locationURI>
 		</link>
 		<link>
+			<name>brtos-contiki-examples</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-examples</locationURI>
+		</link>
+		<link>
+			<name>brtos-contiki-platform</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-platform</locationURI>
+		</link>
+		<link>
 			<name>contiki</name>
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/contiki</locationURI>

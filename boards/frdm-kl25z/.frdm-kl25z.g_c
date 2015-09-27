@@ -1,7 +1,7 @@
 <GenerationInfo_G_C>
   <Options>
     <ProjectName>frdm-kl25z</ProjectName>
-    <ProjectDirectory>C:\DADOS_LOCAIS\GITHUB\brtos-contiki\boards\frdm-kl25z\</ProjectDirectory>
+    <ProjectDirectory>E:\carlos\GIT_BRTOS\brtos-contiki-modular\brtos-contiki\boards\frdm-kl25z\</ProjectDirectory>
     <ProjectMainModuleName>main</ProjectMainModuleName>
     <DestEventsDirectory>Sources\</DestEventsDirectory>
     <DestDriversSubDirectory>..\Generated_Code\</DestDriversSubDirectory>
@@ -18,16 +18,16 @@
         <Line>PE_Const</Line>
         <Line>IO_Map</Line>
       </GenSharedModules>
-      <ShrdHeaderAge0>1190549926</ShrdHeaderAge0>
+      <ShrdHeaderAge0>1195013568</ShrdHeaderAge0>
       <ShrdCodeAge0>-1</ShrdCodeAge0>
       <ShrdAsemblAge0>-1</ShrdAsemblAge0>
-      <ShrdHeaderAge1>1190549926</ShrdHeaderAge1>
+      <ShrdHeaderAge1>1195013568</ShrdHeaderAge1>
       <ShrdCodeAge1>-1</ShrdCodeAge1>
       <ShrdAsemblAge1>-1</ShrdAsemblAge1>
-      <ShrdHeaderAge2>1190549926</ShrdHeaderAge2>
+      <ShrdHeaderAge2>1195013568</ShrdHeaderAge2>
       <ShrdCodeAge2>-1</ShrdCodeAge2>
       <ShrdAsemblAge2>-1</ShrdAsemblAge2>
-      <ShrdHeaderAge3>1190549926</ShrdHeaderAge3>
+      <ShrdHeaderAge3>1195013568</ShrdHeaderAge3>
       <ShrdCodeAge3>-1</ShrdCodeAge3>
       <ShrdAsemblAge3>-1</ShrdAsemblAge3>
       <GenExtraFiles lines_count="9">
@@ -42,9 +42,9 @@
         <Line>Generated_Code\Vectors.c</Line>
       </GenExtraFiles>
       <GenExtraFileSrcDir3>lib\doxygen\</GenExtraFileSrcDir3>
-      <XtraAge5>1190549926</XtraAge5>
-      <XtraAge6>1190549926</XtraAge6>
-      <XtraAge8>1190549926</XtraAge8>
+      <XtraAge5>1195013568</XtraAge5>
+      <XtraAge6>1195013568</XtraAge6>
+      <XtraAge8>1195013568</XtraAge8>
       <GenExtraFileType8>4</GenExtraFileType8>
       <GenExtraFileType7>4</GenExtraFileType7>
       <GenExtraFileType6>4</GenExtraFileType6>
@@ -53,7 +53,6 @@
       <GenExtraFileType3>5</GenExtraFileType3>
       <GenExtraFileType2>4</GenExtraFileType2>
       <GenExtraFileType1>4</GenExtraFileType1>
-      <GenExtraFileType0>4</GenExtraFileType0>
       <GenLinkedFiles lines_count="0" />
       <SynchronizedStaticFile>
         <SrcFileName>C:\Freescale\CW MCU v10.6\MCU\ProcessorExpert\lib\Kinetis\iofiles\MKL25Z4.h</SrcFileName>
@@ -200,15 +199,6 @@
         <NotCreatedByDefault>false</NotCreatedByDefault>
       </SynchronizedStaticFile>
       <SynchronizedStaticFile>
-        <SrcFileName>C:\Freescale\CW MCU v10.6\MCU\ProcessorExpert\lib\Kinetis\pdd\inc\SIM_PDD.h</SrcFileName>
-        <OrigSrcFileHash>A61561AA4BDBA2C6DC71DC23DDFB1A960C2B4B6FD487F56DC777A2E8B61A047E0EDC14D9723E20DAA75AE39B8A52332A9D37EEB1E5AEFCB5D5F11B04CC452B75</OrigSrcFileHash>
-        <ReviewedSrcFileHash>A61561AA4BDBA2C6DC71DC23DDFB1A960C2B4B6FD487F56DC777A2E8B61A047E0EDC14D9723E20DAA75AE39B8A52332A9D37EEB1E5AEFCB5D5F11B04CC452B75</ReviewedSrcFileHash>
-        <PrjFileName>Static_Code\PDD\SIM_PDD.h</PrjFileName>
-        <PrjFileHash>A61561AA4BDBA2C6DC71DC23DDFB1A960C2B4B6FD487F56DC777A2E8B61A047E0EDC14D9723E20DAA75AE39B8A52332A9D37EEB1E5AEFCB5D5F11B04CC452B75</PrjFileHash>
-        <NoMoreGenerated>false</NoMoreGenerated>
-        <NotCreatedByDefault>false</NotCreatedByDefault>
-      </SynchronizedStaticFile>
-      <SynchronizedStaticFile>
         <SrcFileName>C:\Freescale\CW MCU v10.6\MCU\ProcessorExpert\lib\Kinetis\pdd\inc\SPI_PDD.h</SrcFileName>
         <OrigSrcFileHash>9AA57D479C3DD2F9BE60DA6B469AA8E9EC45BB659CEDD59E9531237C9D20C4837F69255643D7D834E216E5CECE9B1A0E79E5543688ED51C618818ACA7DA3E0C4</OrigSrcFileHash>
         <ReviewedSrcFileHash>9AA57D479C3DD2F9BE60DA6B469AA8E9EC45BB659CEDD59E9531237C9D20C4837F69255643D7D834E216E5CECE9B1A0E79E5543688ED51C618818ACA7DA3E0C4</ReviewedSrcFileHash>
@@ -298,8 +288,8 @@
     <GenComponentVersion>01.025</GenComponentVersion>
     <GenDriverVersion>01.04</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1190549926</HeaderAge>
-    <CodeAge>1190549926</CodeAge>
+    <HeaderAge>1195013568</HeaderAge>
+    <CodeAge>1195013568</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>11</GenNumMethods>
     <SetClockConfiguration>false</SetClockConfiguration>
@@ -344,10 +334,18 @@
     <OnLLSWakeUpINT_Selected>0</OnLLSWakeUpINT_Selected>
     <OnLLSWakeUpINT_Name>Cpu_OnLLSWakeUpINT</OnLLSWakeUpINT_Name>
     <OnLLSWakeUpINT_Priority>interrupts disabled</OnLLSWakeUpINT_Priority>
+    <ISR_PMCISRnameLVD />
+    <ISR_ISRnameNMI />
     <ISR_ISRDefaultName>isr_default</ISR_ISRDefaultName>
     <ISR_ISRnameINITPC>_startup</ISR_ISRnameINITPC>
-    <ISR_ISRnameSVCall>SwitchContextToFirstTask</ISR_ISRnameSVCall>
-    <ISR_ISRnamePendSV>SwitchContext</ISR_ISRnamePendSV>
+    <ISR_ISRnameHardfault />
+    <ISR_ISRnameMPU />
+    <ISR_ISRnameBusFault />
+    <ISR_ISRnameUsageFault />
+    <ISR_ISRnameSVCall />
+    <ISR_ISRnamePendSV />
+    <ISR_ISRnameLossOfLock />
+    <ISR_LLWUISRHandleCommon />
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
@@ -370,8 +368,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190549926</HeaderAge>
-    <CodeAge>1190549926</CodeAge>
+    <HeaderAge>1195013568</HeaderAge>
+    <CodeAge>1195013568</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -388,8 +386,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190549926</HeaderAge>
-    <CodeAge>1190549926</CodeAge>
+    <HeaderAge>1195013568</HeaderAge>
+    <CodeAge>1195013568</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -406,8 +404,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190549926</HeaderAge>
-    <CodeAge>1190549926</CodeAge>
+    <HeaderAge>1195013568</HeaderAge>
+    <CodeAge>1195013568</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -424,8 +422,8 @@
     <GenComponentVersion>02.023</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1190549926</HeaderAge>
-    <CodeAge>1190549926</CodeAge>
+    <HeaderAge>1195013568</HeaderAge>
+    <CodeAge>1195013568</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>0</GenNumMethods>
     <GenNumEvents>0</GenNumEvents>
@@ -507,7 +505,7 @@
     <SrcFile67>Drivers\Common\InitReg8.prg=1116866294</SrcFile67>
     <SrcFile68>Drivers\Kinetis\IsSupported_FTM_PDD.prg=1146382935</SrcFile68>
     <SrcFile69>Drivers\Common\CommonInitialization.prg=1116866294</SrcFile69>
-    <SrcFile70>lib\doxygen\pex.doxyfile=1189692387</SrcFile70>
+    <SrcFile70>lib\doxygen\pex.doxyfile=1146368599</SrcFile70>
     <SrcFile71>Drivers\Common\RTOSAdaptor.prg=1116866294</SrcFile71>
     <SrcFile72>Drivers\Kinetis\IsSupported_NFC_PDD.prg=1119719549</SrcFile72>
     <SrcFile73>Drivers\Kinetis\IsSupported_UART0_PDD.prg=1146382935</SrcFile73>
@@ -533,7 +531,7 @@
     <SrcFile93>Drivers\Kinetis\Init_MPU_KINETIS.prg=1146382935</SrcFile93>
     <SrcFile94>Drivers\Kinetis\IsSupported_RCM_PDD.prg=1146382935</SrcFile94>
     <SrcFile95>Drivers\Kinetis\IsSupported_ENET_PDD.prg=1146382935</SrcFile95>
-    <SrcFile96>Drivers\Kinetis\Init_MCM_KINETIS.prg=1154514675</SrcFile96>
+    <SrcFile96>Drivers\Kinetis\Init_MCM_KINETIS.prg=1128496915</SrcFile96>
     <SrcFile97>Drivers\Common\PE_LDD.prg=1124477581</SrcFile97>
     <SrcFile98>Drivers\Common\HeaderFreescale.h=1116866294</SrcFile98>
     <SrcFile99>Drivers\Kinetis\IsSupported_FTFL_PDD.prg=1146382935</SrcFile99>

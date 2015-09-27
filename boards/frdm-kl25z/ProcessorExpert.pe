@@ -2,11 +2,11 @@
 <PEproject>
   <Header>
     <Name>frdm-kl25z</Name>
-    <SavedBy>Universidade Federal</SavedBy>
+    <SavedBy>Gisele</SavedBy>
     <ModificationStamp>7</ModificationStamp>
-    <Date>2015-07-22</Date>
+    <Date>2015-09-26</Date>
     <IDE>Eclipse IDE</IDE>
-    <PEversion>1.9.2.RT6_b1446-0504</PEversion>
+    <PEversion>1.9.0.RT6_b1411-0406</PEversion>
   </Header>
   <Options>
     <ProjectMainModule>main</ProjectMainModule>

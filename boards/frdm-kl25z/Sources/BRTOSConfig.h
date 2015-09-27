@@ -21,9 +21,6 @@
 /// Define Thread-Metric use
 #define THREAD_METRIC 			0
 
-/// Define if simulation or DEBUG
-#define DEBUG 					1
-
 /// Define if verbose info is available
 #define VERBOSE 				0
 
@@ -72,6 +69,8 @@
 
 /// Enable or disable semaphore controls
 #define BRTOS_SEM_EN           1
+
+#define BRTOS_BINARY_SEM_EN		1
 
 /// Enable or disable mutex controls
 #define BRTOS_MUTEX_EN         1

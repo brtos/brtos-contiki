@@ -60,21 +60,21 @@
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/common/kinetis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/driver&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/USB/driver/kinetis&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/ADC&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/includes&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../hal/GCC_CORTEX-M0&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/rpl&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ip&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos/cpu&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../libs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/examples/rpl-border-router&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/sys&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/lib&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/dev&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/cfs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos/boards&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-examples/ipv6/rpl-border-router&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/cpu&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/boards&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Sources/drivers/CoX_Peripheral/inc&quot;"/>
 								</option>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections.1254622906" name="Function sections (-ffunction-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.functionsections" value="true" valueType="boolean"/>
 								<option id="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections.1515179762" name="Data sections (-fdata-sections)" superClass="org.eclipse.cdt.cross.arm.gnu.c.compiler.option.optimization.datasections" value="true" valueType="boolean"/>
@@ -324,11 +324,13 @@
 					</folderInfo>
 					<fileInfo id="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug.380910533..settings/com.freescale.processorexpert.core.prefs" name="com.freescale.processorexpert.core.prefs" rcbsApplicability="disable" resourcePath=".settings/com.freescale.processorexpert.core.prefs" toolsToInvoke=""/>
 					<sourceEntries>
-						<entry excluding="FatFS|devices|boards|app|Sources/Vectors.c|Sources/drivers/utils.c|Sources/USB/cdc/debug_stack.c|libs|contiki|GCC_CORTEX-M0|brtos|.settings/com.freescale.processorexpert.core.prefs" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Sources/drivers/CoX_Peripheral/src/xi2c.c|brtos-contiki-platform|brtos-contiki-examples|FatFS|devices|boards|app|Sources/Vectors.c|Sources/drivers/utils.c|Sources/USB/cdc/debug_stack.c|libs|contiki|GCC_CORTEX-M0|brtos|.settings/com.freescale.processorexpert.core.prefs" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="GCC_CORTEX-M0"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="app"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos"/>
-						<entry excluding="core/net/ipv6/sicslowpan.c|platform/kl25z|core/net/llsec/noncoresec|core/net/http-socket|core/loader|core/ctk|core/cfs/cfs-xmem.c|core/cfs/cfs-ram.c|core/cfs/cfs-posix-dir.c|core/cfs/cfs-posix.c|core/cfs/cfs-eeprom.c|apps/webserver|core/net/ipv4|core/net/ip64" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-examples"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-platform"/>
+						<entry excluding="core/cfs/cfs-coffee.c|tools|regression-tests|platform|apps|examples|doc|dev|cpu|core/net/ipv6/sicslowpan.c|platform/kl25z|core/net/llsec/noncoresec|core/net/http-socket|core/loader|core/ctk|core/cfs/cfs-xmem.c|core/cfs/cfs-ram.c|core/cfs/cfs-posix-dir.c|core/cfs/cfs-posix.c|core/cfs/cfs-eeprom.c|apps/webserver|core/net/ipv4|core/net/ip64" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
 					</sourceEntries>
 				</configuration>
