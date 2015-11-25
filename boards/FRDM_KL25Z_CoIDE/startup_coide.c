@@ -154,7 +154,7 @@ void SwitchContextToFirstTask(void);
 void SwitchContext(void);
 void TickTimer(void);
 extern void USB_ISR(void);
-//void Radio_Interrupt(void);
+void Radio_Interrupt(void);
 
 //
 // The minimal vector table for a Cortex M0+.  Note that the proper constructs
@@ -212,8 +212,7 @@ void (* const g_pfnVectors[])(void) =
     LPTMRIntHandler,
     0,                                      // Reserved
     PORTAIntHandler,                        // PORTA handler
-    PORTDIntHandler,                        // PORTA handler
-    //Radio_Interrupt,                        // PORTD handler
+    Radio_Interrupt,                        // PORTD handler
     0,                                      // Reserved
     0,                                      // Reserved
     0,                                      // Reserved

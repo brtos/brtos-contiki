@@ -23,6 +23,8 @@ typedef unsigned long long clock_time_t;
 #define CLOCK_CONF_SECOND 	1000
 #define INFINITE_TIME 	 	ULONG_MAX
 
+//#define SLIP_CONF_ANSWER_MAC_REQUEST	1
+
 #ifndef HAVE_STDINT
 #define HAVE_STDINT 1
 #endif
@@ -127,7 +129,12 @@ typedef uint16_t 	uip_stats_t;
 #define UIP_CONF_DS6_ADDR_NBU    		4
 #define UIP_CONF_DS6_MADDR_NBU   		0
 #define UIP_CONF_DS6_AADDR_NBU   		0
-#define NETSTACK_CONF_NETWORK			rime_driver //null_network_driver //sicslowpan_driver
+#define NETSTACK_CONF_NETWORK			sicslowpan_driver//null_network_driver //sicslowpan_driver //rime_driver
+#define NETSTACK_CONF_FRAMER			framer_802154
+#define NETSTACK_CONF_MAC               nullmac_driver
+#define NETSTACK_CONF_RDC               nullrdc_driver
+#define NETSTACK_CONF_RADIO             mrf24j40_driver//mrf24j40_driver
+#define LINKADDR_CONF_SIZE              8
 #else
 #define UIP_CONF_IP_FORWARD          1
 #endif /* NETSTACK_CONF_WITH_IPV6 */
@@ -158,6 +165,5 @@ int strcasecmp(const char*, const char*);
 #if PROJECT_CONF_H
 #include "project-conf.h"
 #endif /* PROJECT_CONF_H */
-
 
 #endif /* CONTIKI_CONF_H_ */

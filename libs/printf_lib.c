@@ -24,7 +24,6 @@
 	replace outbyte(c) by your own function call.
 
 */
-#pragma warn_implicitconv off
 
 #include <stdarg.h>
 #include "printf_lib.h"

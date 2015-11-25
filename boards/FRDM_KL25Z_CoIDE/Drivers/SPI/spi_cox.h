@@ -16,8 +16,8 @@ void init_SPI(unsigned char spi);
 
 
 #if (ENABLE_SPI0 == TRUE)
-extern void SPI0_SendChar(unsigned char data);
-extern unsigned char SPI0_GetChar(void);
+void SPI0_SendChar(INT8U *data, int size);
+void SPI0_GetChar(INT8U *data, int size);
 #endif
 
 

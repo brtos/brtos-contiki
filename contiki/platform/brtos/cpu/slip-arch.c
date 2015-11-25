@@ -62,6 +62,10 @@ slip_arch_init(unsigned long ubr)
 
 #define SLIP_END     0300
 
+unsigned char buffer_send[256];
+unsigned char buffer_send_i = 0;
+
+
 /*-----------------------------------------------------------------------------------*/
 void
 slip_arch_writeb(unsigned char c)
@@ -83,6 +87,7 @@ slip_arch_writeb(unsigned char c)
 
 #if (SLIP_COMM == SLIP_UART)
 	(void)UARTPutChar(0x4006A000, (char)c);
+	buffer_send[buffer_send_i++]=c;
 #endif
 	
 }

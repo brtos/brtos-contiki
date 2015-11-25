@@ -1,5 +1,5 @@
 #include "BRTOS.h"
-#include "SPI.h"
+#include "spi_cox.h"
 
 #if (ENABLE_SPI0 == TRUE)
 INT8U SPI0Data = 0;
@@ -96,24 +96,31 @@ void init_SPI(INT8U spi)
 
 #if (ENABLE_SPI0 == TRUE)
 // Função para enviar dados pela porta SPI
-void SPI0_SendChar(INT8U data)
+void SPI0_SendChar(INT8U *data, int size)
 {
-  while(!(SPI0_S & SPI_S_SPTEF_MASK)){};	/* wait until transmit buffer is empty*/
+  do{
+	  while(!(SPI0_S & SPI_S_SPTEF_MASK)){};	/* wait until transmit buffer is empty*/
 
-  (void)SPI0_S;
-  SPI0_D = data;							/* Transmit counter*/
+	  (void)SPI0_S;
+	  SPI0_D = *data;							/* Transmit counter*/
 
-  while(!(SPI0_S & SPI_S_SPRF_MASK)){};		/* wait until receive buffer is full*/
+	  while(!(SPI0_S & SPI_S_SPRF_MASK)){};		/* wait until receive buffer is full*/
 
-  (void)SPI0_S;								// Acknowledge flag
-  SPI0Data = SPI0_D;                        // Acknowledge flag
+	  (void)SPI0_S;								// Acknowledge flag
+	  SPI0Data = SPI0_D;                        // Acknowledge flag
+	  size--;
+  }while(size);
 }
 
 
-INT8U SPI0_GetChar(void)
+void SPI0_GetChar(INT8U *data, int size)
 {
-    SPI0_SendChar(0xFF);
-    return SPI0Data;
+	INT8U send = 0xFF;
+	do{
+		SPI0_SendChar(&send,1);
+		*data++ = SPI0Data;
+		size--;
+	}while(size);
 }
 
 #endif
