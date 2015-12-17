@@ -899,6 +899,8 @@ void MRF24J40_ISR(void)
   ENERGEST_OFF(ENERGEST_TYPE_IRQ);
 }
 
+extern BRTOS_Sem *Contiki_Sem;
+
 #if (NESTING_INT == 1)
 #if PROCESSOR == COLDFIRE_V1
 #pragma TRAP_PROC SAVE_NO_REGS
@@ -917,6 +919,7 @@ void Radio_Interrupt(void)
 #endif
 
   MRF24J40_ISR();
+  OSSemPost(Contiki_Sem);
 
   // ************************
   // Saída de interrupção

@@ -363,7 +363,7 @@ PROCESS_THREAD(border_router_process, ev, data)
 #endif
 
   /* Request prefix until it has been received */
-#if 0
+#if 1
   while(!prefix_set) {
     etimer_set(&et, CLOCK_SECOND);
     request_prefix();

@@ -102,7 +102,7 @@ void SPI0_SendChar(INT8U *data, int size)
 	  while(!(SPI0_S & SPI_S_SPTEF_MASK)){};	/* wait until transmit buffer is empty*/
 
 	  (void)SPI0_S;
-	  SPI0_D = *data;							/* Transmit counter*/
+	  SPI0_D = *data++;							/* Transmit counter*/
 
 	  while(!(SPI0_S & SPI_S_SPRF_MASK)){};		/* wait until receive buffer is full*/
 

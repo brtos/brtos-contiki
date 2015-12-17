@@ -64,6 +64,13 @@ void clock_delay(unsigned int delay)
 
 }
 
+void clock_delay_usec(uint16_t dt){
+    int i=0;
+	for(i=0;i<dt*6;i++)
+    {
+    };
+}
+
 /* BRTOS Timer Hook is used to implement Contiki's clock */
 extern BRTOS_Sem *Contiki_Sem;
 
