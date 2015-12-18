@@ -33,7 +33,7 @@ extern "C"
 #endif
 
 #if (SLIP_COMM == SLIP_UART)
-#include "virtual_com.h"
+//#include "virtual_com.h"
 #endif
 #endif
 

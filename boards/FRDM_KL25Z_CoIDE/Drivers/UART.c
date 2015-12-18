@@ -32,7 +32,7 @@ BRTOS_Queue  *Serial2;
 #include "slip.h"
 extern BRTOS_Sem *Contiki_Sem;
 
-unsigned char buffer_rcvd[256];
+unsigned char buffer_rcvd[UIP_CONF_BUFFER_SIZE];
 unsigned char buffer_rcvd_i = 0;
 
 unsigned long USART0IntHandler(void *pvCBData,

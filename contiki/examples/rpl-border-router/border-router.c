@@ -45,7 +45,10 @@
 #include "net/netstack.h"
 #include "dev/button-sensor.h"
 #include "dev/slip.h"
+
+#if (BRTOS_PLATFORM != BOARD_FRDM_KL25Z)
 #include "virtual_com.h"
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
