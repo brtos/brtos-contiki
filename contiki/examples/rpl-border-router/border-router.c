@@ -58,6 +58,8 @@
 #define DEBUG DEBUG_NONE
 #include "net/ip/uip-debug.h"
 
+uint16_t dag_id[] = {0x1111, 0x1100, 0, 0, 0, 0, 0, 0x0011};
+
 static uip_ipaddr_t prefix;
 static uint8_t prefix_set;
 
@@ -89,9 +91,9 @@ AUTOSTART_PROCESSES(&border_router_process,&webserver_nogui_process);
  * and multiple connections can result in garbled segments.
  * TODO:use PSOCk_GENERATOR_SEND and tcp state storage to fix this.
  */
-#define WEBSERVER_CONF_ROUTE_LINKS 1
+#define WEBSERVER_CONF_ROUTE_LINKS 0
 #if WEBSERVER_CONF_ROUTE_LINKS
-#define BUF_USES_STACK 0
+#define BUF_USES_STACK 1
 #endif
 
 PROCESS(webserver_nogui_process, "Web server");
@@ -341,6 +343,7 @@ set_prefix_64(uip_ipaddr_t *prefix_64)
 PROCESS_THREAD(border_router_process, ev, data)
 {
   static struct etimer et;
+  rpl_dag_t *dag;
 
   PROCESS_BEGIN();
 
@@ -374,12 +377,18 @@ PROCESS_THREAD(border_router_process, ev, data)
   }
 #endif
 
+  dag = rpl_set_root(RPL_DEFAULT_INSTANCE,(uip_ip6addr_t *)dag_id);
+  if(dag != NULL) {
+    rpl_set_prefix(dag, &prefix, 64);
+    PRINTF("created a new RPL dag\n");
+  }
+
   /* Now turn the radio on, but disable radio duty cycling.
    * Since we are the DAG root, reception delays would constrain mesh throughbut.
    */
   NETSTACK_MAC.off(1);
 
-#if DEBUG
+#if DEBUG || 1
   print_local_addresses();
 #endif
 
