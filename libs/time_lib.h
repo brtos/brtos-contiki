@@ -21,8 +21,10 @@
 #include "BRTOS.h"
 #include <time.h>
 
-#if PROCESSOR == COLDFIRE_V1
-typedef INT32U time_t;
+#if (PROCESSOR == COLDFIRE_V1)
+	#if !__GNUC__
+		typedef INT32U time_t;
+	#endif
 #elif PROCESSOR == ARM_Cortex_M0
 typedef INT32S time_t;
 #endif
@@ -62,9 +64,12 @@ struct tm
 };
 #endif
 
+#if !__GNUC__
 time_t mktime(struct tm *tmbuf);
 struct tm *localtime(const time_t *timer);
 size_t strftime(char *s, size_t maxsize, const char *format, const struct tm *t);
+#endif
+
 #if 0
 time_t ConvertDateTimeToUnixTime(OSDateTime * dt);
 #endif

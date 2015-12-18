@@ -21,14 +21,16 @@
  * Includes
  *****************************************************************************/
 #include "BRTOS.h"
-#include "hidef.h"          		/* for EnableInterrupts macro */
-#include "derivative.h"     		/* include peripheral declarations */
+#include "hardware.h"     		/* include peripheral declarations */
 #include "types.h"          		/* Contains User Defined Data Types */
 #include "usb_cdc.h"        		/* USB CDC Class Header File */
-#include "usb_terminal.h"			/* Informs the size of the terminal buffer */
-#include "usb_terminal_commands.h"	/* USB terminal commands - functions */
+#include "terminal.h"			/* Informs the size of the terminal buffer */
+#include "terminal_commands.h"		/* Terminal commands - functions */
 #include "virtual_com.h"    		/* Virtual COM Application Header File */
+
+#ifdef _WIN32
 #include <stdio.h>
+#endif
 
 #if (defined _MCF51MM256_H) || (defined _MCF51JE256_H) || (defined _MCF51JE128_H)
 #include "exceptions.h"
@@ -43,11 +45,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-#include "slip.h"
-extern BRTOS_Sem *Contiki_Sem;
-
-
 /*****************************************************************************
  * Constant and Macro's - None
  *****************************************************************************/
@@ -55,7 +52,6 @@ extern BRTOS_Sem *Contiki_Sem;
 /*****************************************************************************
  * Global Functions Prototypes
  *****************************************************************************/
-void TestApp_Init(void);
 
 /****************************************************************************
  * Global Variables
@@ -71,7 +67,6 @@ static void USB_App_Callback(uint_8 controller_ID,
                         uint_8 event_type, void* val);
 static void USB_Notify_Callback(uint_8 controller_ID,
                         uint_8 event_type, void* val);
-static void Virtual_Com_App(void);
 /*****************************************************************************
  * Local Variables
  *****************************************************************************/
@@ -121,10 +116,10 @@ void CDC_Init(void)
   	if (OSSemCreate(0,&USB_Sem) != ALLOC_EVENT_OK)
     {
         while(1){};
-     };
+    };
   	
   	// Cria uma fila de recepcao para a porta serial
-  	if (OSQueueCreate(&USBRXBuffer,USB_BUFFER_SIZE, &USB) != ALLOC_EVENT_OK)
+  	if (OSQueueCreate(CONSOLE_BUFFER_SIZE, &USB) != ALLOC_EVENT_OK)
   	{
   		while(1){};
   	};	    
@@ -166,15 +161,18 @@ void cdc_process(void)
 {
     static uint_8 status 	 = 0;
     uint_8 		  sem_status = 0;
-	uint_8 size = g_send_size;
+	uint_8 size;
+
+	size = g_send_size;
+	
+	g_send_size = 0;
 	
     /*check whether enumeration is complete or not */
      if((start_app==TRUE) && (start_transactions==TRUE))
      {	
-		g_send_size = 0;
 		
 		UserEnterCritical();
-		is_message_sent = 1;
+			is_message_sent = 1;
 		UserExitCritical();
 		
 		status = USB_Class_CDC_Interface_DIC_Send_Data(CONTROLLER_ID, g_curr_send_buf,size);
@@ -183,7 +181,7 @@ void cdc_process(void)
 		if (sem_status != OK)
 		{
 			UserEnterCritical();
-			is_message_sent = 0;
+				is_message_sent = 0;
 			UserExitCritical();
 		}
 		
@@ -192,13 +190,16 @@ void cdc_process(void)
             /* Send Data Error Handling Code goes here */
         	status = 0;
         }		
-     }else
+     }
+#if 0     
+     else
      {
     	  while(GetStart_transactions() == FALSE)
     	  {
     		  DelayTask(100);
     	  }
      }
+#endif     
 }
 
 unsigned char GetStart_transactions(void)
@@ -229,13 +230,10 @@ unsigned char cdc_putch(char c)
   if (g_send_size < sizeof(g_curr_send_buf))
   {
 	g_curr_send_buf[g_send_size++]=(unsigned char)c;
-	
-#if 0	
     if (c == '\r')
     {
       cdc_process();
     }	
-#endif    
   }
   else
   {
@@ -244,6 +242,55 @@ unsigned char cdc_putch(char c)
   }
   return((uint_8)r);
 }
+
+/*****************************************************************************
+* Name:
+*    putchar_usb
+* In:
+*    c: character to be sent
+* Out:
+*
+* Description:
+*    Put one character into tx_buffer.
+*
+* Assumptions:
+*    --
+*****************************************************************************/
+void putchar_usb(char c)
+{    
+    if(GetStart_transactions() == FALSE) return;
+	while(c != (char)cdc_putch(c))
+	{
+		DelayTask(5);
+	}
+}
+
+/*****************************************************************************
+* Name:
+*    printf_usb
+* In:
+*    s: string to be sent
+* Out:
+*
+* Description:
+*    Put one string into tx_buffer.
+*
+* Assumptions:
+*    --
+*****************************************************************************/
+void printf_usb(char *s)
+{
+  while(*s)
+  {
+#if 0      
+	  while(*s != (char)cdc_putch(*s)){};
+#else
+	putchar_usb(*s);
+#endif				
+      s++;
+  }
+}
+
 
 /******************************************************************************
  *
@@ -290,33 +337,21 @@ static void USB_App_Callback (
         BytesToBeCopied = (USB_PACKET_SIZE)((dp_rcv->data_size > DATA_BUFF_SIZE) ?
                                       DATA_BUFF_SIZE:dp_rcv->data_size);
         
-        if (BytesToBeCopied <= DATA_BUFF_SIZE)
-        {
-			for(index = 0; index<BytesToBeCopied ; index++)
-			{            
-				//if (dp_rcv->data_ptr[index] != 0)
-				//{
-#if 0				
-					if (OSQueuePost(USB, dp_rcv->data_ptr[index]) == BUFFER_UNDERRUN)
-					{
-					  // Buffer overflow 		
-#if ENABLE_BUF_OVF_ERR
-					   while(1){
-						   __RESET_WATCHDOG();
-					   }
-#endif					   
-					}
-#else
-					if (slip_input_byte(dp_rcv->data_ptr[index]) == 1) 
-					{
-						OSSemPost(Contiki_Sem);
-					}
-#endif
-				//}
+
+		for(index = 0; index<BytesToBeCopied ; index++)
+		{
+			if (dp_rcv->data_ptr[index] != 0)
+			{
+				if (OSQueuePost(USB, dp_rcv->data_ptr[index]) == BUFFER_UNDERRUN)
+				{
+				  break;
+				}
 			}
-			/* Previous Send is complete. Queue next receive */
-			(void)USB_Class_CDC_Interface_DIC_Recv_Data(CONTROLLER_ID, NULL, 0);
-        }
+		}
+
+		/* Previous Send is complete. Queue next receive */
+		(void)USB_Class_CDC_Interface_DIC_Recv_Data(CONTROLLER_ID, NULL, 0);
+
     }
     else if((event_type == USB_APP_SEND_COMPLETE) && (start_transactions == TRUE))
     {

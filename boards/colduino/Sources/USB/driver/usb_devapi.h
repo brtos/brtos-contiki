@@ -39,8 +39,7 @@
  * Includes
  *****************************************************************************/
 #include "types.h"          /* User Defined Data Types */
-#include "hidef.h"          /* for EnableInterrupts macro */
-#include "derivative.h"     /* include peripheral declarations */
+#include "hardware.h"     /* include peripheral declarations */
 #include "user_config.h"    /* User Configuration File */
 /******************************************************************************
  * Constants - None
@@ -257,7 +256,7 @@ typedef struct _USB_EP_STRUCT
 
 #if defined(__CWCC__)
 #pragma options align=reset
-#elif defined(__IAR_SYSTEMS_ICC__)
+#elif defined(__IAR_SYSTEMS_ICC__) || defined(__GNUC__)
 #pragma pack()
 #endif
 

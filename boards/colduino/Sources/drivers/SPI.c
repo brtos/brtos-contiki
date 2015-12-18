@@ -1,3 +1,27 @@
+/* The License
+ * 
+ * Copyright (c) 2015 Universidade Federal de Santa Maria
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+
+*/
+
 /**
 * \file SPI.c
 * \brief Serial peripheral interface (SPI) driver.
@@ -10,8 +34,11 @@
 #include "hardware.h"
 #include "spi.h"
 #include "BRTOS.h"
+#include "utils.h"
 
+#if !__GNUC__
 #pragma warn_implicitconv off
+#endif
 
 
 #if (ENABLE_SPI1 == TRUE)
@@ -51,7 +78,13 @@ void init_SPI(INT8U spi)
         
         /* SPI1C1: SPIE=0,SPE=0,SPTIE=0,MSTR=1,CPOL=0,CPHA=0,SSOE=0,LSBFE=0 */
         SPI1C1 = 0x10;
+
+        /* SPI System Enable */
+#if __GNUC__
+        BITSETMASK(SPI1C1,SPI1C1_SPE_MASK);
+#else
         SPI1C1_SPE = 1;
+#endif
         
         (void)SPI1S;  
       }
@@ -79,8 +112,12 @@ void init_SPI(INT8U spi)
         
         /* SPI1C1: SPIE=0,SPE=0,SPTIE=0,MSTR=1,CPOL=0,CPHA=0,SSOE=0,LSBFE=0 */
         SPI2C1 = 0x10;
+
+#if __GNUC__
+        BITSETMASK(SPI2C1,SPI2C1_SPE_MASK);
+#else
         SPI2C1_SPE = 1;
-        
+#endif
         (void)SPI2S;  
       }
       #endif      
@@ -94,12 +131,24 @@ void init_SPI(INT8U spi)
 // Função para enviar dados pela porta SPI
 void SPI1_SendChar(INT8U data)
 {
-  while (!SPI1S_SPTEF){};               /* wait until transmit buffer is empty*/
+	/* wait until transmit buffer is empty*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI1S,SPI1S_SPTEF_MASK))){};
+	#else
+		 while (!SPI1S_SPTEF){};
+	#endif
+
   
   (void)SPI1S;
   SPI1D = data;                         /* Transmit counter*/ 
   
-  while (!SPI1S_SPRF){};                  /* wait until receive buffer is full*/
+  	/* wait until receive buffer is full*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI1S,SPI1S_SPRF_MASK))){};
+	#else
+		 while (!SPI1S_SPRF){};
+	#endif
+
     
   (void)SPI1S;                            // Acknowledge flag
   SPI1Data = SPI1D;                        // Acknowledge flag  
@@ -119,12 +168,22 @@ INT8U SPI1_GetChar(void)
 // Função para enviar dados pela porta SPI
 void SPI2_SendChar(INT8U data)
 {
-  while (!SPI2S_SPTEF){};               /* wait until transmit buffer is empty*/
+	/* wait until transmit buffer is empty*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI2S,SPI2S_SPTEF_MASK))){};
+	#else
+		 while (!SPI2S_SPTEF){};
+	#endif
   
   (void)SPI2S;
   SPI2D = data;                         /* Transmit counter*/ 
   
-  while (!SPI2S_SPRF){};                /* wait until receive buffer is full*/
+	/* wait until receive buffer is full*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI2S,SPI2S_SPRF_MASK))){};
+	#else
+		 while (!SPI2S_SPRF){};
+	#endif
     
   (void)SPI2S;                          // Acknowledge flag
   SPI2Data = SPI2D;                     // Acknowledge flag  

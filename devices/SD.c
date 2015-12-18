@@ -1,46 +1,50 @@
-/******************************************************************************
-*                                                  
-*  (c) copyright Freescale Semiconductor 2008
-*  ALL RIGHTS RESERVED
-*
-*  File Name:   SD.c
-*                                                                          
-*  Description: SD Card using SPI Driver 
-*                                                                                     
-*  Assembler:   Codewarrior for HC(S)08 V6.1
-*                                            
-*  Version:     1.0                                                         
-*                                                                                                                                                         
-*  Author:      Jose Ruiz (SSE Americas)
-*                                                                                       
-*  Location:    Guadalajara,Mexico                                              
-*                                                                                                                  
-*                                                  
-* UPDATED HISTORY:
-*
-* REV   YYYY.MM.DD  AUTHOR            DESCRIPTION OF CHANGE
-* ---   ----------  ------            --------------------- 
-* 1.0   2008.02.18  Jose Ruiz         Initial version
-* 1.1   2010.09.14  Gustavo Denardin  SD_Write_Block timer fixes (#001)
-* 
-******************************************************************************/
+/* The License
+ * 
+ * Copyright (c) 2015 Universidade Federal de Santa Maria
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
 
-#pragma warn_implicitconv off
-
+*/
 /* Includes */
 #include "SD.h"
 #include "BRTOS.h"
 #include "drivers.h"
 
+#if PLATAFORMA == COLDUINO
+#if !__GNUC__
+#pragma warn_implicitconv off
+#endif
+#else
+uint8_t dummy;
+#endif
+
+
+
 static volatile DSTATUS   Stat             = STA_NOINIT;	/* Disk status */
-static volatile Timer                      = 0;           /* Read/Write timer */
+static volatile int Timer                      = 0;           /* Read/Write timer */
 #ifdef USE_OS
   static volatile INT16U    Timer1;	                      /* 100Hz decrement timer */
   static volatile INT8U     Timer2;
 #else
   static volatile INT8U     Timer1, Timer2;	              /* 100Hz decrement timer */
 #endif
-static          INT8U      CardType;			                  /* Card type flags */
+static          BYTE      CardType;			                  /* Card type flags */
 //static volatile BYTE      SPIData          = 0;
 
 
@@ -73,7 +77,7 @@ void xmit_spi(INT8U dat)
 /* Receive a byte from MMC via SPI  (Platform dependent)                 */
 /*-----------------------------------------------------------------------*/
 
-static INT8U rcvr_spi (void)
+static BYTE rcvr_spi (void)
 {
 	BYTE SPIData = SPI1_GetChar();
 	return SPIData;
@@ -168,10 +172,19 @@ void power_on (void)
 	//PORTE &= ~0x80;				/* Socket power on */
     
   // Wait power up stabilization
-  DelayTask(500);    
+	#if COLDUINO  
+		DelayTask(500);    
+	#endif
   
-  SD_CS = 1;
-  _SD_CS= 1;   
+	#if SD_CARD_PORT
+		#if __GNUC__
+			SD_SELECT_DISABLE();
+			SD_SELECT_DIR_OUT();
+		#else
+			SD_CS = 1;
+			_SD_CS= 1;
+		#endif
+	#endif
 }
 
 
@@ -180,7 +193,6 @@ void power_off (void)
 {
 	/* Disable SPI function */
 	/* Disable drivers */
-	// Deve ser implementado
 	Stat |= STA_NOINIT;
 }
 
@@ -348,6 +360,15 @@ INT8U GetCardStat(void)
 }
 
 /*-----------------------------------------------------------------------*/
+/* Get Card Stat Init                                                    */
+/*-----------------------------------------------------------------------*/
+
+INT8U GetCardInit(void)
+{
+  return ((Stat & STA_NOINIT) != STA_NOINIT);
+}
+
+/*-----------------------------------------------------------------------*/
 /* Set Card Stat                                                         */
 /*-----------------------------------------------------------------------*/
 
@@ -375,9 +396,20 @@ DSTATUS disk_initialize (
 	FCLK_SLOW();
 	
   /* Start SD card Init */
-  SD_CS=ENABLE;
+#if __GNUC__
+	SD_SELECT_ENABLE();
+#else
+	SD_CS=ENABLE;
+#endif
+
   SD_CLKDelay(20);            // Send 80 clocks 
-  SD_CS=DISABLE;
+
+#if __GNUC__
+	SD_SELECT_DISABLE();
+#else
+	SD_CS=DISABLE;
+#endif
+
 
   SD_CLKDelay(16);  
 
@@ -394,7 +426,7 @@ DSTATUS disk_initialize (
 			if (ocr[2] == 0x01 && ocr[3] == 0xAA) {				    /* The card can work at vdd range of 2.7-3.6V */
 				while (Timer1 && send_cmd(ACMD41, 1UL << 30))   /* Wait for leaving idle state (ACMD41 with HCS bit) */
 				{
-          #ifdef USE_OS
+				  #ifdef USE_OS
 				    DelayTask(1);
 				    Timer1--;
 				  #endif
@@ -677,7 +709,7 @@ void disk_timerproc (void)
 	#ifndef USE_OS
   	if (Timer1) Timer1--;
   	if (Timer2) Timer2--;
-  #else
+  	#else
     if (Timer2) Timer2--;
 	#endif
 	
@@ -723,7 +755,7 @@ void SD_CLKDelay(INT8U u8Frames)
 void GetFatTimer(INT32U *time)
 {
   UserEnterCritical();
-  *time = Timer;
+	*time = Timer;
   UserExitCritical();
 }
 
@@ -746,6 +778,8 @@ void SetFatTimer(INT32U time)
   UserExitCritical();
 }
 
+
+#if PLATAFORMA == COLDUINO
 
 // Used for MSD class
 #include "user_config.h"
@@ -915,5 +949,6 @@ void SD_Card_Info(uint_32_ptr max_blocks_ptr, uint_32_ptr block_size_ptr)
     *max_blocks_ptr = u32MaxBlocks.lword;
     *block_size_ptr = (uint_32)u16BlockSize.u16;
 }
+#endif
 
 #endif

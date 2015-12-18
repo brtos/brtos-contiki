@@ -33,11 +33,9 @@
 /******************************************************************************
  * Macro's
  *****************************************************************************/
-#define   CONTROLLER_ID      (0)   /* ID to identify USB CONTROLLER */ 
+#define  CONTROLLER_ID      (0)   /* ID to identify USB CONTROLLER */ 
 
-#define   KBI_STAT_MASK      (0x0F)
-
-#define   USB_BUFFER_SIZE  (1536)
+#define  KBI_STAT_MASK      (0x0F)
 
 /* 
    DATA_BUFF_SIZE should be greater than or equal to the endpoint buffer size, 
@@ -62,7 +60,10 @@ void cdc_process(void);
 unsigned char cdc_putch(char c);
 unsigned char GetStart_transactions(void);
 
-// Declara um ponteiro para o bloco de controle da Porta Serial
+void printf_usb(char *s);
+void putchar_usb(char c);
+
+// Declara um ponteiro para o bloco de controle da  USB
 extern BRTOS_Queue *USB;
 
 #endif 

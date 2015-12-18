@@ -47,9 +47,14 @@
 /****************************************************************************
  * Global Variables
  ****************************************************************************/
+#if __GNUC__
+__attribute__ ((section(".usb_bdt")))
+#else
 #pragma define_section usb_bdt ".usb_bdt" RW
 /* location for BDT Table and buff */
-__declspec (usb_bdt) static uint_8 g_Mem[BYTES_1024];
+__declspec (usb_bdt)
+#endif
+static uint_8 g_Mem[BYTES_1024];
 /* Pointer to BDT Map Structure */
 BDTMAP *g_bdtmap = NULL;
 /* per endpoint per direction bdt index structure */
@@ -109,7 +114,13 @@ static void Enter_StopMode(STOP_MODE stop_mode);
 static void USB_Bus_Reset_Handler (void)
 {
     ERR_STAT = ERR_STAT_CLEAR_ALL;  /* clear USB error flag */
+
+#if __GNUC__
+    BITSETMASK(CTL,CTL_ODD_RST_MASK);
+#else
     CTL_ODD_RST = 1;                /* Reset to Even buffer */
+#endif
+
     ADDR = 0;                       /* reset to default address */
     /* Select System Clock and Disable Weak Pull Downs */
     USB_CTRL = 0x03;  
@@ -127,7 +138,12 @@ static void USB_Bus_Reset_Handler (void)
     
     g_trf_direction = USB_TRF_UNKNOWN;
     
-    CTL_ODD_RST = 0;
+#if __GNUC__
+    BITCLEARMASK(CTL,CTL_ODD_RST_MASK);
+#else
+    CTL_ODD_RST = 0;                /* Reset to Odd buffer */
+#endif
+
     USBTRC0 = UCFG_VAL;             /* attach CFv1 core to USB bus */
 
     ERR_ENB = ERR_ENB_ENABLE_ALL;   /* Enable All Error Interrupts */
@@ -293,10 +309,13 @@ uint_8 USB_DCI_Init (
     
     USBTRC0 = _USBRESET;                /* Hard Reset to the USB Module */
     
+#if __GNUC__
+    while(BITTESTMASK(USBTRC0,USBTRC0_USBRESET_MASK) == 1){}
+#else
     while(USBTRC0_USBRESET == 1)        /* loop till the Reset bit clears  */
     {
     };
-    
+#endif
     #endif
      
     g_trf_direction = USB_TRF_UNKNOWN;
@@ -318,13 +337,21 @@ uint_8 USB_DCI_Init (
      USB_OTG_CONTROL |= USB_OTG_CONTROL_DPPULLUP_NONOTG_MASK;
     #endif
       
-
+#if __GNUC__
+    BITSETMASK(CTL,CTL_USB_EN_SOF_EN_MASK);
+#else
     CTL_USB_EN_SOF_EN = 1;              /* Enable USB module */
+#endif
     INT_STAT = INT_STAT_CLEAR_ALL;      /* Clear USB interrupts*/
 
+#if __GNUC__
+    BITSETMASK(INT_ENB,INT_ENB_USB_RST_EN_MASK);
+    BITSETMASK(INT_ENB,INT_ENB_SLEEP_EN_MASK);
+#else
     INT_ENB_USB_RST_EN = 1;             /* Enable USB RESET Interrupt */
     
     INT_ENB_SLEEP_EN = 1;               /* Enable USB Sleep Interrupt */
+#endif
 
     return USB_OK;
 }
@@ -346,13 +373,17 @@ uint_8 USB_DCI_DeInit(void)
 {
 	 /* Clear USB interrupts*/ 
 	 INT_STAT = INT_STAT_CLEAR_ALL; 
-	                
+
+#if __GNUC__
+    BITCLEARMASK(INT_ENB,INT_ENB_USB_RST_EN_MASK);
+    BITCLEARMASK(CTL,CTL_USB_EN_SOF_EN_MASK);
+#else
 	 /* Disable USB RESET Interrupt */
 	 INT_ENB_USB_RST_EN = 0; 
-	 
-   /* Disable USB module */ 
-   CTL_USB_EN_SOF_EN = 0; 
-           
+	 /* Disable USB module */
+	 CTL_USB_EN_SOF_EN = 0;
+#endif
+
 	 return USB_OK;
 }
 
@@ -1039,6 +1070,13 @@ void USB_DCI_Assert_Resume (
     UNUSED(handle)
     uint_16 delay_count;
 
+#if __GNUC__
+    BITCLEARMASK(USB_CTRL,USB_CTRL_SUSP_MASK);
+
+    BITCLEARMASK(USBTRC0,USBTRC0_USBRESMEN_MASK);
+
+    BITSETMASK(CTL,CTL_RESUME_MASK);
+#else
     /* Clear SUSP Bit from USB_CTRL */
     USB_CTRL_SUSP = 0;
     
@@ -1048,6 +1086,8 @@ void USB_DCI_Assert_Resume (
     USB_DCI_WAKEUP
 
     CTL_RESUME = 1;   /* Start RESUME signaling and make SUSPEND bit 0*/
+#endif
+
 
     delay_count = ASSERT_RESUME_DELAY_COUNT; /* Set RESUME line for 1-15 ms*/
      
@@ -1057,7 +1097,11 @@ void USB_DCI_Assert_Resume (
        __RESET_WATCHDOG();    /* Reset the COP */
     }while(delay_count);
 
+#if __GNUC__
+    BITCLEARMASK(CTL,CTL_RESUME_MASK);
+#else
     CTL_RESUME = 0;          /* Stop RESUME signalling */
+#endif
 
     return;
 }
@@ -1152,8 +1196,8 @@ void USB_Bus_Token_Cpl_Handler (
                3. Zero Termination Flag is TRUE
             */
             if((bdt_elem->app_len > bdt_elem->curr_offset) ||
-                    ((uint_8)event->len == bdt_elem->len) &&
-                    (bdt_elem->flag == TRUE))
+                    (((uint_8)event->len == bdt_elem->len) &&
+                    (bdt_elem->flag == TRUE)))
             {
                 /* send next Req */
                 USB_DCI_Prepare_Send_Data(buffer_dsc_alt, bdt_elem);
@@ -1323,6 +1367,18 @@ void USB_ISR_Handler(void)
     (void)_usb_device_get_status(&g_dci_controller_Id, USB_STATUS_DEVICE_STATE,
         &dev_state);
 
+#if __GNUC__
+    /* if current device state is SUSPEND and Low Power Resume Flag set */
+	if((BITTESTMASK(USBTRC0,USBTRC0_USB_RESUME_INT_MASK) == 1) && (dev_state == USB_STATE_SUSPEND))
+	{
+		/* Clear SUSP Bit from USB_CTRL */
+	    BITCLEARMASK(USB_CTRL,USB_CTRL_SUSP_MASK);
+
+		/* Reset Low Power RESUME enable */
+	    BITCLEARMASK(USBTRC0,USBTRC0_USBRESMEN_MASK);
+	}
+#else
+
     /* if current device state is SUSPEND and Low Power Resume Flag set */
     if((USBTRC0_USB_RESUME_INT == 1) && (dev_state == USB_STATE_SUSPEND))
     {
@@ -1332,6 +1388,7 @@ void USB_ISR_Handler(void)
         /* Reset Low Power RESUME enable */
         USBTRC0_USBRESMEN = 0;
     }
+#endif
 
     if(SOF_TOKEN_FLAG(intr_stat))
     {
@@ -1358,7 +1415,11 @@ void USB_ISR_Handler(void)
  
         /* Clearing this bit allows the SIE to continue token processing
            and clear suspend condition */
+#if __GNUC__
+	    BITCLEARMASK(CTL,CTL_TXSUSPEND_TOKENBUSY_MASK);
+#else
         CTL_TXSUSPEND_TOKENBUSY = 0;
+#endif
         
         /* No need to process other interrupts */
         return;
@@ -1375,7 +1436,11 @@ void USB_ISR_Handler(void)
 
         /* Clearing this bit allows the SIE to continue token processing
            and clear suspend condition */
-        CTL_TXSUSPEND_TOKENBUSY = 0;
+		#if __GNUC__
+				BITCLEARMASK(CTL,CTL_TXSUSPEND_TOKENBUSY_MASK);
+		#else
+				CTL_TXSUSPEND_TOKENBUSY = 0;
+		#endif
     }
 
     if(ERROR_FLAG(intr_stat))
@@ -1391,7 +1456,11 @@ void USB_ISR_Handler(void)
         ERR_STAT = ERR_STAT_CLEAR_ALL; /*clear all errors*/
         /* Clearing this bit allows the SIE to continue token processing
            and clear suspend condition */
-        CTL_TXSUSPEND_TOKENBUSY = 0;
+		#if __GNUC__
+				BITCLEARMASK(CTL,CTL_TXSUSPEND_TOKENBUSY_MASK);
+		#else
+				CTL_TXSUSPEND_TOKENBUSY = 0;
+		#endif
     }
 
     if(SLEEP_FLAG(intr_stat))
@@ -1405,6 +1474,15 @@ void USB_ISR_Handler(void)
         /* Notify Device Layer of SLEEP Event */
         (void)USB_Device_Call_Service(USB_SERVICE_SLEEP, &event);
 
+#if __GNUC__
+        /* Set Low Power RESUME enable */
+	    BITSETMASK(USBTRC0,USBTRC0_USBRESMEN_MASK);
+	    /* Set SUSP Bit in USB_CTRL */
+	    BITSETMASK(USB_CTRL,USB_CTRL_SUSP_MASK);
+	    /* Enable RESUME Interrupt */
+	    BITSETMASK(INT_ENB,INT_ENB_RESUME_EN_MASK);
+#else
+
         /* Set Low Power RESUME enable */
         USBTRC0_USBRESMEN = 1;
 
@@ -1413,6 +1491,8 @@ void USB_ISR_Handler(void)
         
         /* Enable RESUME Interrupt */
         INT_ENB_RESUME_EN = 1;
+
+#endif
 #ifdef USB_LOWPOWERMODE
         /* Enter Stop3 Mode*/
         Enter_StopMode(STOP_MODE3);
@@ -1426,9 +1506,13 @@ void USB_ISR_Handler(void)
 
         /* Notify Device Layer of RESUME Event */
         (void)USB_Device_Call_Service(USB_SERVICE_RESUME, &event);
-
+#if __GNUC__
+	    /* Disable RESUME Interrupt */
+	    BITCLEARMASK(INT_ENB,INT_ENB_RESUME_EN_MASK);
+#else
         /* Disable RESUME Interrupt */
         INT_ENB_RESUME_EN = 0;
+#endif
     }
 
     if(STALL_FLAG(intr_stat))
@@ -1458,22 +1542,34 @@ void USB_ISR_Handler(void)
 
         /* Clearing this bit allows the SIE to continue token processing
            and clear suspend condition */
-        CTL_TXSUSPEND_TOKENBUSY = 0;
+		#if __GNUC__
+				BITCLEARMASK(CTL,CTL_TXSUSPEND_TOKENBUSY_MASK);
+		#else
+				CTL_TXSUSPEND_TOKENBUSY = 0;
+		#endif
     }
 
     return;
 }
 
+#if !__GNUC__
 #if (NESTING_INT == 1)
 #pragma TRAP_PROC
-void USB_ISR(void)
 #else
-interrupt void USB_ISR(void)
-#endif 
+interrupt
+#endif
+#else
+__attribute__ ((__optimize__("omit-frame-pointer")))
+#endif
+void USB_ISR(void)
 {
-	  // ************************
-	  // Entrada de interrupção
-	  // ************************
+    // ************************
+    // Interrupt Entry
+    // ************************
+	#if __GNUC__
+		OS_SAVE_ISR();
+	#endif
+
 	  OS_INT_ENTER();
 	  
 	  // Interrupt handling  
@@ -1490,7 +1586,10 @@ interrupt void USB_ISR(void)
     // Interrupt Exit
     // ************************
     OS_INT_EXIT();  
-    // ************************  	       
+
+	#if __GNUC__
+		OS_RESTORE_ISR();
+	#endif
 }
 
 

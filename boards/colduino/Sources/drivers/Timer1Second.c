@@ -1,7 +1,30 @@
+/* The License
+ * 
+ * Copyright (c) 2015 Universidade Federal de Santa Maria
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+
+*/
 
 #include "hardware.h"
 #include "Timer1Second.h"
-#include "printf_lib.h"
+#include "HAL.h"
 
 void Timer1SecondSetup()
 {
@@ -38,15 +61,22 @@ void Clear1SecondInterrupt()
 /*
  interrupt VectorNumber_Vtod void tod_ISR(void)
  {
- printf_colduino("1s interrupt ocurred");
- Clear1SecondInterrupt();
+ 	 Clear1SecondInterrupt();
  }*/
 
 #if (NESTING_INT == 1)
 #pragma TRAP_PROC
+#if __GNUC__
+__attribute__((__interrupt__))
+#endif
 void timeOfDayInterrupt(void)
 #else
-interrupt void timeOfDayInterrupt(void)
+#if __GNUC__
+__attribute__((__interrupt__))
+#else
+interrupt
+#endif
+void timeOfDayInterrupt(void)
 #endif
 {
 	Clear1SecondInterrupt();

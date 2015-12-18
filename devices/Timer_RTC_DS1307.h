@@ -137,10 +137,6 @@ void RTC_DS1307_Update(RTC_DS1307 *rtc_timer);
 void RTC_DS1307_Config(void);
 void RTC_DS1307_Start_OSC(void);
 
-INT8U Get_Hour_Format(void);
-void Set_24h_Format(void);
-void Set_AM_PM_Mode(void);
-
 
 //INT8U Div10(INT8U n);
 #endif 
