@@ -132,9 +132,9 @@
     <File name="contiki/core/sys/autostart.h" path="../../contiki/core/sys/autostart.h" type="1"/>
     <File name="contiki/core/net/mac/rdc.h" path="../../contiki/core/net/mac/rdc.h" type="1"/>
     <File name="contiki/core/net/rime/collect-neighbor.h" path="../../contiki/core/net/rime/collect-neighbor.h" type="1"/>
-    <File name="contiki/core/net/rime/multihop.c" path="../../contiki/core/net/rime/multihop.c" type="1"/>
     <File name="contiki/core/sys/procinit.c" path="../../contiki/core/sys/procinit.c" type="1"/>
     <File name="contiki/platform/mrf24j40/mrf24j40.h" path="../../contiki/platform/mrf24j40/mrf24j40.h" type="1"/>
+    <File name="contiki/core/net/rime/multihop.c" path="../../contiki/core/net/rime/multihop.c" type="1"/>
     <File name="contiki/core/net/ipv6/uip-ds6-route.h" path="../../contiki/core/net/ipv6/uip-ds6-route.h" type="1"/>
     <File name="contiki/core/net/nbr-table.c" path="../../contiki/core/net/nbr-table.c" type="1"/>
     <File name="contiki/core/net/rime/collect-link-estimate.c" path="../../contiki/core/net/rime/collect-link-estimate.c" type="1"/>
@@ -290,10 +290,10 @@
     <File name="contiki/core/sys/process.c" path="../../contiki/core/sys/process.c" type="1"/>
     <File name="contiki/core/net/rime/channel.h" path="../../contiki/core/net/rime/channel.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
-    <File name="contiki/core/net/ip/uip-udp-packet.c" path="../../contiki/core/net/ip/uip-udp-packet.c" type="1"/>
-    <File name="Drivers/SPI/spi_cox.c" path="Drivers/SPI/spi_cox.c" type="1"/>
     <File name="Drivers/CPU/cpu.c" path="Drivers/CPU/cpu.c" type="1"/>
+    <File name="Drivers/SPI/spi_cox.c" path="Drivers/SPI/spi_cox.c" type="1"/>
     <File name="Drivers/UART.h" path="Drivers/UART.h" type="1"/>
+    <File name="contiki/core/net/ip/uip-udp-packet.c" path="../../contiki/core/net/ip/uip-udp-packet.c" type="1"/>
     <File name="contiki/core/net/ip/slipdev.h" path="../../contiki/core/net/ip/slipdev.h" type="1"/>
     <File name="contiki/core/net/mac/framer-nullmac.h" path="../../contiki/core/net/mac/framer-nullmac.h" type="1"/>
     <File name="Drivers/utils.h" path="Drivers/utils.h" type="1"/>
@@ -459,10 +459,10 @@
     <File name="contiki/core/sys/mt.h" path="../../contiki/core/sys/mt.h" type="1"/>
     <File name="contiki/core/net/rime/route-discovery.h" path="../../contiki/core/net/rime/route-discovery.h" type="1"/>
     <File name="brtos/includes/timers.h" path="../../brtos/includes/timers.h" type="1"/>
-    <File name="contiki/core/lib/me_tabs.h" path="../../contiki/core/lib/me_tabs.h" type="1"/>
-    <File name="contiki/core/sys/timer.h" path="../../contiki/core/sys/timer.h" type="1"/>
-    <File name="contiki/core/net/mac/frame802154.c" path="../../contiki/core/net/mac/frame802154.c" type="1"/>
     <File name="contiki/core/sys/compower.h" path="../../contiki/core/sys/compower.h" type="1"/>
+    <File name="contiki/core/net/mac/frame802154.c" path="../../contiki/core/net/mac/frame802154.c" type="1"/>
+    <File name="contiki/core/sys/timer.h" path="../../contiki/core/sys/timer.h" type="1"/>
+    <File name="contiki/core/lib/me_tabs.h" path="../../contiki/core/lib/me_tabs.h" type="1"/>
     <File name="contiki/core/net/mac/csma.h" path="../../contiki/core/net/mac/csma.h" type="1"/>
     <File name="contiki/core/net/llsec/noncoresec/noncoresec.c" path="../../contiki/core/net/llsec/noncoresec/noncoresec.c" type="1"/>
     <File name="contiki/core/net/ip/psock.c" path="../../contiki/core/net/ip/psock.c" type="1"/>
@@ -494,9 +494,9 @@
     <File name="contiki/core/net/ipv6/multicast/uip-mcast6-route.c" path="../../contiki/core/net/ipv6/multicast/uip-mcast6-route.c" type="1"/>
     <File name="contiki/core/sys/log.h" path="../../contiki/core/sys/log.h" type="1"/>
     <File name="contiki/core/sys/compower.c" path="../../contiki/core/sys/compower.c" type="1"/>
-    <File name="contiki/core/contiki-default-conf.h" path="../../contiki/core/contiki-default-conf.h" type="1"/>
     <File name="contiki/core/net/mac/phase.h" path="../../contiki/core/net/mac/phase.h" type="1"/>
     <File name="contiki/core/dev/button-sensor.h" path="../../contiki/core/dev/button-sensor.h" type="1"/>
+    <File name="contiki/core/contiki-default-conf.h" path="../../contiki/core/contiki-default-conf.h" type="1"/>
     <File name="CoX/CoX_Peripheral/inc/xhw_uart.h" path="CoX/CoX_Peripheral/inc/xhw_uart.h" type="1"/>
   </Files>
 </Project>

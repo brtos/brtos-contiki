@@ -84,25 +84,25 @@
          <include file="..\..\..\..\..\contiki\core\net\queuebuf.h"/>
          <include file="..\..\..\..\..\contiki\core\net\rime\ipolite.h"/>
       </source>
-      <source file="..\..\..\..\..\contiki\core\net\rime\stbroadcast.c" lastModified="14f90ab7121">
-         <include file="..\..\..\..\..\contiki\core\net\rime\stbroadcast.h"/>
-         <include file="..\..\..\..\..\contiki\core\net\rime\rime.h"/>
-      </source>
       <source file="..\..\..\..\..\contiki\core\net\rime\rudolph1.c" lastModified="14f90ab78df">
          <include file="..\..\..\..\..\contiki\core\net\rime\rime.h"/>
          <include file="..\..\..\..\..\contiki\core\net\rime\rudolph1.h"/>
          <include file="..\..\..\..\..\contiki\core\cfs\cfs.h"/>
+      </source>
+      <source file="..\..\..\..\..\contiki\core\net\rime\stbroadcast.c" lastModified="14f90ab7121">
+         <include file="..\..\..\..\..\contiki\core\net\rime\stbroadcast.h"/>
+         <include file="..\..\..\..\..\contiki\core\net\rime\rime.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\ip\uip-packetqueue.c" lastModified="14f90ab71c8">
          <include file="..\..\..\..\..\contiki\core\net\ip\uip.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\memb.h"/>
          <include file="..\..\..\..\..\contiki\core\net\ip\uip-packetqueue.h"/>
       </source>
-      <source file="..\..\..\..\..\contiki\core\net\rime\netflood.c" lastModified="14f90ab74b6">
-         <include file="..\..\..\..\..\contiki\core\net\rime\netflood.h"/>
-      </source>
       <source file="..\..\..\..\..\brtos\mutex.c" lastModified="14f90ab640a">
          <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
+      <source file="..\..\..\..\..\contiki\core\net\rime\netflood.c" lastModified="14f90ab74b6">
+         <include file="..\..\..\..\..\contiki\core\net\rime\netflood.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\lib\gcr.c" lastModified="14f90ab65a4">
       </source>
@@ -139,12 +139,12 @@
          <include file="..\..\..\..\..\contiki\core\net\rime\chameleon.h"/>
          <include file="..\..\..\..\..\contiki\core\net\rime\rime.h"/>
       </source>
-      <source file="..\..\..\..\..\contiki\core\sys\cc.h" lastModified="14f90ab6dcc">
-         <include file="..\..\..\..\..\contiki\platform\brtos\contiki-conf.h"/>
-      </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\nullmac.h" lastModified="14f90ab6bc9">
          <include file="..\..\..\..\..\contiki\core\net\mac\mac.h"/>
          <include file="..\..\..\..\..\contiki\core\dev\radio.h"/>
+      </source>
+      <source file="..\..\..\..\..\contiki\core\sys\cc.h" lastModified="14f90ab6dcc">
+         <include file="..\..\..\..\..\contiki\platform\brtos\contiki-conf.h"/>
       </source>
       <source file="..\..\..\..\..\brtos\OSInfo.c" lastModified="14f90ab63eb">
          <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
@@ -340,6 +340,9 @@
          <include file="..\..\..\..\..\contiki\core\net\ip\uip.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\stimer.h"/>
       </source>
+      <source file="..\..\..\..\..\contiki\core\net\ip\ip64-addr.h" lastModified="14f90ab682f">
+         <include file="..\..\..\..\..\contiki\core\net\ip\uip.h"/>
+      </source>
       <source file="..\..\..\..\..\contiki\core\net\ipv6\uip-nd6.c" lastModified="14f90ab731a">
          <include file="..\..\..\..\..\contiki\core\net\ipv6\uip-icmp6.h"/>
          <include file="..\..\..\..\..\contiki\core\net\ipv6\uip-nd6.h"/>
@@ -347,9 +350,6 @@
          <include file="..\..\..\..\..\contiki\core\net\ip\uip-nameserver.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\random.h"/>
          <include file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h"/>
-      </source>
-      <source file="..\..\..\..\..\contiki\core\net\ip\ip64-addr.h" lastModified="14f90ab682f">
-         <include file="..\..\..\..\..\contiki\core\net\ip\uip.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\lib\petsciiconv.c" lastModified="14f90ab65c3">
       </source>
@@ -407,10 +407,10 @@
       <source file="..\..\..\..\..\contiki\core\net\netstack.c" lastModified="14f90ab6bf3">
          <include file="..\..\..\..\..\contiki\core\net\netstack.h"/>
       </source>
+      <source file="..\..\..\..\..\contiki\core\lib\crc16.c" lastModified="14f90ab659d">
+      </source>
       <source file="..\..\..\..\..\contiki\core\net\ipv6\multicast\uip-mcast6-stats.c" lastModified="14f90ab6f02">
          <include file="..\..\..\..\..\contiki\core\net\ipv6\multicast\uip-mcast6-stats.h"/>
-      </source>
-      <source file="..\..\..\..\..\contiki\core\lib\crc16.c" lastModified="14f90ab659d">
       </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\framer-nullmac.h" lastModified="14f90ab6baf">
          <include file="..\..\..\..\..\contiki\core\net\mac\framer.h"/>
@@ -542,16 +542,16 @@
       <source file="..\..\..\..\..\contiki\core\net\rime\unicast.h" lastModified="14f90ab6d59">
          <include file="..\..\..\..\..\contiki\core\net\rime\broadcast.h"/>
       </source>
-      <source file="..\..\..\..\..\contiki\core\net\ip\simple-udp.c" lastModified="151b1b6d4f8">
-         <include file="..\..\..\..\..\contiki\core\contiki-net.h"/>
-         <include file="..\..\..\..\..\contiki\core\net\ip\simple-udp.h"/>
-      </source>
       <source file="..\..\..\..\..\contiki\core\lib\trickle-timer.c" lastModified="14f90ab69da">
          <include file="..\..\..\..\..\contiki\platform\brtos\contiki-conf.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\trickle-timer.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\ctimer.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\cc.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\random.h"/>
+      </source>
+      <source file="..\..\..\..\..\contiki\core\net\ip\simple-udp.c" lastModified="151b1b6d4f8">
+         <include file="..\..\..\..\..\contiki\core\contiki-net.h"/>
+         <include file="..\..\..\..\..\contiki\core\net\ip\simple-udp.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\examples\rpl-border-router\border-router.c" lastModified="151b2e3b5f0">
          <include file="..\..\..\..\..\contiki\core\contiki.h"/>
@@ -608,6 +608,10 @@
          <include file="..\..\..\..\..\contiki\core\net\rime\rime.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\energest.h"/>
       </source>
+      <source file="..\..\..\Drivers\SPI\spi_cox.c" lastModified="151b5916eb3">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+         <include file="..\..\..\Drivers\SPI\spi_cox.h"/>
+      </source>
       <source file="..\..\..\CoX\CoX_Peripheral\src\xsysctl.c" lastModified="151b59169a8">
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_types.h"/>
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xhw_ints.h"/>
@@ -621,10 +625,6 @@
          <include file="..\..\..\CoX\CoX_Peripheral\inc\xcore.h"/>
          <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
          <include file="..\..\..\..\..\hal\GCC_CORTEX-M0\HAL.h"/>
-      </source>
-      <source file="..\..\..\Drivers\SPI\spi_cox.c" lastModified="151b5916eb3">
-         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
-         <include file="..\..\..\Drivers\SPI\spi_cox.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\nullrdc-noframer.h" lastModified="14f90ab6bcf">
          <include file="..\..\..\..\..\contiki\core\net\mac\rdc.h"/>
@@ -816,11 +816,11 @@
          <include file="..\..\..\..\..\contiki\core\net\ip\uip_arch.h"/>
          <include file="..\..\..\..\..\contiki\core\net\ip\tcpip.h"/>
       </source>
-      <source file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h" lastModified="151b5915d93">
-      </source>
       <source file="..\..\..\Drivers\MMA8451\accel.c" lastModified="151b5916b79">
          <include file="..\..\..\Drivers\MKL25Z4.h"/>
          <include file="..\..\..\Drivers\MMA8451\accel.h"/>
+      </source>
+      <source file="..\..\..\CoX\CoX_Peripheral\inc\xgpio.h" lastModified="151b5915d93">
       </source>
       <source file="..\..\..\CoX\CoX_Peripheral\inc\xhw_wdt.h" lastModified="151b5916314">
       </source>
@@ -889,6 +889,8 @@
       <source file="..\..\..\..\..\contiki\core\sys\lc.h" lastModified="14f90ab6dfb">
          <include file="..\..\..\..\..\contiki\core\sys\lc-switch.h"/>
       </source>
+      <source file="..\..\..\..\..\brtos\includes\OSInfo.h" lastModified="14f90ab63fb">
+      </source>
       <source file="..\..\..\..\..\contiki\core\net\rime\collect.c" lastModified="14f90ab7c4a">
          <include file="..\..\..\..\..\contiki\core\contiki.h"/>
          <include file="..\..\..\..\..\contiki\core\net\netstack.h"/>
@@ -899,8 +901,6 @@
          <include file="..\..\..\..\..\contiki\core\net\rime\packetqueue.h"/>
          <include file="..\..\..\..\..\contiki\core\dev\radio-sensor.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\random.h"/>
-      </source>
-      <source file="..\..\..\..\..\brtos\includes\OSInfo.h" lastModified="14f90ab63fb">
       </source>
       <source file="..\..\..\..\..\contiki\core\dev\nullradio.c" lastModified="14f90ab6556">
          <include file="..\..\..\..\..\contiki\core\dev\nullradio.h"/>
@@ -920,6 +920,9 @@
          <include file="..\..\..\..\..\contiki\core\net\rime\unicast.h"/>
          <include file="..\..\..\..\..\contiki\core\net\linkaddr.h"/>
       </source>
+      <source file="..\..\..\Drivers\LPO\LPO.h" lastModified="151b5916ab4">
+         <include file="..\..\..\Drivers\MKL25Z4.h"/>
+      </source>
       <source file="..\..\..\..\..\contiki\core\net\ipv6\sicslowpan.c" lastModified="14f90ab7ac5">
          <include file="..\..\..\..\..\contiki\core\contiki.h"/>
          <include file="..\..\..\..\..\contiki\core\dev\watchdog.h"/>
@@ -930,9 +933,6 @@
          <include file="..\..\..\..\..\contiki\core\net\ipv6\sicslowpan.h"/>
          <include file="..\..\..\..\..\contiki\core\net\netstack.h"/>
          <include file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h"/>
-      </source>
-      <source file="..\..\..\Drivers\LPO\LPO.h" lastModified="151b5916ab4">
-         <include file="..\..\..\Drivers\MKL25Z4.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\mac.h" lastModified="14f90ab6bc3">
          <include file="..\..\..\..\..\contiki\platform\brtos\contiki-conf.h"/>
@@ -1084,6 +1084,9 @@
          <include file="..\..\..\..\..\contiki\platform\brtos\contiki-conf.h"/>
          <include file="..\..\..\..\..\contiki\core\net\mac\mac.h"/>
       </source>
+      <source file="..\..\..\..\..\brtos\semaphore.c" lastModified="14f90ab640a">
+         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
+      </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\cxmac\cxmac.c" lastModified="14f90ab7b31">
          <include file="..\..\..\..\..\contiki\core\dev\leds.h"/>
          <include file="..\..\..\..\..\contiki\core\dev\radio.h"/>
@@ -1100,9 +1103,6 @@
          <include file="..\..\..\..\..\contiki\core\sys\cc.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\list.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\memb.h"/>
-      </source>
-      <source file="..\..\..\..\..\brtos\semaphore.c" lastModified="14f90ab640a">
-         <include file="..\..\..\..\..\brtos\includes\BRTOS.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\sys\stimer.h" lastModified="14f90ab6e38">
          <include file="..\..\..\..\..\contiki\core\sys\clock.h"/>
@@ -1174,6 +1174,9 @@
       <source file="..\..\..\..\..\contiki\core\sys\procinit.h" lastModified="14f90ab6e1f">
          <include file="..\..\..\..\..\contiki\core\sys\process.h"/>
       </source>
+      <source file="..\..\..\..\..\contiki\examples\rpl-border-router\httpd-simple.h" lastModified="14f90ab6e48">
+         <include file="..\..\..\..\..\contiki\core\contiki-net.h"/>
+      </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\phase.h" lastModified="14f90ab6bde">
          <include file="..\..\..\..\..\contiki\core\net\linkaddr.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\timer.h"/>
@@ -1181,9 +1184,6 @@
          <include file="..\..\..\..\..\contiki\core\lib\list.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\memb.h"/>
          <include file="..\..\..\..\..\contiki\core\net\netstack.h"/>
-      </source>
-      <source file="..\..\..\..\..\contiki\examples\rpl-border-router\httpd-simple.h" lastModified="14f90ab6e48">
-         <include file="..\..\..\..\..\contiki\core\contiki-net.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\rime\rmh.c" lastModified="14f90ab70f0">
          <include file="..\..\..\..\..\contiki\core\contiki.h"/>
@@ -1382,12 +1382,12 @@
          <include file="..\..\..\..\..\contiki\core\net\rpl\rpl-private.h"/>
          <include file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h"/>
       </source>
+      <source file="..\..\..\..\..\contiki\core\net\mac\contikimac\contikimac-framer.h" lastModified="14f90ab6b80">
+         <include file="..\..\..\..\..\contiki\core\net\mac\framer.h"/>
+      </source>
       <source file="..\..\..\..\..\contiki\core\sys\process.c" lastModified="14f90ab75e3">
          <include file="..\..\..\..\..\contiki\core\sys\process.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\arg.h"/>
-      </source>
-      <source file="..\..\..\..\..\contiki\core\net\mac\contikimac\contikimac-framer.h" lastModified="14f90ab6b80">
-         <include file="..\..\..\..\..\contiki\core\net\mac\framer.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\dev\leds.h" lastModified="14f90ab6556">
          <include file="..\..\..\..\..\contiki\platform\brtos\contiki-conf.h"/>
@@ -1484,14 +1484,14 @@
       <source file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h" lastModified="14f90ab71b8">
          <include file="..\..\..\..\..\contiki\core\net\ip\uip.h"/>
       </source>
+      <source file="..\..\..\..\..\contiki\core\lib\list.c" lastModified="14f90ab65b0">
+         <include file="..\..\..\..\..\contiki\core\lib\list.h"/>
+      </source>
       <source file="..\..\..\..\..\brtos\includes\OS_RTC.h" lastModified="14f90ab63fb">
          <include file="..\..\..\..\..\brtos\includes\OS_types.h"/>
       </source>
       <source file="..\..\..\Drivers\DAC\DAC.c" lastModified="151b5916824">
          <include file="..\..\..\Drivers\MKL25Z4.h"/>
-      </source>
-      <source file="..\..\..\..\..\contiki\core\lib\list.c" lastModified="14f90ab65b0">
-         <include file="..\..\..\..\..\contiki\core\lib\list.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\mac\framer.c" lastModified="14f90ab6bb3">
          <include file="..\..\..\..\..\contiki\core\net\mac\framer.h"/>
@@ -1500,6 +1500,9 @@
       </source>
       <source file="..\..\..\..\..\contiki\core\lib\sensors.h" lastModified="14f90ab65e3">
          <include file="..\..\..\..\..\contiki\core\contiki.h"/>
+      </source>
+      <source file="..\..\..\..\..\contiki\core\net\ip\uip-debug.c" lastModified="14f90ab69c9">
+         <include file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\rpl\rpl-dag.c" lastModified="14f90ab7548">
          <include file="..\..\..\..\..\contiki\core\contiki.h"/>
@@ -1512,9 +1515,6 @@
          <include file="..\..\..\..\..\contiki\core\lib\list.h"/>
          <include file="..\..\..\..\..\contiki\core\lib\memb.h"/>
          <include file="..\..\..\..\..\contiki\core\sys\ctimer.h"/>
-         <include file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h"/>
-      </source>
-      <source file="..\..\..\..\..\contiki\core\net\ip\uip-debug.c" lastModified="14f90ab69c9">
          <include file="..\..\..\..\..\contiki\core\net\ip\uip-debug.h"/>
       </source>
       <source file="..\..\..\..\..\contiki\core\net\rime\packetqueue.h" lastModified="14f90ab6ce9">

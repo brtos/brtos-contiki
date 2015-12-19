@@ -67,6 +67,29 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/kl25-sc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/CPU}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/LPO}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/SPI}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/FLASH}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/includes&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../hal/GCC_CORTEX-M0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/rpl&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ipv6&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos/cpu&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../libs&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/examples/rpl-border-router&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/sys&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/dev&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/cfs&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/CONFIG}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/CoX/CoX_Peripheral/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos/boards&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1445114120" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -74,6 +97,9 @@
 									<listOptionValue builtIn="false" value="OS_USE_TRACE_SEMIHOSTING_DEBUG"/>
 									<listOptionValue builtIn="false" value="MKL25Z4"/>
 									<listOptionValue builtIn="false" value="HSE_VALUE=8000000"/>
+									<listOptionValue builtIn="false" value="NETSTACK_CONF_WITH_IPV6=1"/>
+									<listOptionValue builtIn="false" value="UIP_IPH_LEN=40"/>
+									<listOptionValue builtIn="false" value="UIP_FRAGH_LEN=8"/>
 								</option>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1337406870" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
 							</tool>
@@ -155,7 +181,9 @@
 		</cconfiguration>
 		<cconfiguration id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538" moduleId="org.eclipse.cdt.core.settings" name="Release">
-				<externalSettings/>
+				<externalSettings>
+					<externalSetting/>
+				</externalSettings>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -169,7 +197,7 @@
 				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="${cross_rm} -rf" description="" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538" name="Release" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release">
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538." name="/" resourcePath="">
 						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release.430657615" name="Cross ARM GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release">
-							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1725290893" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.size" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1725290893" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.optimize" valueType="enumerated"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength.818097252" name="Message length (-fmessage-length=0)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.messagelength" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar.1963213450" name="'char' is signed (-fsigned-char)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.signedchar" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections.321155419" name="Function sections (-ffunction-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.functionsections" value="true" valueType="boolean"/>
@@ -352,6 +380,9 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538;ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538.;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.1551981988;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.1173424277">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1839839712;ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1839839712.;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.193285756;ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.compiler.input.609325476">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
