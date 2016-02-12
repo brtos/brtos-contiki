@@ -111,7 +111,7 @@ typedef uint16_t 	uip_stats_t;
 #endif
 
 #if BRTOS_PLATFORM == BOARD_NONE
-#define UIP_CONF_BUFFER_SIZE          1514 //1280
+#define UIP_CONF_BUFFER_SIZE          1514 //1280//1514
 #define UIP_CONF_TCP_SPLIT            0
 #define UIP_CONF_LOGGING              1
 #define UIP_CONF_IP_FORWARD           0

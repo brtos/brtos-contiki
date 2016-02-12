@@ -33,7 +33,7 @@ extern "C"
 #endif
 
 #if (SLIP_COMM == SLIP_UART)
-#include "virtual_com.h"
+//#include "virtual_com.h"
 #endif
 #endif
 
@@ -64,7 +64,7 @@ void main_app(void)
 	// Se estiver usando USB no SLIP, usa UART no debug e vice-versa
 #if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
 #if (SLIP_COMM == SLIP_USB)
-	Init_UART0(115200, 128);
+	Init_UART0(115200, 0);
 #endif
 
 #if (SLIP_COMM == SLIP_UART)

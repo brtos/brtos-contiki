@@ -279,7 +279,7 @@ log_message(const char *part1, const char *part2)
 /*-----------------------------------------------------------------------------------*/
 
 /** minimal net */
-
+#define RPL_BORDER_ROUTER 0
 #if RPL_BORDER_ROUTER
 #include "net/rpl/rpl.h"
 
@@ -323,7 +323,7 @@ PROCESS_THREAD(border_router_process, ev, data)
 #ifdef HARD_CODED_ADDRESS
 	uiplib_ipaddrconv(HARD_CODED_ADDRESS, &ipaddr);
 #else
-	uip_ip6addr(&ipaddr, 0xbbbb, 0, 0, 0, 0, 0, 0, 0x1);
+	uip_ip6addr(&ipaddr, 0xaaaa, 0, 0, 0, 0, 0, 0, 0x1);
 #endif
 	uip_ds6_set_addr_iid(&ipaddr, &uip_lladdr);
 	uip_ds6_addr_add(&ipaddr, 0, ADDR_AUTOCONF);
