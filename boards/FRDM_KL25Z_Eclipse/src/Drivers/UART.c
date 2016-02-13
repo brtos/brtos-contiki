@@ -250,7 +250,7 @@ void Init_UART0(int baud, int buffer_size)
 
 	// Só cria fila se for passado um tamanho maior que 0
 	if (buffer_size){
-		if (OSQueueCreate(&SerialPortBuffer0,buffer_size, &Serial0) != ALLOC_EVENT_OK)
+		if (OSQueueCreate(buffer_size, &Serial0) != ALLOC_EVENT_OK)
 		{
 		  // Oh Oh
 		  // Não deveria entrar aqui !!!
@@ -297,7 +297,7 @@ void Init_UART1(void)
 	  while(1){};
 	};
 
-	if (OSQueueCreate(&SerialPortBuffer1,128, &Serial1) != ALLOC_EVENT_OK)
+	if (OSQueueCreate(128, &Serial1) != ALLOC_EVENT_OK)
 	{
 	  // Oh Oh
 	  // Não deveria entrar aqui !!!
@@ -341,7 +341,7 @@ void Init_UART2(void)
 	  while(1){};
 	};
 
-	if (OSQueueCreate(&SerialPortBuffer2,128, &Serial2) != ALLOC_EVENT_OK)
+	if (OSQueueCreate(128, &Serial2) != ALLOC_EVENT_OK)
 	{
 	  // Oh Oh
 	  // Não deveria entrar aqui !!!

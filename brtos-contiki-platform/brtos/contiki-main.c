@@ -60,6 +60,7 @@
 #include "platform-conf.h"
  
 #include "BRTOS.h"
+extern BRTOS_Queue 	*USB;
 BRTOS_Sem *Contiki_Sem;
 
 int main_win(void); // for simulation on Win32
@@ -85,9 +86,9 @@ PROCINIT(&tcpip_process);
 /* hack for "rand", because rand() does not work in CFv1 */
 #if BRTOS_CPU == COLDFIRE_V1 
 
-#if ENABLE_RAND
 /* see: http://www.embedded.com/design/configurable-systems/4024972/Generating-random-numbers 
  * Listing 3: Hard real-time PRNG*/
+
 int rand(void)
 {
 
@@ -152,7 +153,6 @@ r += ~r + ~n ^
 	next = next * 1103515245 + 12345;
 	return (int)(next>>16) & RAND_MAX;
 }
-#endif
 #endif
 #endif
 
@@ -438,12 +438,9 @@ main_minimal_net(void)
   while(1) {
 
     int n;
-
-#if 0
-    char c;
-    INT8U ret,poll;
-    clock_time_t next_event;
-#endif
+    //char c;
+    //INT8U ret,poll;
+    //clock_time_t next_event;
 
     do{
     	n = process_run();

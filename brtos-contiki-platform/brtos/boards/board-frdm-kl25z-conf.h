@@ -13,6 +13,8 @@
 #define BRTOS_ENDIAN           		  BRTOS_LITTLE_ENDIAN
 
 #define NETSTACK_CONF_WITH_IPV6		  1
+//#define UIP_IPH_LEN					  40
+//#define UIP_FRAGH_LEN 				  8
 
 #define SLIP_USB	1
 #define SLIP_UART	2

@@ -46,6 +46,8 @@
 #include "dev/button-sensor.h"
 #include "dev/slip.h"
 
+#include "sys/clock.h"
+
 #if (BRTOS_PLATFORM != BOARD_FRDM_KL25Z)
 #include "virtual_com.h"
 #endif
@@ -371,7 +373,7 @@ PROCESS_THREAD(border_router_process, ev, data)
   /* Request prefix until it has been received */
 #if 1
   while(!prefix_set) {
-    etimer_set(&et, CLOCK_SECOND);
+    etimer_set(&et, 1000);
     request_prefix();
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }

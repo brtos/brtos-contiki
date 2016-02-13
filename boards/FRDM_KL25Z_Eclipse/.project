@@ -24,4 +24,36 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>brtos</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/brtos</locationURI>
+		</link>
+		<link>
+			<name>brtos-contiki-platform</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-platform</locationURI>
+		</link>
+		<link>
+			<name>contiki</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/contiki/core</locationURI>
+		</link>
+		<link>
+			<name>hal</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/hal/GCC_CORTEX-M0</locationURI>
+		</link>
+		<link>
+			<name>libs</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/libs</locationURI>
+		</link>
+		<link>
+			<name>rpl-border-router</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-examples/ipv6/rpl-border-router</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

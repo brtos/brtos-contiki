@@ -5,16 +5,16 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1839839712" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="${cross_rm} -rf" description="" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1839839712" name="Debug" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="${cross_rm} -rf" description="" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1839839712" name="Debug" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug">
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.debug.1839839712." name="/" resourcePath="">
 						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug.681839650" name="Cross ARM GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.debug">
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1641693306" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.debug" valueType="enumerated"/>
@@ -72,15 +72,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/LPO}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/SPI}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/FLASH}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/includes&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../hal/GCC_CORTEX-M0&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/rpl&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ip&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ipv6&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos/cpu&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../libs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/examples/rpl-border-router&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/sys&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/lib&quot;"/>
@@ -89,7 +84,13 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/CONFIG}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/CoX/CoX_Peripheral/inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/platform/brtos/boards&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/cpu&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/boards&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-examples/ipv6/rpl-border-router&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/mrf24j40&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/brtos/includes&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/hal/GCC_CORTEX-M0&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1445114120" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -172,6 +173,12 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-platform"/>
+						<entry excluding="cfs/cfs-xmem.c|cfs/cfs-ram.c|cfs/cfs-posix-dir.c|cfs/cfs-posix.c|cfs/cfs-eeprom.c|net/rime|net/ipv4|net/ip64|net/http-socket|net/llsec/ccm-star-packetbuf.c|net/llsec/anti-replay.c|net/llsec/noncoresec|net/mac/tsch|net/mac/cxmac|loader|ctk" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="hal"/>
+						<entry excluding="utils.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rpl-border-router"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry excluding="src/kl25-sc/Serial.c|src/kl25-sc/Retarget.c|src/kl25-sc/uart.c|src/kl25-sc/smc.c|src/kl25-sc/rtc.c|src/kl25-sc/pmc.c|src/kl25-sc/mcg.c|src/kl25-sc/lptmr.c|src/kl25-sc/llwu.c|src/kl25-sc/i2c.c|src/kl25-sc/cmp.c|src/kl25-sc/adc16.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
 					</sourceEntries>
@@ -185,16 +192,16 @@
 					<externalSetting/>
 				</externalSettings>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="${cross_rm} -rf" description="" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538" name="Release" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="${cross_rm} -rf" description="" id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538" name="Release" parent="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release">
 					<folderInfo id="ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.1285953538." name="/" resourcePath="">
 						<toolChain id="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release.430657615" name="Cross ARM GCC" superClass="ilg.gnuarmeclipse.managedbuild.cross.toolchain.elf.release">
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.1725290893" name="Optimization Level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.optimize" valueType="enumerated"/>
@@ -364,10 +371,10 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Debug">
+		<configuration configurationName="Release">
 			<resource resourceType="PROJECT" workspacePath="/FRDM_KL25Z_Eclipse"/>
 		</configuration>
-		<configuration configurationName="Release">
+		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/FRDM_KL25Z_Eclipse"/>
 		</configuration>
 	</storageModule>
@@ -386,4 +393,5 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

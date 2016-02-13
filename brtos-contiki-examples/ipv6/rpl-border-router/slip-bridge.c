@@ -50,7 +50,7 @@
 #include "net/ip/uip-debug.h"
 #endif
 
-#if DEBUG==0
+#if DEBUG==1
 #define PRINTF(...)
 #define PRINT6ADDR(...)
 #endif

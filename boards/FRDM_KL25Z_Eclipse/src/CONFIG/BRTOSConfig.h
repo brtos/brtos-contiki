@@ -65,7 +65,7 @@
 #define IDLE_HOOK_EN 			0
 
 /// Enable or disable timers service
-#define BRTOS_TMR_EN           1
+#define BRTOS_TMR_EN          0
 
 /// Enable or disable semaphore controls
 #define BRTOS_SEM_EN           1

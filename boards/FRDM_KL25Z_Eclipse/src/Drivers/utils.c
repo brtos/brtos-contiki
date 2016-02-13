@@ -12,6 +12,7 @@ INT32U LWordSwap(INT32U u32DataSwap)
     return(u32Temp);
 }
 
+#if 0
 char *PrintDecimal(INT16S val, CHAR8 *buff)
 {
    INT16U backup;
@@ -55,6 +56,7 @@ char *PrintDecimal(INT16S val, CHAR8 *buff)
 	   return (buff+i+1);
    }
 }
+#endif
 
 void Print4Digits(INT16U number, INT8U align, CHAR8 *buff)
 {

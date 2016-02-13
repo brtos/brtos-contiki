@@ -51,12 +51,12 @@ void main_app(void)
 	// Initialize BRTOS
 	BRTOS_Init();
 
-	if (InstallTask(&System_Time, "System Time", 192, 31, NULL) != OK)
+	if (OSInstallTask(&System_Time, "System Time", 192, 31, NULL,NULL) != OK)
 	{
 		while (1){};
 	};
 
-	if (InstallTask(&contiki_main, "Contiki", (1024 + 256), 2, NULL) != OK)
+	if (OSInstallTask(&contiki_main, "Contiki", (1024 + 256), 2, NULL,NULL) != OK)
 	{
 		while (1){};
 	};
