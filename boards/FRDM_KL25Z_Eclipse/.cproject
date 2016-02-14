@@ -177,7 +177,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="brtos-contiki-platform"/>
 						<entry excluding="cfs/cfs-xmem.c|cfs/cfs-ram.c|cfs/cfs-posix-dir.c|cfs/cfs-posix.c|cfs/cfs-eeprom.c|net/rime|net/ipv4|net/ip64|net/http-socket|net/llsec/ccm-star-packetbuf.c|net/llsec/anti-replay.c|net/llsec/noncoresec|net/mac/tsch|net/mac/cxmac|loader|ctk" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="hal"/>
-						<entry excluding="utils.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
+						<entry excluding="random_lib.c|utils.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rpl-border-router"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry excluding="src/kl25-sc/Serial.c|src/kl25-sc/Retarget.c|src/kl25-sc/uart.c|src/kl25-sc/smc.c|src/kl25-sc/rtc.c|src/kl25-sc/pmc.c|src/kl25-sc/mcg.c|src/kl25-sc/lptmr.c|src/kl25-sc/llwu.c|src/kl25-sc/i2c.c|src/kl25-sc/cmp.c|src/kl25-sc/adc16.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="system"/>
