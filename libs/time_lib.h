@@ -74,4 +74,6 @@ size_t strftime(char *s, size_t maxsize, const char *format, const struct tm *t)
 time_t ConvertDateTimeToUnixTime(OSDateTime * dt);
 #endif
 
+time_t str2time(const char *s);
+
 #endif

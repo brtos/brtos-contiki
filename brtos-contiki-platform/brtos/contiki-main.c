@@ -60,7 +60,6 @@
 #include "platform-conf.h"
  
 #include "BRTOS.h"
-extern BRTOS_Queue 	*USB;
 BRTOS_Sem *Contiki_Sem;
 
 int main_win(void); // for simulation on Win32
@@ -84,7 +83,7 @@ void print_lladdrs(void) ;
 PROCINIT(&tcpip_process);
 
 /* hack for "rand", because rand() does not work in CFv1 */
-#if BRTOS_CPU == COLDFIRE_V1 
+#if BRTOS_CPU == COLDFIRE_V1 && !__GNUC__
 
 /* see: http://www.embedded.com/design/configurable-systems/4024972/Generating-random-numbers 
  * Listing 3: Hard real-time PRNG*/
@@ -438,63 +437,13 @@ main_minimal_net(void)
   while(1) {
 
     int n;
-    //char c;
-    //INT8U ret,poll;
-    //clock_time_t next_event;
 
     do{
     	n = process_run();
     } while(n > 0);
 
     OSSemPend(Contiki_Sem, 0);
-      
-#if 0
-     poll = 0;
-     next_event = 2;
-     do 
-     {    
-    	 wait_next_event:
-		 #if (SLIP_COMM == SLIP_USB)
-    	 ret = OSQueuePend(USB, &c, (INT16U)next_event);
-		 #endif
 
-		 #if (SLIP_COMM == SLIP_UART)
-    	 ret = UARTGetChar(0x4006A000, &c, (INT16U)next_event);
-		 #endif
-    	 if(ret != TIMEOUT) 
-		 {
-    		 poll = 1;
-    		 if(slip_input_byte(c) == 1)
-			 {
-				 break;
-			 }
-    		 if(slip_twopackets > 0)
-			 {
-				 break;
-			 }
-    		 
-		 }else
-		 {
-			 if(!poll)
-			 {
-				 next_event = etimer_next_expiration_time() - clock_time();
-				 if(next_event > (CLOCK_SECOND >> 1))
-				 {
-				     	next_event = CLOCK_SECOND >> 1;
-				 }
-				 if(((INT16U)next_event > 2))
-				 {				 
-					next_event = next_event - 2;
-					goto wait_next_event;
-				 }
-			 }
-			 break;
-		 }
-    	    	 
-     }while(1);  
-     
-     etimer_request_poll();
-#endif
   }
 
   return 0;

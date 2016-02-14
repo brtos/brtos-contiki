@@ -21,29 +21,40 @@
  * THE SOFTWARE.
 
 */
-/**
-* \file SPI.h
-* \brief Serial peripheral interface driver function prototypes.
-*
-*
-**/
+/*
+ * terminal_io.h
+ *
+ *  Created on: Jul 22, 2015
+ *      Author: UFSM
+ */
 
-#define ENABLE_SPI1   TRUE
-#define ENABLE_SPI2   FALSE
+#ifndef TERMINAL_IO_H_
+#define TERMINAL_IO_H_
 
-void init_SPI(unsigned char spi);
+#include "BRTOS.h"
 
-
-#if (ENABLE_SPI1 == TRUE)
-extern void SPI1_SendChar(unsigned char data);
-extern unsigned char SPI1_GetChar(void);
-void SPI1_Write(unsigned char *data, int size);
-void SPI1_Read(unsigned char *data, int size);
+#ifndef USE_UART1
+#define USE_USB		0
+#define USE_UART0   0
+#define USE_UART1	1
+#define USE_UART2	2
 #endif
 
+typedef CHAR8 (*term_input)(CHAR8 *);
+typedef CHAR8 (*term_output)(CHAR8);	
 
-#if (ENABLE_SPI2 == TRUE)
-extern void SPI2_SendChar(unsigned char data);
-extern unsigned char SPI2_GetChar(void);
+void terminal_set_input (term_input _input);
+void terminal_set_output (term_output _output);
+
+void terminal_input (CHAR8 *c);
+void terminal_output (CHAR8 c);
+
+void printSer(INT8U SerialPort, const CHAR8 *string);
+void putcharSer(INT8U SerialPort, CHAR8 caracter);
+
+#ifdef __AVR__
+void printSer_P(INT8U SerialPort, const CHAR8 *string);
+void putcharSer_P(INT8U SerialPort, CHAR8 caracter);
 #endif
 
+#endif /* TERMINAL_IO_H_ */

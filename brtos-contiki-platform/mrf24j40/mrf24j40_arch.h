@@ -50,18 +50,23 @@
 #ifndef __MRF24J40_ARCH_H__
 #define __MRF24J40_ARCH_H__
 
-
-
 #include <stdint.h>
+#include "system.h"
+#include "BRTOS.h"
+#include "dev/radio.h"
+
+#if BRTOS_PLATFORM == BOARD_FRDM_KL25Z
 #include "xhw_types.h"
 #include "xsysctl.h"
 #include "xgpio.h"
 #include "xhw_gpio.h"
-#include "system.h"
 #include "spi_cox.h"
-#include "BRTOS.h"
-
-#include "dev/radio.h"
+#elif BRTOS_PLATFORM == BOARD_COLDUINO
+#include "utils.h"
+#include "SPI.h"
+#else
+#error "Please define your platform"
+#endif
 
 /* Pin Mapping */
 //#define MRF24J40_RESETn                     PORTGbits.RG15
@@ -69,7 +74,7 @@
 //#define MRF24J40_CSn                        PORTFbits.RF12
 //#define MRF24J40_WAKE                       PORTGbits.RG12
 
-#if PROCESSOR == ARM_Cortex_M0
+#if BRTOS_PLATFORM == BOARD_FRDM_KL25Z
 #define MRF24J40_CS_AS_IO		GPIOPinConfigure(GPIO_PC4_PC4)								///< Defines CS pin as IO
 #define MRF24J40_CS_DS			GPIOPadConfigSet(GPIOC_BASE, GPIO_PIN_4, PORT_TYPE_DSE_HIGH)///< Defines CS pin drive strength to high
 #define MRF24J40_CS_LOW       	GPIOPinReset(GPIOC_BASE, GPIO_PIN_4)     					///< CS pin = 0
@@ -90,25 +95,6 @@
 #define MRF24J40_WAKE_DIR_OUT    xGPIODirModeSet(GPIOC_BASE, GPIO_PIN_11, xGPIO_DIR_MODE_OUT)///< WAKE direction pin = out
 #define MRF24J40_PIN_CLOCK_INIT	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC)					///< Init PHY pins clock
 
-#endif
-
-/* Pin Tri-States */
-//#define MRF24J40_TRIS_RESETn                TRISGbits.TRISG1
-//#define MRF24J40_TRIS_INT                   TRISAbits.TRISA15
-//#define MRF24J40_TRIS_CSn                   TRISFbits.TRISF12
-//#define MRF24J40_TRIS_WAKE                  TRISGbits.TRISG12
-
-/* RESET low/high */
-#define MRF24J40_HARDRESET_LOW()            GPIOPinReset(GPIOC_BASE, GPIO_PIN_10)     					///< RESET pin = 0
-#define MRF24J40_HARDRESET_HIGH()           GPIOPinSet(GPIOC_BASE, GPIO_PIN_10)     					///< RESET pin = 1
-#define MRF24J40_CSn_LOW()                  GPIOPinReset(GPIOC_BASE, GPIO_PIN_4)     					///< CS pin = 0
-#define MRF24J40_CSn_HIGH()                 GPIOPinSet(GPIOC_BASE, GPIO_PIN_4)     						///< CS pin = 1
-
-/* Spi port Mapping */
-#define MRF24J40_SPI_PORT_INIT()  			init_SPI(0)
-#define MRF24J40_SPI_PORT_WRITE 			SPI0_SendChar
-#define MRF24J40_SPI_PORT_READ  			SPI0_GetChar
-
 #define MRF24J40_INT_ENABLE()				int_status = 1;			\
 											Enable_INT_Pin()
 #define MRF24J40_INTERRUPT_FLAG_CLR()       xHWREG(PORTD_BASE+PORT_ISFR) |= xHWREG(PORTD_BASE+PORT_ISFR)  // Limpa flag da interrupção externa
@@ -116,6 +102,108 @@
 											GPIOPinIntDisable(GPIOD_BASE, GPIO_PIN_4)  					// desabilita interrupção externa
 #define MRF24J40_INTERRUPT_ENABLE_SET()		int_status = 1;			\
 											GPIOPinIntEnable(GPIOD_BASE, GPIO_PIN_4, GPIO_FALLING_EDGE)   // habilita interrupção externa
+
+/* Spi port Mapping */
+#define MRF24J40_SPI_PORT_INIT()  			init_SPI(0)
+#define MRF24J40_SPI_PORT_WRITE 			SPI0_SendChar
+#define MRF24J40_SPI_PORT_READ  			SPI0_GetChar
+
+#elif BRTOS_PLATFORM == BOARD_COLDUINO
+
+// Defines the radio pins
+#define MRF24J40_CS           	PTAD       ///< CS pin  - TODO: pino compartilhado com SD (trocar)
+#define MRF24J40_CS_DIR       	PTADD     	///< CS direction pin
+#define MRF24J40_CS_PIN       	0
+#define MRF24J40_RESETn        	PTFD       ///< RESET pin
+#define MRF24J40_RESETn_DIR  	PTFDD     ///< RESET direction pin
+#define MRF24J40_RESETn_PIN  	4
+#define MRF24J40_WAKE         	PTAD       ///< WAKE pin
+#define MRF24J40_WAKE_DIR   	PTADD     ///< WAKE direction pin
+#define MRF24J40_WAKE_PIN   	2
+
+#define MRF24J40_ISR_REG   		KBI1SC
+#define MRF24J40_ISR_FLAG   	2
+#define MRF24J40_INTERRUPT 		KBI1PE
+#define MRF24J40_ISR_PIN   		0
+
+
+#define MRF24J40_CS_AS_IO 	 	BITSET(MRF24J40_CS_DIR, MRF24J40_CS_PIN);
+#define MRF24J40_CS_DS
+#define MRF24J40_CS_LOW		 	BITCLEAR(MRF24J40_CS,MRF24J40_CS_PIN);
+#define MRF24J40_CS_HIGH	 	BITSET(MRF24J40_CS,MRF24J40_CS_PIN);
+#define MRF24J40_CS_DIR_IN	 	BITCLEAR(MRF24J40_CS_DIR,MRF24J40_CS_PIN);
+#define MRF24J40_CS_DIR_OUT  	BITSET(MRF24J40_CS_DIR,MRF24J40_CS_PIN);
+#define MRF24J40_RESETn_AS_IO  	BITSET(MRF24J40_RESETn_DIR,MRF24J40_RESETn_PIN);
+#define MRF24J40_RESETn_DS
+#define MRF24J40_RESETn_LOW		BITCLEAR(MRF24J40_RESETn,MRF24J40_RESETn_PIN);
+#define MRF24J40_RESETn_HIGH	BITSET(MRF24J40_RESETn,MRF24J40_RESETn_PIN);
+#define MRF24J40_RESETn_DIR_IN	BITCLEAR(MRF24J40_RESETn_DIR,MRF24J40_RESETn_PIN);
+#define MRF24J40_RESETn_DIR_OUT	BITSET(MRF24J40_RESETn_DIR,MRF24J40_RESETn_PIN);
+#define MRF24J40_WAKE_AS_IO		BITSET(MRF24J40_WAKE_DIR,MRF24J40_WAKE_PIN);
+#define MRF24J40_WAKE_DS
+#define MRF24J40_WAKE_LOW		BITCLEAR(MRF24J40_WAKE,MRF24J40_WAKE_PIN);
+#define MRF24J40_WAKE_HIGH		BITSET(MRF24J40_WAKE,MRF24J40_WAKE_PIN);
+#define MRF24J40_WAKE_DIR_IN	BITCLEAR(MRF24J40_WAKE_DIR,MRF24J40_WAKE_PIN);
+#define MRF24J40_WAKE_DIR_OUT	BITSET(MRF24J40_WAKE_DIR,MRF24J40_WAKE_PIN);
+#define MRF24J40_PIN_CLOCK_INIT
+
+#define MRF24J40_INT_ENABLE()				int_status = 1;			\
+											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+#define MRF24J40_INTERRUPT_FLAG_CLR()		BITSET(MRF24J40_ISR_REG,MRF24J40_ISR_FLAG);
+#define MRF24J40_INTERRUPT_ENABLE_CLR()		int_status = 0;			\
+											BITCLEAR(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+#define MRF24J40_INTERRUPT_ENABLE_SET()		int_status = 1;			\
+											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+
+// Defines activity LED pin
+#define ACTIVITY_LED     PTFD_PTFD3       ///< RF activity LED
+#define ACTIVITY_LED_DD  PTFDD_PTFDD3     ///< activity LED direction
+#define ACTIVITY_LED_DS  PTFDS_PTFDS3     ///< low power activity LED
+
+/* Spi port Mapping */
+#define MRF24J40_SPI_PORT_INIT()  			init_SPI(1)
+#define MRF24J40_SPI_PORT_WRITE 			SPI1_Write
+#define MRF24J40_SPI_PORT_READ  			SPI1_Read
+
+#else
+#error "Please define radio port for the platform"
+#define MRF24J40_CS_AS_IO
+#define MRF24J40_CS_DS
+#define MRF24J40_CS_LOW
+#define MRF24J40_CS_HIGH
+#define MRF24J40_CS_DIR_IN
+#define MRF24J40_CS_DIR_OUT
+#define MRF24J40_RESETn_AS_IO
+#define MRF24J40_RESETn_DS
+#define MRF24J40_RESETn_LOW
+#define MRF24J40_RESETn_HIGH
+#define MRF24J40_RESETn_DIR_IN
+#define MRF24J40_RESETn_DIR_OUT
+#define MRF24J40_WAKE_AS_IO
+#define MRF24J40_WAKE_DS
+#define MRF24J40_WAKE_LOW
+#define MRF24J40_WAKE_HIGH
+#define MRF24J40_WAKE_DIR_IN
+#define MRF24J40_WAKE_DIR_OUT
+#define MRF24J40_PIN_CLOCK_INIT
+
+#define MRF24J40_INT_ENABLE()
+#define MRF24J40_INTERRUPT_FLAG_CLR()
+#define MRF24J40_INTERRUPT_ENABLE_CLR()
+#define MRF24J40_INTERRUPT_ENABLE_SET()
+
+/* Spi port Mapping */
+#define MRF24J40_SPI_PORT_INIT()
+#define MRF24J40_SPI_PORT_WRITE
+#define MRF24J40_SPI_PORT_READ
+
+#endif
+
+/* RESET low/high */
+#define MRF24J40_HARDRESET_LOW()            MRF24J40_RESETn_LOW     					///< RESET pin = 0
+#define MRF24J40_HARDRESET_HIGH()           MRF24J40_RESETn_HIGH     					///< RESET pin = 1
+#define MRF24J40_CSn_LOW()                  MRF24J40_CS_LOW     					///< CS pin = 0
+#define MRF24J40_CSn_HIGH()                 MRF24J40_CS_HIGH     						///< CS pin = 1
 
 
 #define MRF24J40_PIN_INIT()        				\

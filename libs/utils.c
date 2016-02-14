@@ -9,7 +9,7 @@
 #include "uart.h"
 #endif
 
-void printSer(INT8U SerialPort, CHAR8 *string)
+void printSer(INT8U SerialPort, const CHAR8 *string)
 {
 	switch(SerialPort)
 	{

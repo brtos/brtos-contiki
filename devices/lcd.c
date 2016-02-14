@@ -45,7 +45,7 @@ void init_resource_lcd(INT8U priority)
 void acquire_lcd(void)
 {
   // Aloca o recurso do display LCD
-  OSMutexAcquire(LCD);
+  OSMutexAcquire(LCD, 0);
 }
 
 //Função para liberar o display LCD

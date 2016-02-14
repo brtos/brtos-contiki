@@ -125,7 +125,27 @@ void init_SPI(INT8U spi)
   /* ### */
 }
 
+void SPI1_Write(INT8U *data, int size)
+{
 
+	  do{
+
+		  SPI1_SendChar(*data++);
+		  size--;
+	  }while(size);
+
+
+}
+
+void SPI1_Read(INT8U *data, int size)
+{
+
+	do{
+		*data++ = SPI1_GetChar();
+		size--;
+	}while(size);
+
+}
 
 #if (ENABLE_SPI1 == TRUE)
 // Função para enviar dados pela porta SPI

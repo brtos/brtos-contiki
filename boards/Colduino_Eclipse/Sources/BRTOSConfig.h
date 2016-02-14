@@ -1,3 +1,26 @@
+/* The License
+ * 
+ * Copyright (c) 2015 Universidade Federal de Santa Maria
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+
+*/
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 /////                                                     /////
@@ -8,20 +31,18 @@
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
 
-/// Define the platform for BRTOS + Contiki 
+/// Define the platform for BRTOS + Contiki
 #define BOARD_NONE				 	 0
 #define BOARD_COLDUINO				 1
 #define BOARD_FRDM_KL25Z			 2
 
 #define BRTOS_PLATFORM 			BOARD_COLDUINO
 
-#define TASK_WITH_PARAMETERS 	0
-
-/// Define the endianess of the microcontroller
-#define PSP_ENDIAN			BRTOS_BIG_ENDIAN
+/// Define MCU endianess
+#define BRTOS_ENDIAN			BRTOS_BIG_ENDIAN
 
 /// Define if simulation or DEBUG
-#define DEBUG 0
+#define SIMULATION			0
 
 /// Define if verbose info is available
 #define VERBOSE 0
@@ -45,7 +66,7 @@
 
 /// Define the maximum number of Tasks to be Installed
 /// must always be equal or higher to NumberOfInstalledTasks
-#define NUMBER_OF_TASKS (INT8U)10
+#define NUMBER_OF_TASKS (INT8U)5
 
 /// Define if OS Trace is active
 #define OSTRACE 0
@@ -55,16 +76,14 @@
 #endif
 
 /// Define if TimerHook function is active
-#define TIMER_HOOK_EN 	1
+#define TIMER_HOOK_EN 		   1
 
 /// Define if IdleHook function is active
-#define IDLE_HOOK_EN 	0
+#define IDLE_HOOK_EN 		   0
 
 /// Enable or disable semaphore controls
 #define BRTOS_SEM_EN           1
-
-/// Enable or disable binary semaphore controls
-#define BRTOS_BINARY_SEM_EN    1
+#define BRTOS_BINARY_SEM_EN	   1
 
 /// Enable or disable mutex controls
 #define BRTOS_MUTEX_EN         1
@@ -107,9 +126,8 @@
 #define OSRTCEN                     0
 
 
-
 // Stack Size of the Idle Task
-#define IDLE_STACK_SIZE             (INT16U)(256+128)
+#define IDLE_STACK_SIZE             (INT16U)192
 
 
 /// Stack Defines
@@ -118,4 +136,4 @@
 
 // Queue heap defines
 // Configurado com 2KB p/ filas
-#define QUEUE_HEAP_SIZE 12*128
+#define QUEUE_HEAP_SIZE 8*128

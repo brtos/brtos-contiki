@@ -32,6 +32,8 @@
 #include "hardware.h"
 #include "uart.h"
 #include "utils.h"
+#include "terminal_io.h"
+//#include "mbport.h"
 
 #if !__GNUC__
 #pragma warn_implicitconv off
@@ -358,7 +360,7 @@ void uart1_tx(void)
 void uart1_acquire(void)
 {
 	// Aloca o recurso da porta serial
-	OSMutexAcquire(SerialResource1);
+	OSMutexAcquire(SerialResource1,0);
 }
 
 //Função para liberar a porta serial
@@ -494,7 +496,7 @@ void uart1_rx(void)
 	if (OSQueuePost(Serial1, receive_byte1) == BUFFER_UNDERRUN)
 	{
 		// Problema: Estouro de buffer
-		OSCleanQueue(Serial1);
+		OSQueueClean(Serial1);
 	}
 
 	// ************************
@@ -607,7 +609,7 @@ void uart2_tx(void)
 void uart2_acquire(void)
 {
 	// Aloca o recurso da porta serial
-	OSMutexAcquire(SerialResource2);
+	OSMutexAcquire(SerialResource2,0);
 }
 
 //Função para liberar a porta serial
@@ -724,7 +726,7 @@ void uart2_rx(void)
 	if (OSQueuePost(Serial2, receive_byte2) == BUFFER_UNDERRUN)
 	{
 		// Problema: Estouro de buffer
-		OSCleanQueue(Serial2);
+		OSQueueClean(Serial2);
 	}
 
 	// ************************

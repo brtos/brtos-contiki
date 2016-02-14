@@ -22,11 +22,9 @@
 #include "tasks.h"
 #include "AppConfig.h"
 #include "virtual_com.h"
-#include "usb_terminal.h"
-#include "usb_terminal_commands.h"
+#include "terminal.h"
+#include "terminal_commands.h"
 #include "led_onboard.h"
-
-#pragma warn_implicitconv off
 
 void System_Time(void)
 {
@@ -109,63 +107,63 @@ void Mass_Storage_Device_Task(void)
 
 #if (USB_CLASS_TYPE == BRTOS_USB_CDC)
 
-#define TERM_UART1  1
-#define TERM_UART2  1
 
-#define TERM1_PINS   UART1_PTA1_PTA2
-//#define TERM2_PINS   UART2_PTE5_PTE6
-#define TERM2_PINS   UART2_PTF1_PTF2
+#define TERM_BUFSIZE		36
+#define TERM_MUTEX			TRUE
+#define TERM_BAUDRATE		19200
+
+#ifdef TERM_UART
+#if TERM_UART == 0
+#define TERM_MUTEX_PRIO		UART0_MUTEX_PRIO
+#define TERM_OUTPUT			putchar_uart
+#elif  TERM_UART == 1
+#define TERM_MUTEX_PRIO		UART1_MUTEX_PRIO
+#define TERM_OUTPUT			putchar_uart1
+#else
+#define TERM_MUTEX_PRIO		UART2_MUTEX_PRIO
+#define TERM_OUTPUT			putchar_uart2
+#endif
+#endif
 
 void Terminal_Task(void)
 {
 	/* task setup */
 	(void) CDC_Init(); /* Initialize the USB CDC Application */
-
-	usb_terminal_init(cdc_putch);
+	terminal_init(putchar_usb);
 	
-#if TERM_UART1
-	#define UART1_BUFSIZE	128
-	#if UART1_MUTEX	
-		uart_init(1,9600,UART1_BUFSIZE,TRUE,UART1_MUTEX_PRIO);
-	#else
-		uart_init(1,9600,UART1_BUFSIZE,FALSE,0);
-	#endif
-#endif		
+	/* Init the Term UART */
+#ifdef TERM_UART
+	uart_init(TERM_UART,TERM_BAUDRATE,TERM_BUFSIZE,TERM_MUTEX,TERM_MUTEX_PRIO);
 	
-#if TERM_UART2
-	#define UART2_BUFSIZE	128
-	#if UART2_MUTEX		
-		uart_init(2,9600,UART2_BUFSIZE,TRUE,UART2_MUTEX_PRIO);
-	#else
-		uart_init(2,9600,UART2_BUFSIZE,FALSE,0);
-	#endif	
+#if !SIMULATION
+	terminal_set_output(TERM_OUTPUT);
+#endif
 
 #endif	
 
-	(void) usb_terminal_add_cmd((command_t*) &usb_ver_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &usb_top_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &usb_rst_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &usb_temp_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &setget_time_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &cat_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &ls_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &cd_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &mount_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &sr_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &rm_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &rn_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &cr_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &mkdir_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &cp_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &wt_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &echo_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &echo_stdout_cmd);
-	(void) usb_terminal_add_cmd((command_t*) &esp_cmd);	
+	(void) terminal_add_cmd((command_t*) &ver_cmd);
+	(void) terminal_add_cmd((command_t*) &top_cmd);
+	(void) terminal_add_cmd((command_t*) &rst_cmd);
+	(void) terminal_add_cmd((command_t*) &temp_cmd);
+	(void) terminal_add_cmd((command_t*) &setget_time_cmd);
+	(void) terminal_add_cmd((command_t*) &cat_cmd);
+	(void) terminal_add_cmd((command_t*) &ls_cmd);
+	(void) terminal_add_cmd((command_t*) &cd_cmd);
+	(void) terminal_add_cmd((command_t*) &mount_cmd);
+	(void) terminal_add_cmd((command_t*) &sr_cmd);
+	(void) terminal_add_cmd((command_t*) &rm_cmd);
+	(void) terminal_add_cmd((command_t*) &rn_cmd);
+	(void) terminal_add_cmd((command_t*) &cr_cmd);
+	(void) terminal_add_cmd((command_t*) &mkdir_cmd);
+	(void) terminal_add_cmd((command_t*) &cp_cmd);
+	(void) terminal_add_cmd((command_t*) &wt_cmd);
+	(void) terminal_add_cmd((command_t*) &echo_cmd);
+	(void) terminal_add_cmd((command_t*) &echo_stdout_cmd);
 
 	while (1)
 	{
 		/* Call the application task */
-		usb_terminal_process();
+		terminal_process();
 	}
 }
 #endif

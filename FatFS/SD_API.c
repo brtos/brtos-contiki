@@ -243,7 +243,7 @@ INT8U SDCard_SafeRemove(INT8U verbose)
   if (GetCardInit())
   {    
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif    
       // Umount File System
       //f_mount(0,NULL);
@@ -274,7 +274,7 @@ void ListFiles(CHAR8 *ptr)
 	 CHAR8 _dir[] = ".";
     
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif  
 	  
     if (GetCardInit())
@@ -357,7 +357,7 @@ void CSVListFiles(char **files)
 	 DIR     Dir; // Directory object
     
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif    
     if (GetCardInit())
     {      
@@ -437,7 +437,7 @@ INT8U ReadFile(CHAR8 *FileName, INT8U verbose)
 	{
 
 		#if (SD_FAT_MUTEX_EN == 1)
-		OSMutexAcquire(SDCardResource);
+		OSMutexAcquire(SDCardResource,0);
 		#endif
       
 		  if (f_open(&file_obj, (CHAR8*)FileName, 	FA_READ) == FR_OK)
@@ -511,7 +511,7 @@ INT8U ChangeDir(CHAR8 *FileName, INT8U verbose)
   if (GetCardInit())
   {
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif 
       
       if (f_chdir(FileName) == FR_OK)
@@ -550,7 +550,7 @@ INT8U CreateFile(CHAR8 *FileName, INT8U verbose)
   if (GetCardInit())
   {
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif    
 	         
       if (f_open(&file_obj, FileName, 	FA_CREATE_NEW) == FR_OK)
@@ -595,7 +595,7 @@ INT8U CreateDir(CHAR8 *FileName, INT8U verbose)
   if (GetCardInit())
   {
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif    
   
       PRINT_P((verbose == VERBOSE_ON), PSTR("\n\rDirectory "));
@@ -640,7 +640,7 @@ INT8U DeleteFile(CHAR8 *FileName, INT8U verbose)
   if (GetCardInit())
   {  
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif    
         
       sd_status = f_unlink(FileName);
@@ -687,7 +687,7 @@ INT8U RenameFile(CHAR8 *OldFileName,CHAR8 *NewFileName, INT8U verbose)
   if (GetCardInit())
   {  
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif    
     
         // Passa para a função os nomes dos arquivos
@@ -731,7 +731,7 @@ INT8U CopyFile(CHAR8 *SrcFileName,CHAR8 *DstFileName, INT8U verbose)
   if (GetCardInit())
   {  
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif
       
       // Passa para a função os nomes dos arquivos
@@ -835,7 +835,7 @@ INT8U WriteUptimeLog(INT8U verbose)
   if (GetCardInit())
   {
     #if (SD_FAT_MUTEX_EN == 1)
-      OSMutexAcquire(SDCardResource);
+      OSMutexAcquire(SDCardResource,0);
     #endif
         
         if (f_open(&file_obj, "uptime.txt", FA_WRITE) == FR_NO_FILE)
@@ -880,7 +880,7 @@ FRESULT open_append (
     FRESULT fr;
     
 #if (SD_FAT_MUTEX_EN == 1)
-  OSMutexAcquire(SDCardResource);
+  OSMutexAcquire(SDCardResource,0);
 #endif 
   
     /* Opens an existing file. If not exist, creates a new file. */
@@ -914,7 +914,7 @@ FRESULT empty_directory (
     FILINFO fno;
     
 #if (SD_FAT_MUTEX_EN == 1)
-  OSMutexAcquire(SDCardResource);
+  OSMutexAcquire(SDCardResource,0);
 #endif 
 
 #if _USE_LFN
@@ -967,7 +967,7 @@ INT8U WriteFile(FIL* fp,  const char* filename, INT8U *ptr_data, INT8U length)
   if (GetCardInit())
   {
 		#if (SD_FAT_MUTEX_EN == 1)
-		OSMutexAcquire(SDCardResource);
+		OSMutexAcquire(SDCardResource,0);
 		#endif
 
         
@@ -1027,7 +1027,7 @@ INT8U GetLastCreatedFileName(char fileName[])
 	DIR     Dir; // Directory object
 
 #if (SD_FAT_MUTEX_EN == 1)
-	OSMutexAcquire(SDCardResource);
+	OSMutexAcquire(SDCardResource,0);
 #endif    
 	if (GetCardInit())
 	{

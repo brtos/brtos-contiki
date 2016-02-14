@@ -4,11 +4,13 @@
 #define SPACE_ALIGN (INT8U)1
 #define ZEROS_ALIGN (INT8U)2
 
+#ifndef USE_UART1
 #define USE_UART1	0
 #define USE_UART2	1
 #define USE_USB		2
+#endif
 
-void printSer(INT8U SerialPort, CHAR8 *string);
+void printSer(INT8U SerialPort, const CHAR8 *string);
 void putcharSer(INT8U SerialPort, CHAR8 caracter);
 
 void reverse(char s[]);
@@ -27,8 +29,8 @@ int strcmp (char s1[] , char s2[]);
 void Print4Digits(unsigned short int number, unsigned char align, char *buff);
 void Print3Digits(unsigned short int number, unsigned char align, char *buff);
 void Print2Digits(unsigned char number, unsigned char align, char *buff);
-void PrintDecimal(signed short int val, char *buff);
 #if 0
+void PrintDecimal(signed short int val, char *buff);
 void PrintDateTime(OSDateTime *dt, CHAR8 *buff);
 #endif
 

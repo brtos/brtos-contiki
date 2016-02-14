@@ -1,61 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>colduino_br</name>
+	<name>colduino_gcc</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<triggers>clean,full,incremental,</triggers>
 			<arguments>
-				<dictionary>
-					<key>?children?</key>
-					<value>?name?=outputEntries\|?children?=?name?=entry\\\\\\\|\\\|\||</value>
-				</dictionary>
-				<dictionary>
-					<key>?name?</key>
-					<value></value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.append_environment</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildArguments</key>
-					<value>-j8</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildCommand</key>
-					<value>${GNU_Make_Install_Dir}mingw32-make</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${ProjDirPath}/FLASH</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.contents</key>
-					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
-					<value>false</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableCleanBuild</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.stopOnError</key>
-					<value>true</value>
-				</dictionary>
-				<dictionary>
-					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
-					<value>true</value>
-				</dictionary>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
@@ -74,42 +27,52 @@
 		<link>
 			<name>FatFS</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/FatFS</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/FatFS</locationURI>
 		</link>
 		<link>
 			<name>app</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/app</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/app</locationURI>
 		</link>
 		<link>
 			<name>brtos</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/brtos</locationURI>
-		</link>
-		<link>
-			<name>brtos-contiki-examples</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/brtos-contiki-examples</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/brtos</locationURI>
 		</link>
 		<link>
 			<name>brtos-contiki-platform</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/brtos-contiki-platform</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-platform</locationURI>
 		</link>
 		<link>
 			<name>contiki</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/contiki</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/contiki/core</locationURI>
 		</link>
 		<link>
 			<name>devices</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/devices</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/devices</locationURI>
+		</link>
+		<link>
+			<name>hal</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/hal/GCC_CFV1</locationURI>
 		</link>
 		<link>
 			<name>libs</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/libs</locationURI>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/libs</locationURI>
+		</link>
+		<link>
+			<name>rpl-border-router</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-examples/ipv6/rpl-border-router</locationURI>
+		</link>
+		<link>
+			<name>terminal</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/terminal</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
