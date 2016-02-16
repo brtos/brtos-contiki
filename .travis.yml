@@ -1,0 +1,54 @@
+notifications:
+  email: false
+language: c 
+
+before_script:
+  - WGET="travis_retry wget --continue --tries=20 --waitretry=10 --retry-connrefused --no-dns-cache --timeout 300"
+  - sudo apt-get -qq update
+
+  ## Install doxygen
+  - if [ ${BUILD_CATEGORY:-0} = doxygen ] ; then
+      sudo add-apt-repository ppa:libreoffice/libreoffice-4-4 -y && sudo apt-get -qq update &&
+      sudo apt-get --no-install-suggests --no-install-recommends -qq install doxygen  &&
+      doxygen --version ;
+    fi
+    
+    ## Install doxygen
+  - if [ ${BUILD_CATEGORY:-0} = cppcheck ] ; then
+      sudo apt-get -qq update &&
+      sudo apt-get --no-install-suggests --no-install-recommends -qq install cppcheck  &&
+      cppcheck --version ;
+    fi
+
+  ## Install avr toolchain
+  ## - sudo apt-get -qq install gcc-avr avr-libc
+
+  ## Install 32-bit compatibility libraries
+  - sudo apt-get -qq install libc6:i386 libgcc1:i386 gcc-4.6-base:i386
+      libstdc++5:i386 libstdc++6:i386 libmpc2:i386
+
+  ## Install GCC dependencies
+  #- sudo apt-get -qq install libmpc2 libmpc-dev
+
+  ## Install CFV1 GCC toolchain 
+  - if [ ${BUILD_ARCH:-0} = cfv1 ] ; then  
+      $WGET https://raw.githubusercontent.com/brtos/examples/master/tools/coldfire-gcc.tar.bz2 &&
+      tar xjf coldfire*.tar.bz2 -C /tmp/ &&
+      /tmp/coldfire/bin/m68k-elf-gcc --version &&
+      sudo cp -f -r /tmp/coldfire/* /usr/local/ &&
+      rm -rf /tmp/coldfire coldfire*.tar.bz2   &&
+      sudo ldconfig &&
+      sudo depmod -a &&
+      m68k-elf-gcc --version; 
+    fi
+
+script:
+  - "make -C tests/$BUILD_TYPE all"
+
+env:
+  ## This magically kick-off parallel jobs for each of the for the sets
+  ## of environment variable defined below
+  ## - BUILD_TYPE='doxygen'  BUILD_CATEGORY='doxygen'
+  ## - BUILD_TYPE='cppcheck' BUILD_CATEGORY='cppcheck'
+  - BUILD_TYPE='compile-roteadorcfv1-eclipse' BUILD_CATEGORY='compile' BUILD_ARCH='cfv1'
+  ##- BUILD_TYPE='compile-avr-port' BUILD_CATEGORY='compile'
