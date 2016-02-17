@@ -24,7 +24,7 @@
 							<option id="net.sourceforge.usbdm.cdt.toolchain.debug.rdimon.1879249991" name="Use semi-hosting library (--specs=rdimon.specs)" superClass="net.sourceforge.usbdm.cdt.toolchain.debug.rdimon" value="false" valueType="boolean"/>
 							<option id="net.sourceforge.usbdm.cdt.toolchain.optimization.compilerOther.381069745" name="Other flags (compiler)" superClass="net.sourceforge.usbdm.cdt.toolchain.optimization.compilerOther" value="" valueType="string"/>
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="net.sourceforge.usbdm.cdt.toolchain.targetPlatform.1570350473" name="USBDM common base platform" superClass="net.sourceforge.usbdm.cdt.toolchain.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/mcf51je256}/Debug" id="net.sourceforge.usbdm.cdt.toolchain.builder.596916424" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="net.sourceforge.usbdm.cdt.toolchain.builder">
+							<builder buildPath="${workspace_loc:/mcf51je256}/Debug" id="net.sourceforge.usbdm.cdt.toolchain.builder.596916424" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="net.sourceforge.usbdm.cdt.toolchain.builder">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
@@ -107,7 +107,7 @@
 						<entry excluding="net/rime|net/mac/tsch|net/mac/cxmac|net/llsec/ccm-star-packetbuf.c|net/llsec/anti-replay.c|net/llsec/noncoresec|net/ipv4|net/ip64|net/http-socket|loader|ctk|cfs/cfs-xmem.c|cfs/cfs-ram.c|cfs/cfs-posix-dir.c|cfs/cfs-posix.c|cfs/cfs-eeprom.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="contiki"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="devices"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="hal"/>
-						<entry excluding="utils.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
+						<entry excluding="random_lib.c|utils.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="libs"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rpl-border-router"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="terminal"/>
 					</sourceEntries>
@@ -176,7 +176,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="contiki/net/rime|contiki/net/mac/tsch|contiki/net/mac/cxmac|contiki/net/llsec/ccm-star-packetbuf.c|contiki/net/llsec/anti-replay.c|contiki/net/llsec/noncoresec|contiki/net/ipv4|contiki/net/ip64|contiki/net/http-socket|contiki/loader|contiki/ctk|contiki/cfs/cfs-xmem.c|contiki/cfs/cfs-ram.c|contiki/cfs/cfs-posix-dir.c|contiki/cfs/cfs-posix.c|contiki/cfs/cfs-eeprom.c|libs/utils.c|FatFS/option/unicode.c|FatFS/option/ccsbcs.c|FatFS/option/cc950.c|FatFS/option/cc949.c|FatFS/option/cc936.c|FatFS/option/cc932.c|drivers/Timer1Second.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="libs/random_lib.c|contiki/net/rime|contiki/net/mac/tsch|contiki/net/mac/cxmac|contiki/net/llsec/ccm-star-packetbuf.c|contiki/net/llsec/anti-replay.c|contiki/net/llsec/noncoresec|contiki/net/ipv4|contiki/net/ip64|contiki/net/http-socket|contiki/loader|contiki/ctk|contiki/cfs/cfs-xmem.c|contiki/cfs/cfs-ram.c|contiki/cfs/cfs-posix-dir.c|contiki/cfs/cfs-posix.c|contiki/cfs/cfs-eeprom.c|libs/utils.c|FatFS/option/unicode.c|FatFS/option/ccsbcs.c|FatFS/option/cc950.c|FatFS/option/cc949.c|FatFS/option/cc936.c|FatFS/option/cc932.c|drivers/Timer1Second.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

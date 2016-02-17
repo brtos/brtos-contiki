@@ -22,8 +22,8 @@
  */
 #define __set_interrupt_level(x) __asm__ volatile (" move %0,%%sr" :: "i" ((((x)<<8)&0x0700)|0x2000))
 
-#define DisableInterrupts __set_interrupt_level(0)
-#define EnableInterrupts __set_interrupt_level(7)
+#define DisableInterrupts __set_interrupt_level(7)
+#define EnableInterrupts __set_interrupt_level(0)
 
 #ifdef INTC_IMRH
 

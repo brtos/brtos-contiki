@@ -11,6 +11,13 @@ RM := usbdm-rm -rf
 -include hal/subdir.mk
 -include brtos/subdir.mk
 -include Startup_Code/subdir.mk
+-include Sources/DRIVERS/UART/subdir.mk
+-include Sources/DRIVERS/SPI/subdir.mk
+-include Sources/DRIVERS/PWM/subdir.mk
+-include Sources/DRIVERS/GPIO/subdir.mk
+-include Sources/DRIVERS/FLASH_EEPROM/subdir.mk
+-include Sources/DRIVERS/FLASH/subdir.mk
+-include Sources/DRIVERS/ADC/subdir.mk
 -include Sources/subdir.mk
 -include MemoryAllocation/subdir.mk
 -include subdir.mk
@@ -26,30 +33,30 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 MAP_FILE_OUTPUTS += \
-brtos_project.map \
+RoteadorCFV1_Eclipse.map \
 
 ARCHIVES += \
 libUSER_OBJS.a \
 
 SIZE_FILE_OUTPUTS += \
-brtos_project.size \
+RoteadorCFV1_Eclipse.size \
 
 SYMBOL_LIST_FILE_OUTPUTS += \
-brtos_project.sym \
+RoteadorCFV1_Eclipse.sym \
 
 
 # All Target
-all: brtos_project.elf secondary-outputs
+all: RoteadorCFV1_Eclipse.elf secondary-outputs
 
 # Tool invocations
-brtos_project.elf: $(OBJS) $(USER_OBJS)
+RoteadorCFV1_Eclipse.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Coldfire C Linker'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -Wl,--gc-sections -L"../../../platforms/eclipse_gcc_mcf51qe128/Project_Settings/Linker_Files" -T "Linker-rom.ld" -Xlinker -Map="brtos_project.map"  -o "brtos_project.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	m68k-elf-gcc -mcpu=51 -g3 -Os -Wl,--gc-sections -L"../../../boards/RoteadorCFV1_Eclipse/Project_Settings/Linker_Files" -T "Linker-rom.ld" -Xlinker -Map="RoteadorCFV1_Eclipse.map"  -o "RoteadorCFV1_Eclipse.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-brtos_project.map: brtos_project.elf $(OBJS) $(USER_OBJS)
+RoteadorCFV1_Eclipse.map: RoteadorCFV1_Eclipse.elf $(OBJS) $(USER_OBJS)
 
 libUSER_OBJS.a: $(OBJS) $(USER_OBJS)
 	@echo 'Invoking: Coldfire Archiver'
@@ -57,21 +64,21 @@ libUSER_OBJS.a: $(OBJS) $(USER_OBJS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-brtos_project.size: brtos_project.elf
+RoteadorCFV1_Eclipse.size: RoteadorCFV1_Eclipse.elf
 	@echo 'Invoking: Coldfire Sizer'
-	m68k-elf-size "brtos_project.elf" --format=sysv --radix=10   >"brtos_project.size"
+	m68k-elf-size "RoteadorCFV1_Eclipse.elf" --format=sysv --radix=10   >"RoteadorCFV1_Eclipse.size"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-brtos_project.sym: brtos_project.elf
+RoteadorCFV1_Eclipse.sym: RoteadorCFV1_Eclipse.elf
 	@echo 'Invoking: Coldfire Symbol Table'
-	m68k-elf-nm "brtos_project.elf" --demangle --defined-only --extern-only --numeric-sort   >"brtos_project.sym"
+	m68k-elf-nm "RoteadorCFV1_Eclipse.elf" --demangle --defined-only --extern-only --numeric-sort   >"RoteadorCFV1_Eclipse.sym"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(MAP_FILE_OUTPUTS)$(ARCHIVES)$(SYMBOL_LIST_FILE_OUTPUTS)$(SIZE_FILE_OUTPUTS)$(EXECUTABLES)$(LIST_FILE_OUTPUTS) brtos_project.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(MAP_FILE_OUTPUTS)$(ARCHIVES)$(SYMBOL_LIST_FILE_OUTPUTS)$(SIZE_FILE_OUTPUTS)$(EXECUTABLES)$(LIST_FILE_OUTPUTS) RoteadorCFV1_Eclipse.elf
 	-@echo ' '
 
 secondary-outputs: $(LIST_FILE_OUTPUTS) $(SIZE_FILE_OUTPUTS) $(SYMBOL_LIST_FILE_OUTPUTS)

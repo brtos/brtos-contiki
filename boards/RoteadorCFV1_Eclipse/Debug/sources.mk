@@ -25,5 +25,12 @@ hal \
 brtos \
 Startup_Code \
 Sources \
+Sources/DRIVERS/UART \
+Sources/DRIVERS/SPI \
+Sources/DRIVERS/PWM \
+Sources/DRIVERS/GPIO \
+Sources/DRIVERS/FLASH_EEPROM \
+Sources/DRIVERS/FLASH \
+Sources/DRIVERS/ADC \
 MemoryAllocation \
 

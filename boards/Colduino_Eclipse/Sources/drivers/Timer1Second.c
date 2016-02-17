@@ -64,6 +64,7 @@ void Clear1SecondInterrupt()
  	 Clear1SecondInterrupt();
  }*/
 
+#if 0
 #if (NESTING_INT == 1)
 #pragma TRAP_PROC
 #if __GNUC__
@@ -81,3 +82,4 @@ void timeOfDayInterrupt(void)
 {
 	Clear1SecondInterrupt();
 }
+#endif

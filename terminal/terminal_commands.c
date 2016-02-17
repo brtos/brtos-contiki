@@ -154,11 +154,6 @@ const char monitor_HelpText_str[] PROGMEM = monitor_HelpText_def;
 
 #endif
 
-/* print outputs */
-#undef PRINTS_ENABLED
-#define PRINTS_ENABLED  1
-#include "prints_def.h"
-
 void terminal_newline(void)
 {
 	printf_terminal_P(PSTR("\n\r"));
@@ -760,14 +755,4 @@ void echo (char *string, char Terminalbackup)
     }
 }
 
-void mcu_reset(void)
-{
-	OS_SR_SAVE_VAR;	
-	OSEnterCritical();
-	while(1)	
-	{		
-		// wait watchdog reset
-		PRINTS_P(PSTR("Resetting ...\r\n"));
-	}
-}
 
