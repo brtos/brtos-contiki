@@ -30,6 +30,26 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>Sources/CONTIKI</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/contiki/core</locationURI>
+		</link>
+		<link>
+			<name>Sources/app</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/app</locationURI>
+		</link>
+		<link>
+			<name>Sources/brtos-contiki-platform</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-platform</locationURI>
+		</link>
+		<link>
+			<name>Sources/rpl-border-router</name>
+			<type>2</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos-contiki-examples/ipv6/rpl-border-router</locationURI>
+		</link>
+		<link>
 			<name>Sources/BRTOS/MemoryAllocation</name>
 			<type>2</type>
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/hal/MemoryAllocation</locationURI>

@@ -9,6 +9,11 @@ RM := usbdm-rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Startup_Code/subdir.mk
+-include Sources/rpl-border-router/subdir.mk
+-include Sources/brtos-contiki-platform/mrf24j40/subdir.mk
+-include Sources/brtos-contiki-platform/brtos/cpu/subdir.mk
+-include Sources/brtos-contiki-platform/brtos/subdir.mk
+-include Sources/app/subdir.mk
 -include Sources/DRIVERS/UART/subdir.mk
 -include Sources/DRIVERS/SPI/subdir.mk
 -include Sources/DRIVERS/PWM/subdir.mk
@@ -16,6 +21,20 @@ RM := usbdm-rm -rf
 -include Sources/DRIVERS/FLASH_EEPROM/subdir.mk
 -include Sources/DRIVERS/FLASH/subdir.mk
 -include Sources/DRIVERS/ADC/subdir.mk
+-include Sources/DRIVERS/subdir.mk
+-include Sources/CONTIKI/sys/subdir.mk
+-include Sources/CONTIKI/net/rpl/subdir.mk
+-include Sources/CONTIKI/net/mac/sicslowmac/subdir.mk
+-include Sources/CONTIKI/net/mac/subdir.mk
+-include Sources/CONTIKI/net/llsec/subdir.mk
+-include Sources/CONTIKI/net/ipv6/multicast/subdir.mk
+-include Sources/CONTIKI/net/ipv6/subdir.mk
+-include Sources/CONTIKI/net/ip/subdir.mk
+-include Sources/CONTIKI/net/subdir.mk
+-include Sources/CONTIKI/lib/strncasecmp/subdir.mk
+-include Sources/CONTIKI/lib/subdir.mk
+-include Sources/CONTIKI/dev/subdir.mk
+-include Sources/CONTIKI/cfs/subdir.mk
 -include Sources/BRTOS/hal/subdir.mk
 -include Sources/BRTOS/brtos/subdir.mk
 -include Sources/BRTOS/MemoryAllocation/subdir.mk

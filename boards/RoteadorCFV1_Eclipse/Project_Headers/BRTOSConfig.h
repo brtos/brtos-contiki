@@ -7,6 +7,8 @@
 /////                                                     /////
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
+#define BOARD_ROTEADORCFV1			3
+#define BRTOS_PLATFORM 			BOARD_ROTEADORCFV1
 
 /// Define MCU endianess
 #define BRTOS_ENDIAN			BRTOS_BIG_ENDIAN
