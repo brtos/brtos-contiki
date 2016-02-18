@@ -8,8 +8,6 @@ RM := usbdm-rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include hal/subdir.mk
--include brtos/subdir.mk
 -include Startup_Code/subdir.mk
 -include Sources/DRIVERS/UART/subdir.mk
 -include Sources/DRIVERS/SPI/subdir.mk
@@ -18,8 +16,10 @@ RM := usbdm-rm -rf
 -include Sources/DRIVERS/FLASH_EEPROM/subdir.mk
 -include Sources/DRIVERS/FLASH/subdir.mk
 -include Sources/DRIVERS/ADC/subdir.mk
+-include Sources/BRTOS/hal/subdir.mk
+-include Sources/BRTOS/brtos/subdir.mk
+-include Sources/BRTOS/MemoryAllocation/subdir.mk
 -include Sources/subdir.mk
--include MemoryAllocation/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -52,7 +52,7 @@ all: RoteadorCFV1_Eclipse.elf secondary-outputs
 RoteadorCFV1_Eclipse.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Coldfire C Linker'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -Wl,--gc-sections -L"../../../boards/RoteadorCFV1_Eclipse/Project_Settings/Linker_Files" -T "Linker-rom.ld" -Xlinker -Map="RoteadorCFV1_Eclipse.map"  -o "RoteadorCFV1_Eclipse.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	m68k-elf-gcc -mcpu=51 -g3 -Os -Wl,--gc-sections -L../Project_Settings/Linker_Files -T "Linker-rom.ld" -Xlinker -Map="RoteadorCFV1_Eclipse.map"  -o "RoteadorCFV1_Eclipse.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

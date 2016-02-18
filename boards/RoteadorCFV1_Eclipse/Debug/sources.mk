@@ -21,8 +21,6 @@ LIST_FILE_OUTPUTS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-hal \
-brtos \
 Startup_Code \
 Sources \
 Sources/DRIVERS/UART \
@@ -32,5 +30,7 @@ Sources/DRIVERS/GPIO \
 Sources/DRIVERS/FLASH_EEPROM \
 Sources/DRIVERS/FLASH \
 Sources/DRIVERS/ADC \
-MemoryAllocation \
+Sources/BRTOS/hal \
+Sources/BRTOS/brtos \
+Sources/BRTOS/MemoryAllocation \
 

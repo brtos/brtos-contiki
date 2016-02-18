@@ -82,7 +82,15 @@ typedef unsigned long dword;
 #endif
 #endif /* __RESET_WATCHDOG */
 
-#pragma options align=packed
+#if defined(__CWCC__)
+  #pragma push
+  #pragma cpp_extensions on
+  #pragma pack(1)
+#elif defined(__GNUC__)
+   #pragma pack(push,1)
+#else
+  #error Not supported compiler type
+#endif
 
 /**************** interrupt vector numbers ****************/
 #define VectorNumber_INITSP             0U
@@ -7773,7 +7781,15 @@ typedef union {
 #define VectorNumber_VReserved61         VectorNumber_Vunsinstr
 #define Vdivz                            VReserved5
 #define VReserved61                      Vunsinstr
-#pragma options align=reset
+//#pragma options align=reset
+
+#if defined(__CWCC__)
+  #pragma pop
+#elif defined(__GNUC__)
+   #pragma pack(pop)
+#else
+  #error Not supported compiler type
+#endif
 
 #endif
 /*lint -restore  +esym(961,18.4) +esym(961,19.7) Enable MISRA rule (1.1,18.4,6.4,19.7) checking. */

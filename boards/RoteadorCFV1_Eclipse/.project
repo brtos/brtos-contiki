@@ -25,17 +25,22 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>MemoryAllocation</name>
+			<name>Sources/BRTOS</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Sources/BRTOS/MemoryAllocation</name>
 			<type>2</type>
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/hal/MemoryAllocation</locationURI>
 		</link>
 		<link>
-			<name>brtos</name>
+			<name>Sources/BRTOS/brtos</name>
 			<type>2</type>
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/brtos</locationURI>
 		</link>
 		<link>
-			<name>hal</name>
+			<name>Sources/BRTOS/hal</name>
 			<type>2</type>
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/brtos/hal/GCC_CFV1</locationURI>
 		</link>
