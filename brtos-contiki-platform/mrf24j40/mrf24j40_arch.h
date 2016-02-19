@@ -61,9 +61,11 @@
 #include "xgpio.h"
 #include "xhw_gpio.h"
 #include "spi_cox.h"
-#elif BRTOS_PLATFORM == BOARD_COLDUINO
+#elif BRTOS_PLATFORM == BOARD_COLDUINO || BRTOS_PLATFORM == BOARD_ROTEADORCFV1
 #include "utils.h"
-#include "SPI.h"
+#if BRTOS_PLATFORM == BOARD_COLDUINO
+#include "spi.h"
+#endif
 #else
 #error "Please define your platform"
 #endif
@@ -108,8 +110,9 @@
 #define MRF24J40_SPI_PORT_WRITE 			SPI0_SendChar
 #define MRF24J40_SPI_PORT_READ  			SPI0_GetChar
 
-#elif BRTOS_PLATFORM == BOARD_COLDUINO
+#elif BRTOS_PLATFORM == BOARD_COLDUINO || BRTOS_PLATFORM == BOARD_ROTEADORCFV1
 
+#if BRTOS_PLATFORM == BOARD_COLDUINO
 // Defines the radio pins
 #define MRF24J40_CS           	PTAD       ///< CS pin  - TODO: pino compartilhado com SD (trocar)
 #define MRF24J40_CS_DIR       	PTADD     	///< CS direction pin
@@ -126,6 +129,61 @@
 #define MRF24J40_INTERRUPT 		KBI1PE
 #define MRF24J40_ISR_PIN   		0
 
+#define MRF24J40_INT_ENABLE()				int_status = 1;			\
+											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+#define MRF24J40_INTERRUPT_FLAG_CLR()		BITSET(MRF24J40_ISR_REG,MRF24J40_ISR_FLAG);
+#define MRF24J40_INTERRUPT_ENABLE_CLR()		int_status = 0;			\
+											BITCLEAR(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+#define MRF24J40_INTERRUPT_ENABLE_SET()		int_status = 1;			\
+											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+
+// Defines activity LED pin
+#define ACTIVITY_LED     PTFD_PTFD3       ///< RF activity LED
+#define ACTIVITY_LED_DD  PTFDD_PTFDD3     ///< activity LED direction
+#define ACTIVITY_LED_DS  PTFDS_PTFDS3     ///< low power activity LED
+
+/* Spi port Mapping */
+#define MRF24J40_SPI_PORT_INIT()  			init_SPI(1)
+#define MRF24J40_SPI_PORT_WRITE 			SPI1_Write
+#define MRF24J40_SPI_PORT_READ  			SPI1_Read
+
+#else
+
+// Defines the radio pins
+#define MRF24J40_CS           	PTDD       ///< CS pin
+#define MRF24J40_CS_DIR       	PTDDD     	///< CS direction pin
+#define MRF24J40_CS_PIN       	3
+#define MRF24J40_RESETn        	PTED       ///< RESET pin
+#define MRF24J40_RESETn_DIR  	PTEDD     ///< RESET direction pin
+#define MRF24J40_RESETn_PIN  	6
+#define MRF24J40_WAKE         	PTHD       ///< WAKE pin
+#define MRF24J40_WAKE_DIR   	PTHDD     ///< WAKE direction pin
+#define MRF24J40_WAKE_PIN   	1
+
+#define MRF24J40_ISR_REG   		TPM1C1SC
+#define MRF24J40_ISR_FLAG   	7
+#define MRF24J40_INTERRUPT 		TPM1C1SC
+#define MRF24J40_ISR_PIN   		6
+
+#define MRF24J40_INT_ENABLE()				int_status = 1;			\
+											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+#define MRF24J40_INTERRUPT_FLAG_CLR()		BITCLEAR(MRF24J40_ISR_REG,MRF24J40_ISR_FLAG);
+#define MRF24J40_INTERRUPT_ENABLE_CLR()		int_status = 0;			\
+											BITCLEAR(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+#define MRF24J40_INTERRUPT_ENABLE_SET()		int_status = 1;			\
+											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
+
+// Defines activity LED pin
+#define ACTIVITY_LED     PTFD_PTFD3       ///< RF activity LED
+#define ACTIVITY_LED_DD  PTFDD_PTFDD3     ///< activity LED direction
+#define ACTIVITY_LED_DS  PTFDS_PTFDS3     ///< low power activity LED
+
+/* Spi port Mapping */
+#define MRF24J40_SPI_PORT_INIT()  			SPI_Init(1)
+#define MRF24J40_SPI_PORT_WRITE 			SPI1_Write
+#define MRF24J40_SPI_PORT_READ  			SPI1_Read
+
+#endif
 
 #define MRF24J40_CS_AS_IO 	 	BITSET(MRF24J40_CS_DIR, MRF24J40_CS_PIN);
 #define MRF24J40_CS_DS
@@ -147,23 +205,6 @@
 #define MRF24J40_WAKE_DIR_OUT	BITSET(MRF24J40_WAKE_DIR,MRF24J40_WAKE_PIN);
 #define MRF24J40_PIN_CLOCK_INIT
 
-#define MRF24J40_INT_ENABLE()				int_status = 1;			\
-											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
-#define MRF24J40_INTERRUPT_FLAG_CLR()		BITSET(MRF24J40_ISR_REG,MRF24J40_ISR_FLAG);
-#define MRF24J40_INTERRUPT_ENABLE_CLR()		int_status = 0;			\
-											BITCLEAR(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
-#define MRF24J40_INTERRUPT_ENABLE_SET()		int_status = 1;			\
-											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
-
-// Defines activity LED pin
-#define ACTIVITY_LED     PTFD_PTFD3       ///< RF activity LED
-#define ACTIVITY_LED_DD  PTFDD_PTFDD3     ///< activity LED direction
-#define ACTIVITY_LED_DS  PTFDS_PTFDS3     ///< low power activity LED
-
-/* Spi port Mapping */
-#define MRF24J40_SPI_PORT_INIT()  			init_SPI(1)
-#define MRF24J40_SPI_PORT_WRITE 			SPI1_Write
-#define MRF24J40_SPI_PORT_READ  			SPI1_Read
 
 #else
 #error "Please define radio port for the platform"
@@ -202,7 +243,7 @@
 /* RESET low/high */
 #define MRF24J40_HARDRESET_LOW()            MRF24J40_RESETn_LOW     					///< RESET pin = 0
 #define MRF24J40_HARDRESET_HIGH()           MRF24J40_RESETn_HIGH     					///< RESET pin = 1
-#define MRF24J40_CSn_LOW()                  MRF24J40_CS_LOW     					///< CS pin = 0
+#define MRF24J40_CSn_LOW()                  MRF24J40_CS_LOW     						///< CS pin = 0
 #define MRF24J40_CSn_HIGH()                 MRF24J40_CS_HIGH     						///< CS pin = 1
 
 

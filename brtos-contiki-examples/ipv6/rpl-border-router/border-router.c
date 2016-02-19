@@ -48,7 +48,7 @@
 
 #include "sys/clock.h"
 
-#if (BRTOS_PLATFORM != BOARD_FRDM_KL25Z)
+#if (BRTOS_PLATFORM == BOARD_COLDUINO)
 #include "virtual_com.h"
 #endif
 

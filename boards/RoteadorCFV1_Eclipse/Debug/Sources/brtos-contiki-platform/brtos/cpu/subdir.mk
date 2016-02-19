@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/clock.c \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/leds-arch.c \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/mtarch.c \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/rtimer-arch.c \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/slip-arch.c \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/watchdog.c \
-C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/xmem.c 
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/clock.c \
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/leds-arch.c \
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/mtarch.c \
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/rtimer-arch.c \
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/slip-arch.c \
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/watchdog.c \
+E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/xmem.c 
 
 OBJS += \
 ./Sources/brtos-contiki-platform/brtos/cpu/clock.o \
@@ -32,52 +32,52 @@ C_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Sources/brtos-contiki-platform/brtos/cpu/clock.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/clock.c
+Sources/brtos-contiki-platform/brtos/cpu/clock.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/clock.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/brtos-contiki-platform/brtos/cpu/leds-arch.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/leds-arch.c
+Sources/brtos-contiki-platform/brtos/cpu/leds-arch.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/leds-arch.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/brtos-contiki-platform/brtos/cpu/mtarch.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/mtarch.c
+Sources/brtos-contiki-platform/brtos/cpu/mtarch.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/mtarch.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/brtos-contiki-platform/brtos/cpu/rtimer-arch.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/rtimer-arch.c
+Sources/brtos-contiki-platform/brtos/cpu/rtimer-arch.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/rtimer-arch.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/brtos-contiki-platform/brtos/cpu/slip-arch.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/slip-arch.c
+Sources/brtos-contiki-platform/brtos/cpu/slip-arch.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/slip-arch.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/brtos-contiki-platform/brtos/cpu/watchdog.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/watchdog.c
+Sources/brtos-contiki-platform/brtos/cpu/watchdog.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/watchdog.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/brtos-contiki-platform/brtos/cpu/xmem.o: C:/DADOS_LOCAIS/GITHUB/brtos_github/brtos-contiki/brtos-contiki-platform/brtos/cpu/xmem.c
+Sources/brtos-contiki-platform/brtos/cpu/xmem.o: E:/carlos/GIT_BRTOS/brtos-contiki/brtos-contiki-platform/brtos/cpu/xmem.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Coldfire C Compiler'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../contiki/lib -I../../../brtos-contiki-platform/brtos -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
+	m68k-elf-gcc -mcpu=51 -g3 -Os -ffunction-sections -fdata-sections -DDEBUG_BUILD -I../Startup_Code -I../Project_Headers -I../Project_Headers/CONFIG -I../Sources -I../../../brtos/hal/MemoryAllocation -I../../../brtos/brtos/includes -I../../../brtos/hal/GCC_CFV1 -I../../../contiki/core -I../../../brtos-contiki-platform/brtos -I../../../brtos-contiki-platform/brtos/cpu -I../../../brtos-contiki-examples/ipv6/rpl-border-router -I../../../libs -I../../../contiki/core/sys -Wall -std=c99 -c -fmessage-length=0 -MT"$@" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -o "$@" $<
 	@echo 'Finished building: $<'
 	@echo ' '
 

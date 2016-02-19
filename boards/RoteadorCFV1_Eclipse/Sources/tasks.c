@@ -21,10 +21,11 @@
 #include "drivers.h"
 #include "tasks.h"
 #include "AppConfig.h"
-#include "virtual_com.h"
+
+#if TERMINAL_ENABLE
 #include "terminal.h"
 #include "terminal_commands.h"
-#include "led_onboard.h"
+#endif
 
 void System_Time(void)
 {
@@ -90,24 +91,6 @@ void System_Time(void)
 
 }
 
-#include "user_config.h"
-#if (USB_CLASS_TYPE == BRTOS_USB_MSD)
-void Mass_Storage_Device_Task(void)
-{
-	/* task setup */
-	(void)MSD_Init(); /* Initialize the USB Test Application */
-
-	while(1)
-	{
-		/* Call the application task */
-		MSD_Task();
-	}
-}
-#endif
-
-#if (USB_CLASS_TYPE == BRTOS_USB_CDC)
-
-
 #define TERM_BUFSIZE		36
 #define TERM_MUTEX			TRUE
 #define TERM_BAUDRATE		19200
@@ -125,11 +108,10 @@ void Mass_Storage_Device_Task(void)
 #endif
 #endif
 
+#if 0
 void Terminal_Task(void)
 {
 	/* task setup */
-	(void) CDC_Init(); /* Initialize the USB CDC Application */
-	terminal_init(putchar_usb);
 	
 	/* Init the Term UART */
 #ifdef TERM_UART
@@ -166,7 +148,8 @@ void Terminal_Task(void)
 		terminal_process();
 	}
 }
-#endif
+
+
 INT16S CoreTemp = 0;
 
 void Tarefa_termometro(void)
@@ -211,7 +194,7 @@ void Tarefa_termometro(void)
 		//////////////////////////////////////////////////////////////         
 	}
 }
-
+#endif
 
 
 #if 0

@@ -13,7 +13,7 @@
 #define SLIP_USB	1
 #define SLIP_UART	2
 
-#define SLIP_COMM	SLIP_USB
+#define SLIP_COMM					  SLIP_UART
 
 #define BRTOS_ENDIAN           		  BRTOS_BIG_ENDIAN
 #define NETSTACK_CONF_WITH_IPV6		  1
@@ -61,4 +61,4 @@
 /* Not used but avoids compile errors while sicslowpan.c is being developed */
 #define SICSLOWPAN_CONF_COMPRESSION       SICSLOWPAN_COMPRESSION_HC06
 
-#endif /* BOARD_COLDUINO_CONF_H_ */
+#endif /* BOARD_ROTEADORCFV1_CONF_H_ */

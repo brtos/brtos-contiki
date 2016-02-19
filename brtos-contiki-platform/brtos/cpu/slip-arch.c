@@ -33,10 +33,18 @@
 
 #if (SLIP_COMM == SLIP_USB)
 #include "virtual_com.h"
+#elif (SLIP_COMM == SLIP_UART)
+#include "drivers.h"
+#else
 #endif
 
-#if (SLIP_COMM == SLIP_UART)
-#include "uart.h"
+#if BRTOS_CPU == COLDFIRE_V1
+#define uart_putchar(UART_NUMBER, c)		CONCAT2_(putchar_uart,UART_NUMBER)((char)c)
+#elif  BRTOS_CPU == ARM_Cortex_M0
+#define UART_NUMBER		0
+#define uart_putchar(UART_NUMBER, c)		(void)UARTPutChar(0x4006A000, (char)c);
+#else
+#define uart_putchar(UART_NUMBER, c)
 #endif
 
 void
@@ -55,8 +63,14 @@ slip_arch_init(unsigned long ubr)
 #endif
 
 #if (SLIP_COMM == SLIP_UART)
+#if BRTOS_CPU == COLDFIRE_V1
+	// Passado tamanho 0 de fila para não gerar fila do sistema
+	// Passado prioridade 0 para não criar mutex
+	uart_init(UART_NUMBER, 115200, 0, 0);
+#elif  BRTOS_CPU == ARM_Cortex_M0
 	// Passado tamanho 0 de fila para não gerar fila do sistema
 	Init_UART0(115200, 0);
+#endif
 #endif
 }
 
@@ -86,7 +100,7 @@ slip_arch_writeb(unsigned char c)
 #endif
 
 #if (SLIP_COMM == SLIP_UART)
-	(void)UARTPutChar(0x4006A000, (char)c);
+	uart_putchar(UART_NUMBER, (char)c);
 	buffer_send[buffer_send_i++]=c;
 #endif
 	

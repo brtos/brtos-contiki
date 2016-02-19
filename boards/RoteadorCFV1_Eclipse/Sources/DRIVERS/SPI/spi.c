@@ -24,58 +24,192 @@ Copyright (c) <2009-2013> <Universidade Federal de Santa Maria>
 *********************************************************************************/
 
 #include "BoardConfig.h"
+
+#include "hardware.h"
 #include "spi.h"
+#include "BRTOS.h"
+#include "utils.h"
+
+#if !__GNUC__
+#pragma warn_implicitconv off
+#endif
 
 
-static INT8U SPIData = 0;
+#if (ENABLE_SPI1 == TRUE)
+INT8U SPI1Data = 0;
+#endif
 
-void SPI_Init(void)
+#if (ENABLE_SPI2 == TRUE)
+INT8U SPI2Data = 0;
+#endif
+
+
+void SPI_Init(INT8U spi)
 {
-  
   /* ### Init_SPI init code */
-  (void)SPIS;                      /* Read the status register */
-  (void)SPID;                         /* Read the device register */
-  /* SPIC1: SPIE=0,SPE=0,SPTIE=0,MSTR=0,CPOL=0,CPHA=1,SSOE=0,LSBFE=0 */
-  SPIC1 = 0x00;                       /* The SPRF interrupt flag is cleared when the SPI module is disabled. */
   
-  /* SPIC2: MODFEN=0,BIDIROE=0,SPISWAI=0,SPC0=0 */
-  // Modo bidirecional single-wire desativado
-  SPIC2 = 0x00;                                      
-  
-  /* SPIBR: SPPR2=0,SPPR1=0,SPPR0=1,SPR2=0,SPR1=0,SPR0=0 */
-  // Configura o clock da porta SPI p/ 6 Mhz --> 24Mhz / 2*2
-  SPIBR = 0x10;
-                                        
-  (void)(SPIS == 0);                  /* Dummy read of the SPIS registr to clear the MODF flag */
-  
-  /* SPIC1: SPIE=0,SPE=0,SPTIE=0,MSTR=1,CPOL=0,CPHA=0,SSOE=0,LSBFE=0 */
-  SPIC1 = 0x10;
-  SPIC1_SPE = 1;
-  
-  (void)SPIS;  
+  if ((spi == 1) || (spi == 2))
+  {
+      // Configure SPI 1
+      #if (ENABLE_SPI1 == TRUE)
+      if (spi == 1)
+      {
+        SCGC2  |= SCGC2_SPI1_MASK;           /* Enables spi1 clock */
+        (void)SPI1S;                         /* Read the status register */
+        (void)SPI1D;                         /* Read the device register */
+        /* SPI1C1: SPIE=0,SPE=0,SPTIE=0,MSTR=0,CPOL=0,CPHA=1,SSOE=0,LSBFE=0 */
+        SPI1C1 = 0x00;                       /* The SPRF interrupt flag is cleared when the SPI1 module is disabled. */
+
+        /* SPI1C2: MODFEN=0,BIDIROE=0,SPISWAI=0,SPC0=0 */
+        // Modo bidirecional single-wire desativado
+        SPI1C2 = 0x00;
+
+        /* SPI1BR: SPPR2=0,SPPR1=0,SPPR0=1,SPR2=0,SPR1=0,SPR0=0 */
+        // Configura o clock da porta SPI p/ 6 Mhz --> 24Mhz / 2*2
+        SPI1BR = 0x10;
+
+        (void)(SPI1S == 0);                  /* Dummy read of the SPI1S registr to clear the MODF flag */
+
+        /* SPI1C1: SPIE=0,SPE=0,SPTIE=0,MSTR=1,CPOL=0,CPHA=0,SSOE=0,LSBFE=0 */
+        SPI1C1 = 0x10;
+
+        /* SPI System Enable */
+#if __GNUC__
+        BITSETMASK(SPI1C1,SPI1C1_SPE_MASK);
+#else
+        SPI1C1_SPE = 1;
+#endif
+
+        (void)SPI1S;
+      }
+      #endif
+
+      // Configure SPI 2
+      #if (ENABLE_SPI2 == TRUE)
+      if (spi == 2)
+      {
+        SCGC2  |= SCGC2_SPI2_MASK;           /* Enables spi2 clock */
+        (void)SPI2S;                         /* Read the status register */
+        (void)SPI2D;                         /* Read the device register */
+        /* SPI1C1: SPIE=0,SPE=0,SPTIE=0,MSTR=0,CPOL=0,CPHA=1,SSOE=0,LSBFE=0 */
+        SPI2C1 = 0x00;                       /* The SPRF interrupt flag is cleared when the SPI1 module is disabled. */
+
+        /* SPI1C2: MODFEN=0,BIDIROE=0,SPISWAI=0,SPC0=0 */
+        // Modo bidirecional single-wire desativado
+        SPI2C2 = 0x00;
+
+        /* SPI1BR: SPPR2=0,SPPR1=0,SPPR0=1,SPR2=0,SPR1=0,SPR0=0 */
+        // Configura o clock da porta SPI p/ 6 Mhz --> 24Mhz / 2*2
+        SPI2BR = 0x10;
+
+        (void)(SPI2S == 0);                  /* Dummy read of the SPI1S registr to clear the MODF flag */
+
+        /* SPI1C1: SPIE=0,SPE=0,SPTIE=0,MSTR=1,CPOL=0,CPHA=0,SSOE=0,LSBFE=0 */
+        SPI2C1 = 0x10;
+
+#if __GNUC__
+        BITSETMASK(SPI2C1,SPI2C1_SPE_MASK);
+#else
+        SPI2C1_SPE = 1;
+#endif
+        (void)SPI2S;
+      }
+      #endif
+  }
   /* ### */
 }
 
+#if (ENABLE_SPI1 == TRUE)
+void SPI1_Write(INT8U *data, int size)
+{
 
+	  do{
+
+		  SPI1_SendChar(*data++);
+		  size--;
+	  }while(size);
+
+
+}
+
+void SPI1_Read(INT8U *data, int size)
+{
+
+	do{
+		*data++ = SPI1_GetChar();
+		size--;
+	}while(size);
+
+}
 
 
 // Função para enviar dados pela porta SPI
-void SPI_SendChar (INT8U data){
-  while (!SPIS_SPTEF){};               /* wait until transmit buffer is empty*/
-  
-  (void)SPIS;
-  SPID = data;                         /* Transmit counter */ 
-  
-  while (!SPIS_SPRF){};                  /* wait until receive buffer is full*/
-    
-  (void)SPIS;                            // Acknowledge flag
-  SPIData = SPID;                        // Received data  
-}
-
-
-INT8U SPI_Get(void)
+void SPI1_SendChar(INT8U data)
 {
-    SPI_SendChar(0x00);
-          
-    return SPIData;
+	/* wait until transmit buffer is empty*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI1S,SPI1S_SPTEF_MASK))){};
+	#else
+		 while (!SPI1S_SPTEF){};
+	#endif
+
+  
+  (void)SPI1S;
+  SPI1D = data;                         /* Transmit counter*/
+  
+  	/* wait until receive buffer is full*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI1S,SPI1S_SPRF_MASK))){};
+	#else
+		 while (!SPI1S_SPRF){};
+	#endif
+
+
+  (void)SPI1S;                            // Acknowledge flag
+  SPI1Data = SPI1D;                        // Acknowledge flag
 }
+
+
+INT8U SPI1_GetChar(void)
+{
+    SPI1_SendChar(0xFF);
+    return SPI1Data;
+}
+
+#endif
+
+
+#if (ENABLE_SPI2 == TRUE)
+// Função para enviar dados pela porta SPI
+void SPI2_SendChar(INT8U data)
+{
+	/* wait until transmit buffer is empty*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI2S,SPI2S_SPTEF_MASK))){};
+	#else
+		 while (!SPI2S_SPTEF){};
+	#endif
+  
+  (void)SPI2S;
+  SPI2D = data;                         /* Transmit counter*/
+  
+	/* wait until receive buffer is full*/
+	#if __GNUC__
+		 while (!(BITTESTMASK(SPI2S,SPI2S_SPRF_MASK))){};
+	#else
+		 while (!SPI2S_SPRF){};
+	#endif
+    
+  (void)SPI2S;                          // Acknowledge flag
+  SPI2Data = SPI2D;                     // Acknowledge flag
+}
+
+
+INT8U SPI2_GetChar(void)
+{
+    SPI2_SendChar(0xFF);
+          
+    return SPI2Data;
+}
+
+#endif

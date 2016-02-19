@@ -10,6 +10,7 @@ RM := usbdm-rm -rf
 -include sources.mk
 -include Startup_Code/subdir.mk
 -include Sources/rpl-border-router/subdir.mk
+-include Sources/libs/subdir.mk
 -include Sources/brtos-contiki-platform/mrf24j40/subdir.mk
 -include Sources/brtos-contiki-platform/brtos/cpu/subdir.mk
 -include Sources/brtos-contiki-platform/brtos/subdir.mk

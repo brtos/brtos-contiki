@@ -29,8 +29,26 @@ Copyright (c) <2009-2013> <Universidade Federal de Santa Maria>
 #include "hardware.h"
 #include "BRTOS.h"
 
-void SPI_Init(void);
-void SPI_SendChar (INT8U data);
-INT8U SPI_Get(void);
+#define ENABLE_SPI1   TRUE
+#define ENABLE_SPI2   FALSE
+
+void SPI_Init(unsigned char spi);
+
+
+#if (ENABLE_SPI1 == TRUE)
+extern void SPI1_SendChar(unsigned char data);
+extern unsigned char SPI1_GetChar(void);
+void SPI1_Write(unsigned char *data, int size);
+void SPI1_Read(unsigned char *data, int size);
+#endif
+
+
+#if (ENABLE_SPI2 == TRUE)
+extern void SPI2_SendChar(unsigned char data);
+extern unsigned char SPI2_GetChar(void);
+void SPI2_Write(unsigned char *data, int size);
+void SPI2_Read(unsigned char *data, int size);
+#endif
+
 
 #endif

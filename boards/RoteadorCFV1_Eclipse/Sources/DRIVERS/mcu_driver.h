@@ -22,7 +22,6 @@
 
 */
 
-#include "types.h"
 #include "derivative.h" /* include peripheral declarations */
 
 /*****************************************************************************

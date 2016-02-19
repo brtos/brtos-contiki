@@ -8,12 +8,12 @@
 				</macros>
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -47,12 +47,16 @@
 									<listOptionValue builtIn="false" value="../Startup_Code"/>
 									<listOptionValue builtIn="false" value="../Project_Headers"/>
 									<listOptionValue builtIn="false" value="../Project_Headers/CONFIG"/>
+									<listOptionValue builtIn="false" value="../Sources"/>
 									<listOptionValue builtIn="false" value="../../../brtos/hal/MemoryAllocation"/>
 									<listOptionValue builtIn="false" value="../../../brtos/brtos/includes"/>
 									<listOptionValue builtIn="false" value="../../../brtos/hal/GCC_CFV1"/>
 									<listOptionValue builtIn="false" value="../../../contiki/core"/>
-									<listOptionValue builtIn="false" value="../../../contiki/lib"/>
 									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos/cpu"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-examples/ipv6/rpl-border-router"/>
+									<listOptionValue builtIn="false" value="../../../libs"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core/sys"/>
 								</option>
 								<inputType id="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.input.1208215421" superClass="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.input"/>
 							</tool>
@@ -89,7 +93,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/net/ipv4|Sources/CONTIKI/net/ip64|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/loader|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/cfs/cfs-eeprom.c|BRTOS|Sources_brtos|brtos|Source_MemoryAllocation|hal|Sources_hal" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Sources/libs/utils.c|Sources/libs/random_lib.c|Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/net/ipv4|Sources/CONTIKI/net/ip64|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/loader|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/cfs/cfs-eeprom.c|BRTOS|Sources_brtos|brtos|Source_MemoryAllocation|hal|Sources_hal" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -100,12 +104,12 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="net.sourceforge.usbdm.cdt.coldfire.exe.release.configuration.1316162756" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -174,7 +178,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/net/ipv4|Sources/CONTIKI/net/ip64|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/loader|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/cfs/cfs-eeprom.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Sources/libs/utils.c|Sources/libs/random_lib.c|Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/net/ipv4|Sources/CONTIKI/net/ip64|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/loader|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/cfs/cfs-eeprom.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
