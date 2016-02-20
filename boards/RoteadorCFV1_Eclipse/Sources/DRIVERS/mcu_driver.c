@@ -36,7 +36,7 @@
  * It will configure the MCU to disable STOP and COP Modules.
  * It also set the MCG configuration and bus clock frequency.
  ****************************************************************************/
-void Mcu_Init()
+static void Mcu_Init(void)
 {
 
 #if ((defined _MCF51MM256_H) || (defined _MCF51JE256_H) || (defined _MCF51JE128_H))
@@ -86,6 +86,7 @@ void Mcu_Init()
 
 #endif
 
+#if 0
     /*IO configuration*/
     PTAD  = 0x00;       /*PTA0--PTA7 are all available for JE256*/
     PTADD = 0x00;       /*Set input direction*/
@@ -128,6 +129,7 @@ void Mcu_Init()
     PTGPE = 0x00;       /*Pull-up disable    */
     PTGSE = 0x00;       /*slew rate control*/
     PTGDS = 0x00;       /*drive strength */
+#endif
 }
 
 /*****************************************************************************
@@ -143,7 +145,7 @@ void Mcu_Init()
  * loop(PLL) and frequency-locked loop (FLL) for multiplying slower reference
  * clock sources
  ****************************************************************************/
-void MCG_Init()
+static void MCG_Init(void)
 {
 #if ((defined _MCF51MM256_H) || (defined _MCF51JE256_H)|| (defined _MCF51JE128_H))
   /* Assume 12MHz external clock source connected. */

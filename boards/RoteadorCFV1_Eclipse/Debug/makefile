@@ -9,8 +9,8 @@ RM := usbdm-rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Startup_Code/subdir.mk
--include Sources/rpl-border-router/subdir.mk
 -include Sources/libs/subdir.mk
+-include Sources/http-server/subdir.mk
 -include Sources/brtos-contiki-platform/mrf24j40/subdir.mk
 -include Sources/brtos-contiki-platform/brtos/cpu/subdir.mk
 -include Sources/brtos-contiki-platform/brtos/subdir.mk

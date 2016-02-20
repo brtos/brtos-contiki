@@ -26,7 +26,7 @@
 
 #define NETSTACK_CONF_WITH_RIME		  1
 
-#define UIP_CONF_BUFFER_SIZE          1514 //1280
+//#define UIP_CONF_BUFFER_SIZE          140 //1280 //1514
 #define UIP_CONF_TCP_SPLIT            0
 #define UIP_CONF_LOGGING              1
 #define UIP_CONF_IP_FORWARD           0
@@ -37,7 +37,7 @@
 #define UIP_CONF_IPV6_CHECKS          	1
 #define UIP_CONF_IPV6_REASSEMBLY      	1
 //#define UIP_CONF_NETIF_MAX_ADDRESSES  5
-#define NBR_TABLE_CONF_MAX_NEIGHBORS    6
+#define NBR_TABLE_CONF_MAX_NEIGHBORS    4
 #define UIP_CONF_DS6_DEFRT_NBU   		2
 #define UIP_CONF_DS6_PREFIX_NBU  		3
 #define UIP_CONF_MAX_ROUTES   			4
@@ -46,14 +46,17 @@
 #define UIP_CONF_DS6_AADDR_NBU   		0
 #define NETSTACK_CONF_NETWORK			sicslowpan_driver //rime_driver //null_network_driver
 #else
-#define UIP_CONF_IP_FORWARD          1
+#define UIP_CONF_IP_FORWARD          	1
 #endif /* NETSTACK_CONF_WITH_IPV6 */
 
-#define WEBSERVER_CONF_STATUSPAGE   1
+#define WEBSERVER_CONF_STATUSPAGE   	1
 
 #define MMEM_CONF_SIZE			   		256
-//#define IP64_ADDRMAP_CONF_ENTRIES  		8
-//#define PROCESS_CONF_NUMEVENTS	   		10
+#define IP64_ADDRMAP_CONF_ENTRIES  		0
+#define PROCESS_CONF_NUMEVENTS	   		4
+
+#define SICSLOWPAN_CONF_REASS_CONTEXTS			1
+#define SICSLOWPAN_CONF_FRAGMENT_BUFFERS		4
 
 #define RESOLV_CONF_SUPPORTS_MDNS              0
 #define RESOLV_CONF_SUPPORTS_RECORD_EXPIRATION 0

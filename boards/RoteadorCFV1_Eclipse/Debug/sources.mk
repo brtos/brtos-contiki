@@ -23,8 +23,8 @@ LIST_FILE_OUTPUTS :=
 SUBDIRS := \
 Startup_Code \
 Sources \
-Sources/rpl-border-router \
 Sources/libs \
+Sources/http-server \
 Sources/brtos-contiki-platform/mrf24j40 \
 Sources/brtos-contiki-platform/brtos/cpu \
 Sources/brtos-contiki-platform/brtos \

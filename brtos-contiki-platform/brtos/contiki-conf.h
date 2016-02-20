@@ -19,7 +19,13 @@
 CCIF void debug_printf(char *format, ...);
 #endif
 
+#if HAVE_STDINT
+#include <stdint.h>
+typedef uint64_t clock_time_t;
+#else
 typedef unsigned long long clock_time_t;
+#endif
+
 #define CLOCK_CONF_SECOND 	1000
 #define INFINITE_TIME 	 	ULONG_MAX
 

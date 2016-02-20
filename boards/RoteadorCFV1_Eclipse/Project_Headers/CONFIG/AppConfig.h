@@ -4,8 +4,8 @@
 
 /****************************************************************/
 /* TASKS PRIORITY ASSIGNMENT                                    */
-#define System_Time_Priority          (INT8U)30
-#define RelayControl_Task_Priority    (INT8U)28
+#define System_Time_Priority          (INT8U)7
+#define RelayControl_Task_Priority    (INT8U)6
 #define EnergyMetering_Task_Priority  (INT8U)2
 
 /****************************************************************/

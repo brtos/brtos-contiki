@@ -31,7 +31,7 @@
 
 #define PRINTF_BUFSIZE 		32
 
-static printf_idx;
+static int printf_idx;
 char printf_buf[PRINTF_BUFSIZE];
 
 // Se estiver usando USB no SLIP, usa UART no debug e vice-versa

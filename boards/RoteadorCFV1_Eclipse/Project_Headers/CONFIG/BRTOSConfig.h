@@ -7,35 +7,26 @@
 /////                                                     /////
 ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////
+#define BOARD_ROTEADORCFV1			3
+#define BRTOS_PLATFORM 			BOARD_ROTEADORCFV1
 
-#ifndef BRTOS_CONFIG_H
-#define BRTOS_CONFIG_H
-
-
-/// Define if DEBUG mode
-#define DEBUG           1
-
-/// Define if LOW_POWER_MODE is enabled
-#define LOW_POWER_MODE  0
-
-/// Define BUILD_VERSION by date and time
-#include "dateasint.h"
-#define BUILD_VERSION     (DATE_AS_INT)
+/// Define MCU endianess
+#define BRTOS_ENDIAN			BRTOS_BIG_ENDIAN
 
 /// Define if verbose info is available
-#define VERBOSE 0
+#define VERBOSE 				0
 
 /// Define if error check is available
-#define ERROR_CHECK 0
+#define ERROR_CHECK 			1
 
-/// Define if stack check is enable
-#define STACK_CHECK   1
+/// Define if LOW_POWER_MODE is enabled
+#define LOW_POWER_MODE  		0
 
 /// Define if whatchdog is active
-#define WATCHDOG 1
+#define WATCHDOG 				0
 
 /// Define if compute cpu load is active
-#define COMPUTES_CPU_LOAD 0
+#define COMPUTES_CPU_LOAD 		1
 
 // The Nesting define must be set in the file HAL.h
 // Example:
@@ -43,24 +34,30 @@
 //#define NESTING_INT 0
 
 /// Define Number of Priorities
-#define NUMBER_OF_PRIORITIES 32
+#define NUMBER_OF_PRIORITIES 	8
 
 /// Define the maximum number of Tasks to be Installed
 /// must always be equal or higher to NumberOfInstalledTasks
-#define NUMBER_OF_TASKS (INT8U)8
+#define NUMBER_OF_TASKS 	(4)
+
+/// Enable or disable the dynamic task install and uninstall
+#define BRTOS_DYNAMIC_TASKS_ENABLED 0
+
+/// Defines the memory allocation and deallocation function to the dynamic queues
+#include "umm_malloc.h"
+#define BRTOS_ALLOC   umm_malloc
+#define BRTOS_DEALLOC umm_free
+
+#define configMAX_TASK_NAME_LEN 32
 
 /// Define if OS Trace is active
-#define OS_TRACE 0
-
-#if (OS_TRACE == 1)  
-  #include "debug_stack.h"
-#endif
+#define OSTRACE 				0
 
 /// Define if TimerHook function is active
-#define TIMER_HOOK_EN 1
+#define TIMER_HOOK_EN 			1
 
 /// Define if IdleHook function is active
-#define IDLE_HOOK_EN 0
+#define IDLE_HOOK_EN 			0
 
 /// Enable or disable semaphore controls
 #define BRTOS_SEM_EN           1
@@ -69,7 +66,7 @@
 #define BRTOS_MUTEX_EN         1
 
 /// Enable or disable mailbox controls
-#define BRTOS_MBOX_EN          1
+#define BRTOS_MBOX_EN          0
 
 /// Enable or disable queue controls
 #define BRTOS_QUEUE_EN         1
@@ -80,13 +77,22 @@
 /// Enable or disable queue 32 bits controls
 #define BRTOS_QUEUE_32_EN      0
 
+/// Enable or disable timers service
+#define BRTOS_TMR_EN           0
+
+/// Enable or disable binary semaphore controls
+#define BRTOS_BINARY_SEM_EN	   1
+
+/// Enable or disable dynamic queue controls
+#define BRTOS_DYNAMIC_QUEUE_ENABLED	1
+
 /// Defines the maximum number of semaphores\n
 /// Limits the memory allocation for semaphores
-#define BRTOS_MAX_SEM          10
+#define BRTOS_MAX_SEM          2
 
 /// Defines the maximum number of mutexes\n
 /// Limits the memory allocation for mutex
-#define BRTOS_MAX_MUTEX        4
+#define BRTOS_MAX_MUTEX        2
 
 /// Defines the maximum number of mailboxes\n
 /// Limits the memory allocation mailboxes
@@ -94,34 +100,30 @@
 
 /// Defines the maximum number of queues\n
 /// Limits the memory allocation for queues
-#define BRTOS_MAX_QUEUE        3
+#define BRTOS_MAX_QUEUE        1
 
 
 /// TickTimer Defines
-#define configCPU_CLOCK_HZ          (INT32U)25165824    ///< CPU clock in Hertz
+#define configCPU_CLOCK_HZ          	(INT32U)25165824   ///< CPU clock in Hertz
 #define configTICK_RATE_HZ          (INT32U)1000        ///< Tick timer rate in Hertz
 #define configTIMER_PRE_SCALER      0                   ///< Informs if there is a timer prescaler
 #define configRTC_CRISTAL_HZ        (INT32U)1000
 #define configRTC_PRE_SCALER        10
-#define OS_RTC_EN                   0
+#define OSRTCEN                     0
 
-/// Defines the tick timer interrupt handler code (clear flag) of the choosen microcontroller
-#define TIMER_CTRL              TPM1SC
-#define TICKTIMER_INT_HANDLER   TPM1SC_TOF = 0
-#define TIMER_MODULE            TPM1MOD
-#define TIMER_COUNTER           TPM1CNT
 
 // Stack Size of the Idle Task
-#define IDLE_STACK_SIZE             (INT16U)188
+#define IDLE_STACK_SIZE             (192)
+#define SYSTEM_TIME_STACK_SIZE		(192)
+#define CONTIKI_STACK_SIZE			(1024+256)
 
 
 /// Stack Defines
-/// Coldfire with 8KB of RAM: 107 * 32 bytes = 3.4KB of Virtual Stack
-#define HEAP_SIZE 111*32
+#define HEAP_SIZE 				(IDLE_STACK_SIZE+SYSTEM_TIME_STACK_SIZE+CONTIKI_STACK_SIZE)
 
 // Queue heap defines
-// Configurado com 1KB p/ filas
-#define QUEUE_HEAP_SIZE 6*128
+#define QUEUE_HEAP_SIZE 		1
 
+// Dynamic head define. To be used by DynamicInstallTask and Dynamic Queues
+#define DYNAMIC_HEAP_SIZE		1
 
-#endif

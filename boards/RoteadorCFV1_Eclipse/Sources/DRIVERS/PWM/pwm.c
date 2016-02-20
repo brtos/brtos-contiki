@@ -17,7 +17,6 @@ void PWMSetup(INT8U TPM_Number, INT16U Frequency, INT16U Align,
 {
   INT16U module = 0;  
   INT8U prescale = 0;
-  INT32U duty = 0;
   INT8U mode = 0;
 /* ### Init_TPM init code */
   

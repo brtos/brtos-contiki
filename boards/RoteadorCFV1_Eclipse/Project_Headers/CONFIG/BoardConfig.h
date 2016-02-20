@@ -72,7 +72,7 @@
 
 // #define TX_POWER_LEVEL   RFTX_0dB
 
-#define TX_TIMEOUT       50
+#define RADIO_TX_TIMEOUT       50
 
 
 // Defines the radio pins

@@ -42,6 +42,7 @@
 							<tool command="gcc" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GCCErrorParser" id="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.1843123171" name="Coldfire C Compiler" superClass="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler">
 								<option id="net.sourceforge.usbdm.gnu.c.compiler.option.preprocessor.def.symbols.1577819494" name="Defined symbols (-D)" superClass="net.sourceforge.usbdm.gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG_BUILD"/>
+									<listOptionValue builtIn="false" value="UIP_CONF_IPV6_RPL=1"/>
 								</option>
 								<option id="net.sourceforge.usbdm.gnu.c.compiler.option.include.paths.1088941522" name="Include paths (-I)" superClass="net.sourceforge.usbdm.gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="../Startup_Code"/>
@@ -54,9 +55,10 @@
 									<listOptionValue builtIn="false" value="../../../contiki/core"/>
 									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos"/>
 									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos/cpu"/>
-									<listOptionValue builtIn="false" value="../../../brtos-contiki-examples/ipv6/rpl-border-router"/>
 									<listOptionValue builtIn="false" value="../../../libs"/>
 									<listOptionValue builtIn="false" value="../../../contiki/core/sys"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core/net"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-examples/ipv6/http-server"/>
 								</option>
 								<inputType id="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.input.1208215421" superClass="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.input"/>
 							</tool>
@@ -207,4 +209,5 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

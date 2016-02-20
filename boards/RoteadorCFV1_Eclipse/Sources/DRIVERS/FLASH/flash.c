@@ -79,7 +79,6 @@ INT8U Flash_Erase(INT32U addr)
 {
      INT8U i;
  #if (SIMU == 0)
-    
     FnCmdInRam = (void*)((INT32U)&CmdInRam); 
     CmdInRam = *(CmdInRam_t *)(Flash_Cmd);
     FSTAT = 0x30;  

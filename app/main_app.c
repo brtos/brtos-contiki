@@ -40,6 +40,14 @@ extern "C"
 void main_app(void);
 void contiki_main(void);
 
+#ifndef SYSTEM_TIME_STACK_SIZE
+#define SYSTEM_TIME_STACK_SIZE  192
+#endif
+
+#ifndef CONTIKI_STACK_SIZE
+#define CONTIKI_STACK_SIZE  	(1024+256)
+#endif
+
 void main_app(void)
 {
 
@@ -51,12 +59,12 @@ void main_app(void)
 	// Initialize BRTOS
 	BRTOS_Init();
 
-	if (InstallTask(&System_Time, "System Time", 192, 31, NULL) != OK)
+	if (InstallTask(&System_Time, "System Time", SYSTEM_TIME_STACK_SIZE, 31, NULL) != OK)
 	{
 		while (1){};
 	};
 
-	if (InstallTask(&contiki_main, "Contiki", (1024 + 256), 2, NULL) != OK)
+	if (InstallTask(&contiki_main, "Contiki", CONTIKI_STACK_SIZE, 2, NULL) != OK)
 	{
 		while (1){};
 	};

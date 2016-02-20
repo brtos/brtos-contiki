@@ -65,6 +65,8 @@
 #include "utils.h"
 #if BRTOS_PLATFORM == BOARD_COLDUINO
 #include "spi.h"
+#elif BRTOS_PLATFORM == BOARD_ROTEADORCFV1
+#include "drivers.h"
 #endif
 #else
 #error "Please define your platform"
