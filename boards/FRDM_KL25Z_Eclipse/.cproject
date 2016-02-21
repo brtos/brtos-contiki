@@ -43,7 +43,7 @@
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1869738754" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" value="true" valueType="boolean"/>
 							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.1676097677" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" value="true" valueType="boolean"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.1736554499" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/FRDM_KL25Z_Eclipse}/Debug" id="ilg.gnuarmeclipse.managedbuild.cross.builder.1742526523" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
+							<builder buildPath="${workspace_loc:/FRDM_KL25Z_Eclipse}/Debug" id="ilg.gnuarmeclipse.managedbuild.cross.builder.1742526523" keepEnvironmentInBuildfile="true" managedBuildOn="false" name="Gnu Make Builder" superClass="ilg.gnuarmeclipse.managedbuild.cross.builder"/>
 							<tool id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.188666603" name="Cross ARM GNU Assembler" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler">
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.2123880916" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" value="true" valueType="boolean"/>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths.106415288" name="Include paths (-I)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.include.paths" valueType="includePath">
@@ -67,30 +67,27 @@
 									<listOptionValue builtIn="false" value="&quot;../system/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/cmsis&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;../system/include/kl25-sc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/CPU}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/LPO}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/SPI}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/Drivers/FLASH}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/rpl&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ip&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/net/ipv6&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../libs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/sys&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/dev&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../contiki/core/cfs&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/CONFIG}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src/CoX/CoX_Peripheral/inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FRDM_KL25Z_Eclipse/src}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/cpu&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/brtos/boards&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-examples/ipv6/rpl-border-router&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos-contiki-platform/mrf24j40&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/brtos/includes&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../brtos/hal/GCC_CORTEX-M0&quot;"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core/net/"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core/sys"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core/dev/"/>
+									<listOptionValue builtIn="false" value="../../../contiki/core/lib/"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-examples/ipv6/rpl-border-router"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/mrf24j40"/>
+									<listOptionValue builtIn="false" value="../../../brtos/brtos/includes"/>
+									<listOptionValue builtIn="false" value="../../../brtos/hal/GCC_CORTEX-M0"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos/boards"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos/cpu"/>
+									<listOptionValue builtIn="false" value="../../../brtos-contiki-platform/brtos"/>
+									<listOptionValue builtIn="false" value="../../../libs"/>
+									<listOptionValue builtIn="false" value="../src/CoX/CoX_Peripheral/inc"/>
+									<listOptionValue builtIn="false" value="../src/CONFIG"/>
+									<listOptionValue builtIn="false" value="../src/Drivers"/>
+									<listOptionValue builtIn="false" value="../src/Drivers/CPU"/>
+									<listOptionValue builtIn="false" value="../src/Drivers/LPO"/>
+									<listOptionValue builtIn="false" value="../src/Drivers/SPI"/>
+									<listOptionValue builtIn="false" value="../src/Drivers/FLASH"/>
+									<listOptionValue builtIn="false" value="../src"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.1445114120" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>

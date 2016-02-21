@@ -3,9 +3,6 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="net.sourceforge.usbdm.cdt.coldfire.exe.debug.configuration.807480999">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="net.sourceforge.usbdm.cdt.coldfire.exe.debug.configuration.807480999" moduleId="org.eclipse.cdt.core.settings" name="Debug">
-				<macros>
-					<stringMacro name="PROJECT_DIR" type="VALUE_TEXT" value="$(PROJECT_DIR)"/>
-				</macros>
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -24,7 +21,7 @@
 							<option defaultValue="net.sourceforge.usbdm.gnu.c.optimization.level.none" id="net.sourceforge.usbdm.cdt.toolchain.optimization.level.1736319250" name="Optimization level" superClass="net.sourceforge.usbdm.cdt.toolchain.optimization.level" value="net.sourceforge.usbdm.gnu.c.optimization.level.size" valueType="enumerated"/>
 							<option id="net.sourceforge.usbdm.cdt.coldfire.toolchain.mcpu.2132138010" name="Cpu (-mcpu=)" superClass="net.sourceforge.usbdm.cdt.coldfire.toolchain.mcpu" value="net.sourceforge.usbdm.cdt.coldfire.toolchain.mcpu.51" valueType="enumerated"/>
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="net.sourceforge.usbdm.cdt.toolchain.targetPlatform.1556746831" name="USBDM common base platform" superClass="net.sourceforge.usbdm.cdt.toolchain.targetPlatform"/>
-							<builder buildPath="${workspace_loc:/RoteadorCFV1_Eclipse/Debug}" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.CWDLocator" id="net.sourceforge.usbdm.cdt.toolchain.builder.1523960559" keepEnvironmentInBuildfile="true" managedBuildOn="true" name="Gnu Make Builder" superClass="net.sourceforge.usbdm.cdt.toolchain.builder">
+							<builder buildPath="${workspace_loc:/RoteadorCFV1_Eclipse/Debug}" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.CWDLocator" id="net.sourceforge.usbdm.cdt.toolchain.builder.1523960559" keepEnvironmentInBuildfile="true" managedBuildOn="false" name="Gnu Make Builder" superClass="net.sourceforge.usbdm.cdt.toolchain.builder">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>

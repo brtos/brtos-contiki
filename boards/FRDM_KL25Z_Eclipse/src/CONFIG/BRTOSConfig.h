@@ -19,7 +19,7 @@
 #define BRTOS_ENDIAN			BRTOS_LITTLE_ENDIAN
 
 /// Define Thread-Metric use
-#define THREAD_METRIC 	0
+#define THREAD_METRIC 			0
 
 /// Define if verbose info is available
 #define VERBOSE 				0
