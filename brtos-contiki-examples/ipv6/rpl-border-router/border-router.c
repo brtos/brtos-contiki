@@ -295,6 +295,8 @@ httpd_simple_get_script(const char *name)
 #endif /* WEBSERVER */
 
 /*---------------------------------------------------------------------------*/
+#define PRINTA(...)	PRINTF(__VA_ARGS__)
+
 static void
 print_local_addresses(void)
 {

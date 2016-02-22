@@ -77,6 +77,9 @@ endif
 SECONDARY_FLASH += \
 FRDM_KL25Z_Eclipse.hex \
 
+SECONDARY_LIST += \
+FRDM_KL25Z_Eclipse.lst \
+
 SECONDARY_SIZE += \
 FRDM_KL25Z_Eclipse.siz \
 
@@ -98,18 +101,24 @@ FRDM_KL25Z_Eclipse.hex: FRDM_KL25Z_Eclipse.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+FRDM_KL25Z_Eclipse.lst: FRDM_KL25Z_Eclipse.elf
+	@echo 'Invoking: Cross ARM GNU Create Listing'
+	arm-none-eabi-objdump --source --all-headers --demangle --line-numbers --wide "FRDM_KL25Z_Eclipse.elf" > "FRDM_KL25Z_Eclipse.lst"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 FRDM_KL25Z_Eclipse.siz: FRDM_KL25Z_Eclipse.elf
 	@echo 'Invoking: Cross ARM GNU Print Size'
-	arm-none-eabi-size --format=berkeley "FRDM_KL25Z_Eclipse.elf"
+	arm-none-eabi-size --format=berkeley --totals "FRDM_KL25Z_Eclipse.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(SECONDARY_SIZE)$(C++_DEPS)$(OBJS)$(C_DEPS)$(ASM_DEPS)$(CC_DEPS)$(SECONDARY_FLASH)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS)$(S_UPPER_DEPS) FRDM_KL25Z_Eclipse.elf
+	-$(RM) $(SECONDARY_SIZE)$(C++_DEPS)$(OBJS)$(C_DEPS)$(ASM_DEPS)$(CC_DEPS)$(SECONDARY_FLASH)$(CPP_DEPS)$(CXX_DEPS)$(C_UPPER_DEPS)$(SECONDARY_LIST)$(S_UPPER_DEPS) FRDM_KL25Z_Eclipse.elf
 	-@echo ' '
 
-secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
+secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_LIST) $(SECONDARY_SIZE)
 
 .PHONY: all clean dependents
 .SECONDARY:

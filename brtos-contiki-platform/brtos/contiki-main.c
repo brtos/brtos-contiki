@@ -46,7 +46,7 @@
 
 /* Contiki compatibility tests */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
 
@@ -74,6 +74,7 @@ extern void WriteUARTN(char c);
 
 #include "printf_lib.h"
 #define printf(...)	printf_lib(__VA_ARGS__)
+#define puts(s)	 	puts_lib(NULL,s)
 #define fprintf(...)
 #define PRINTF(...)	printf_lib(__VA_ARGS__)
 
@@ -397,7 +398,7 @@ sprint_ip6(uip_ip6addr_t addr)
 /*---------------------------------------------------------------------------*/
 
 /* declare a LL MAC address */
-const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x32}};
+const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x33}};
 
 int
 main_minimal_net(void)

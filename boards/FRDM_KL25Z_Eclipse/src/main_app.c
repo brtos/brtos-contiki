@@ -1,6 +1,7 @@
 #include "BRTOS.h"
 #include "tasks.h"
 #include "platform-conf.h"
+#include "printf_lib.h"
 
 #if PROCESSOR == COLDFIRE_V1
 #include "drivers.h"
@@ -27,15 +28,24 @@ extern "C"
  * @return      None
  *****************************************************************************/
 // Se estiver usando USB no SLIP, usa UART no debug e vice-versa
-#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
-#if (SLIP_COMM == SLIP_USB)
-#include "uart.h"
-#endif
+static void debug_putchar(char c)
+{
+	#if (SLIP_COMM == SLIP_USB)
+		#include "uart.h"
+		#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+			UARTPutChar(0x4006A000, c)
+		#else
+			(void)c;
+		#endif
+	#elif (SLIP_COMM == SLIP_UART)
+		//#include "virtual_com.h"
+		#include "diag/Trace.h"
+		(void)trace_putchar(c);
+	#else
+		(void)c;
+	#endif
+}
 
-#if (SLIP_COMM == SLIP_UART)
-//#include "virtual_com.h"
-#endif
-#endif
 
 void main_app(void);
 void contiki_main(void);
@@ -62,15 +72,15 @@ void main_app(void)
 	};
 
 	// Se estiver usando USB no SLIP, usa UART no debug e vice-versa
-#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
 #if (SLIP_COMM == SLIP_USB)
-	Init_UART0(115200, 0);
-#endif
-
-#if (SLIP_COMM == SLIP_UART)
-	//USB_Init();
-	//(void)cdc_Init(); /* Initialize the USB CDC Application */
-#endif
+	#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+		Init_UART0(115200, 0);
+	#endif
+	printf_install_putchar(debug_putchar);
+#elif(SLIP_COMM == SLIP_UART)
+	// USB_Init();
+	//(void)cdc_Init(); /* Initialize the USB CDC Application
+	printf_install_putchar(debug_putchar);
 #endif
 
 #if 0

@@ -30,34 +30,25 @@
 #include "platform-conf.h"
 
 #define PRINTF_BUFSIZE 		32
-
 static int printf_idx;
 char printf_buf[PRINTF_BUFSIZE];
 
-// Se estiver usando USB no SLIP, usa UART no debug e vice-versa
-#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
-#if (SLIP_COMM == SLIP_USB)
-#include "uart.h"
-#define putchar(x)  UARTPutChar(0x4006A000, x)
-#endif
-
-#if (SLIP_COMM == SLIP_UART)
-//#include "virtual_com.h"
-#define putchar(x)  putchar_buf(x) //cdc_putch(x)
-#endif
-
-#else
-#define putchar(x)  putchar_buf(x) //putchar_usb(x)
-#endif
-
-void putchar_buf(char c)
+char putchar_buf(char c)
 {
 	printf_buf[printf_idx++%PRINTF_BUFSIZE] = c;
+	return c;
+}
+
+static char (*putchar_func)(char) = putchar_buf;
+
+void printf_install_putchar(char (*_putchar_func)(char))
+{
+	if(_putchar_func == NULL) return;
+	putchar_func = _putchar_func;
 }
 
 static void printchar(char **str, int c)
 {
-	//extern int putchar(int c);
 	
 	if (str) {
 		**str = (char)c;
@@ -65,7 +56,16 @@ static void printchar(char **str, int c)
 	}
 	else
 	{ 
-		(void)putchar(c);
+		(void)putchar_func(c);
+	}
+}
+
+void puts_lib(char **str, char* s)
+{
+	while(*s)
+	{
+		printchar(str,*s);
+		s++;
 	}
 }
 
