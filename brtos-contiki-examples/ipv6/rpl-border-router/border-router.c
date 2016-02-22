@@ -309,7 +309,7 @@ print_local_addresses(void)
     if(uip_ds6_if.addr_list[i].isused &&
        (state == ADDR_TENTATIVE || state == ADDR_PREFERRED)) {
       PRINTA(" ");
-      uip_debug_ipaddr_print(&uip_ds6_if.addr_list[i].ipaddr);
+      //uip_debug_ipaddr_print(&uip_ds6_if.addr_list[i].ipaddr);
       PRINTA("\n");
     }
   }
