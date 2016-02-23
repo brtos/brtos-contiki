@@ -27,15 +27,25 @@ extern "C"
  * @return      None
  *****************************************************************************/
 // Se estiver usando USB no SLIP, usa UART no debug e vice-versa
-#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
-#if (SLIP_COMM == SLIP_USB)
-#include "uart.h"
-#endif
-
-#if (SLIP_COMM == SLIP_UART)
-//#include "virtual_com.h"
-#endif
-#endif
+static void debug_putchar(char c)
+{
+	#if (SLIP_COMM == SLIP_USB)
+		#include "uart.h"
+		#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+			UARTPutChar(0x4006A000, c)
+		#else
+			(void)c;
+		#endif
+	#elif (SLIP_COMM == SLIP_UART)
+		//#include "virtual_com.h"
+		#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+		#include "diag/Trace.h"
+		(void)trace_putchar(c);
+		#endif
+	#else
+		(void)c;
+	#endif
+}
 
 void main_app(void);
 void contiki_main(void);
@@ -44,8 +54,16 @@ void contiki_main(void);
 #define SYSTEM_TIME_STACK_SIZE  192
 #endif
 
+#ifndef SYSTEM_TIME_PRIORITY
+#define SYSTEM_TIME_PRIORITY	7
+#endif
+
 #ifndef CONTIKI_STACK_SIZE
 #define CONTIKI_STACK_SIZE  	(1024+256)
+#endif
+
+#ifndef CONTIKI_PRIORITY
+#define CONTIKI_PRIORITY		2
 #endif
 
 void main_app(void)
@@ -59,27 +77,27 @@ void main_app(void)
 	// Initialize BRTOS
 	BRTOS_Init();
 
-	if (InstallTask(&System_Time, "System Time", SYSTEM_TIME_STACK_SIZE, 31, NULL) != OK)
+	if (InstallTask(&System_Time, "System Time", SYSTEM_TIME_STACK_SIZE, SYSTEM_TIME_PRIORITY, NULL) != OK)
 	{
 		while (1){};
 	};
 
-	if (InstallTask(&contiki_main, "Contiki", CONTIKI_STACK_SIZE, 2, NULL) != OK)
+	if (InstallTask(&contiki_main, "Contiki", CONTIKI_STACK_SIZE, CONTIKI_PRIORITY, NULL) != OK)
 	{
 		while (1){};
 	};
 
 	// Se estiver usando USB no SLIP, usa UART no debug e vice-versa
-#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
-#if (SLIP_COMM == SLIP_USB)
-	Init_UART0(115200, 0);
-#endif
-
-#if (SLIP_COMM == SLIP_UART)
-	//USB_Init();
-	//(void)cdc_Init(); /* Initialize the USB CDC Application */
-#endif
-#endif
+	#if (SLIP_COMM == SLIP_USB)
+		#if (BRTOS_PLATFORM == BOARD_FRDM_KL25Z)
+			Init_UART0(115200, 0);
+		#endif
+		printf_install_putchar(debug_putchar);
+	#elif(SLIP_COMM == SLIP_UART)
+		// USB_Init();
+		//(void)cdc_Init(); /* Initialize the USB CDC Application
+		//printf_install_putchar(debug_putchar);
+	#endif
 
 #if 0
 	if (InstallTask(&Tarefa_termometro, "Tarefa de Termometro", 256, 19, NULL) != OK)

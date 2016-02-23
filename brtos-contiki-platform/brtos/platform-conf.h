@@ -52,7 +52,7 @@
 #endif
 
 #if BRTOS_PLATFORM == BOARD_COLDUINO
-#include "board-colduino-conf.h"
+#include "boards/board-colduino-conf.h"
 #elif BRTOS_PLATFORM == BOARD_FRDM_KL25Z
 #include "boards/board-frdm-kl25z-conf.h"
 #elif BRTOS_PLATFORM == BOARD_ROTEADORCFV1

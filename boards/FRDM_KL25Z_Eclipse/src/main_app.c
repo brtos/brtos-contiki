@@ -80,7 +80,7 @@ void main_app(void)
 #elif(SLIP_COMM == SLIP_UART)
 	// USB_Init();
 	//(void)cdc_Init(); /* Initialize the USB CDC Application
-	printf_install_putchar(debug_putchar);
+	//printf_install_putchar(debug_putchar);
 #endif
 
 #if 0

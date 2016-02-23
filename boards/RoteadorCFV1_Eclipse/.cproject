@@ -57,6 +57,7 @@
 									<listOptionValue builtIn="false" value="../../../contiki/core/net"/>
 									<listOptionValue builtIn="false" value="../../../brtos-contiki-examples/ipv6/http-server"/>
 								</option>
+								<option id="net.sourceforge.usbdm.gnu.c.compiler.option.misc.listing.711142312" name="Create Listing (-Wa,-adhls=&quot;$@.lst&quot;)" superClass="net.sourceforge.usbdm.gnu.c.compiler.option.misc.listing" value="true" valueType="boolean"/>
 								<inputType id="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.input.1208215421" superClass="net.sourceforge.usbdm.cdt.coldfire.toolchain.c.compiler.input"/>
 							</tool>
 							<tool id="net.sourceforge.usbdm.cdt.coldfire.toolchain.cpp.compiler.1127860255" name="Coldfire C++ Compiler" superClass="net.sourceforge.usbdm.cdt.coldfire.toolchain.cpp.compiler">
@@ -92,7 +93,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Sources/libs/utils.c|Sources/libs/random_lib.c|Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/net/ipv4|Sources/CONTIKI/net/ip64|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/loader|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/cfs/cfs-eeprom.c|BRTOS|Sources_brtos|brtos|Source_MemoryAllocation|hal|Sources_hal" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Sources/libs/utils.c|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/http-socket|brtos|Sources/CONTIKI/net/ip64|Sources/CONTIKI/loader|BRTOS|Sources_brtos|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/libs/random_lib.c|Sources/CONTIKI/cfs/cfs-posix.c|hal|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/cfs/cfs-eeprom.c|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/mac/contikimac|Source_MemoryAllocation|Sources/CONTIKI/ctk|Sources_hal|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/net/ipv4" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -177,7 +178,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Sources/libs/utils.c|Sources/libs/random_lib.c|Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/net/ipv4|Sources/CONTIKI/net/ip64|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/loader|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/cfs/cfs-eeprom.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="Sources/libs/utils.c|Sources/CONTIKI/net/mac/tsch|Sources/CONTIKI/net/http-socket|Sources/CONTIKI/net/ip64|Sources/CONTIKI/loader|Sources/CONTIKI/cfs/cfs-xmem.c|Sources/libs/random_lib.c|Sources/CONTIKI/cfs/cfs-posix.c|Sources/CONTIKI/net/llsec/noncoresec|Sources/CONTIKI/cfs/cfs-eeprom.c|Sources/CONTIKI/net/mac/cxmac|Sources/CONTIKI/net/rime|Sources/CONTIKI/cfs/cfs-posix-dir.c|Sources/CONTIKI/net/llsec/ccm-star-packetbuf.c|Sources/CONTIKI/net/llsec/anti-replay.c|Sources/CONTIKI/net/mac/contikimac|Sources/CONTIKI/ctk|Sources/CONTIKI/cfs/cfs-ram.c|Sources/CONTIKI/net/ipv4" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -73,10 +73,11 @@ extern char ReadUARTN(void);
 extern void WriteUARTN(char c);
 
 #include "printf_lib.h"
-#define printf(...)	printf_lib(__VA_ARGS__)
-#define puts(s)	 	puts_lib(NULL,s)
+#define printf(...)		printf_lib(__VA_ARGS__)
+#define sprintf(...)	sprintf_lib(NULL,__VA_ARGS__)
+#define puts(s)	 		puts_lib(NULL,s)
 #define fprintf(...)
-#define PRINTF(...)	printf_lib(__VA_ARGS__)
+#define PRINTF(...)		printf_lib(__VA_ARGS__)
 
 
 void print_lladdrs(void) ;
