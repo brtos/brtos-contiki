@@ -42,7 +42,7 @@
 #define uart_putchar(UART_NUMBER, c)		CONCAT2_(putchar_uart,UART_NUMBER)((char)c)
 #elif  BRTOS_CPU == ARM_Cortex_M0
 #define UART_NUMBER		0
-#define uart_putchar(UART_NUMBER, c)		(void)UARTPutChar(0x4006A000, (char)c);
+#define uart_putchar(UART_NUMBER, c)		(void)UARTPutChar(UART0_BASE, (char)c);
 #else
 #define uart_putchar(UART_NUMBER, c)
 #endif
@@ -97,21 +97,21 @@ slip_arch_writeb(unsigned char c)
 	{
 		cdc_process();
 	}
+#elif (SLIP_COMM == SLIP_UART)
+	uart_putchar(UART_NUMBER, (char)c);
 #endif
 
-#if (SLIP_COMM == SLIP_UART)
-	uart_putchar(UART_NUMBER, (char)c);
 	buffer_send[buffer_send_i++]=c;
-#endif
 	
 }
 
 void slipdev_char_put(uint8_t c)
 {
-
+	(void)c;
 }
 
 uint8_t slipdev_char_poll(uint8_t *c)
 {
+	(void)c;
 	return 0;
 }

@@ -174,6 +174,7 @@ httpd_simple_get_script(const char *name)
 }
 
 /*---------------------------------------------------------------------------*/
+#define printf(...)		printf_lib(__VA_ARGS__)
 static void
 print_local_addresses(void)
 {
@@ -186,7 +187,7 @@ print_local_addresses(void)
     if(uip_ds6_if.addr_list[i].isused &&
        (state == ADDR_TENTATIVE || state == ADDR_PREFERRED)) {
       printf(" ");
-      uip_debug_ipaddr_print(&uip_ds6_if.addr_list[i].ipaddr);
+      //uip_debug_ipaddr_print(&uip_ds6_if.addr_list[i].ipaddr);
       printf("\n");
     }
   }

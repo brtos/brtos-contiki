@@ -23,7 +23,7 @@
 #define LOW_POWER_MODE  		0
 
 /// Define if whatchdog is active
-#define WATCHDOG 				0
+#define WATCHDOG 				1
 
 /// Define if compute cpu load is active
 #define COMPUTES_CPU_LOAD 		1

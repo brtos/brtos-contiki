@@ -32,8 +32,8 @@ BRTOS_Queue  *Serial2;
 #include "slip.h"
 extern BRTOS_Sem *Contiki_Sem;
 
-unsigned char buffer_rcvd[UIP_CONF_BUFFER_SIZE];
-unsigned char buffer_rcvd_i = 0;
+unsigned char   buffer_rcvd[UIP_CONF_BUFFER_SIZE];
+unsigned int 	buffer_rcvd_i = 0;
 
 unsigned long USART0IntHandler(void *pvCBData,
         unsigned long ulEvent,
@@ -49,6 +49,8 @@ unsigned long USART0IntHandler(void *pvCBData,
 		if (slip_input_byte(receive_byte) == 1) OSSemPost(Contiki_Sem);
 
 		buffer_rcvd[buffer_rcvd_i++]=receive_byte;
+		if(sizeof(buffer_rcvd)==buffer_rcvd_i) buffer_rcvd_i = 0;
+
 		//slip_input_byte(receive_byte);
 		//OSSemPost(Contiki_Sem);
 

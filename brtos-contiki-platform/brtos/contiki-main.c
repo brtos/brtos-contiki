@@ -399,7 +399,7 @@ sprint_ip6(uip_ip6addr_t addr)
 /*---------------------------------------------------------------------------*/
 
 /* declare a LL MAC address */
-const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x33}};
+const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x32}};
 
 int
 main_minimal_net(void)

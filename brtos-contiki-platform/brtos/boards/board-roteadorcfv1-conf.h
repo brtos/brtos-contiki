@@ -45,6 +45,11 @@
 #define UIP_CONF_DS6_MADDR_NBU   		0
 #define UIP_CONF_DS6_AADDR_NBU   		0
 #define NETSTACK_CONF_NETWORK			sicslowpan_driver //rime_driver //null_network_driver
+#define NETSTACK_CONF_FRAMER			framer_802154
+#define NETSTACK_CONF_MAC               nullmac_driver
+#define NETSTACK_CONF_RDC               nullrdc_driver
+#define NETSTACK_CONF_LLSEC 			nullsec_driver
+#define NETSTACK_CONF_RADIO             mrf24j40_driver//mrf24j40_driver//nullradio_driver
 #else
 #define UIP_CONF_IP_FORWARD          	1
 #endif /* NETSTACK_CONF_WITH_IPV6 */
