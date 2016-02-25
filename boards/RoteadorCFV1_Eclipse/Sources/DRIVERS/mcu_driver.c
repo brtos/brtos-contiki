@@ -36,8 +36,27 @@
  * It will configure the MCU to disable STOP and COP Modules.
  * It also set the MCG configuration and bus clock frequency.
  ****************************************************************************/
+#include "core_cfv1.h"
+#include "BRTOSConfig.h"
+#include "HAL.h"
+
+#define SET_VBR(x) \
+__asm__ __volatile__ (" movec %0,%/vbr" : : "r" (x));
+
+#define GET_VBR(x) \
+__asm__ __volatile__ (" movec %/vbr, %0" : "=g" (x) : );
+
+#define SET_CPUCR(x) \
+__asm__ __volatile__ (" movec %0,%/cpucr" : : "r" (x));
+
+#define GET_CPUCR(x) \
+__asm__ __volatile__ (" movec %/cpucr, %0" : "=g" (x) : );
+
+
 static void Mcu_Init(void)
 {
+
+	DisableInterrupts;
 
 #if ((defined _MCF51MM256_H) || (defined _MCF51JE256_H) || (defined _MCF51JE128_H))
     SOPT1 = 0x32; /* Enable COP; enable bkgd, stop and wait mode */
@@ -83,10 +102,64 @@ static void Mcu_Init(void)
                          *    ||________ bit6:   0
                          *    |_________ bit7:   0
                          */
+#elif (defined _MCF51QE128_H) || (defined _MCF51QE64_H) || (defined _MCF51QE32_H)
 
+    /* ### MCF51QE128_80 "Cpu" init code ... */
+     /* Common initialization of the write once registers */
+     /* SOPT1: COPE=0,COPT=1,STOPE=1,WAITE=1,RSTOPE=0,BKGDPE=1,RSTPE=0 */
+     #if (WATCHDOG == 1)
+       SOPT1 = 0xB2;
+     #else
+       SOPT1 = 0x72;
+     #endif
+     SOPT2 = 0x08;
+     /* SPMSC1: LVDF=0,LVDACK=0,LVDIE=0,LVDRE=1,LVDSE=1,LVDE=1,BGBE=1 */
+     SPMSC1 = 0x1D;
+     /* SPMSC2: LPR=0,LPRS=0,LPWUI=0,PPDF=0,PPDACK=0,PPDE=1,PPDC=0 */
+     SPMSC2 = 0x02;
+     /* SPMSC3: LVDV=0,LVWV=0,LVWIE=0 */
+     SPMSC3 &= (unsigned char)~0x38;
+
+
+     /* Initialization of CPU registers */
+     #if (NESTING_INT == 1)
+		 SET_VBR(0);
+		 SET_CPUCR(0);
+     #else
+		 SET_VBR(0);
+		 SET_CPUCR(0x12000000);
+     #endif
+
+
+
+
+     // Configura Clock interno com fonte de relógio
+     // Barramento de 25Mhz
+
+     /*  System clock initialization */
+     /* ICSC1: CLKS=0,RDIV=0,IREFS=1,IRCLKEN=0,IREFSTEN=0 */
+     ICSC1 = 0x04;                        /* Initialization of the ICS control register 1 */
+     /* ICSC2: BDIV=0,RANGE=0,HGO=0,LP=0,EREFS=0,ERCLKEN=0,EREFSTEN=0 */
+     ICSC2 = 0x00;                        /* Initialization of the ICS control register 2 */
+#if (__GNUC__)
+     while(!(ICSSC & ICSSC_IREFST_MASK)){}
+#else
+     while(!ICSSC_IREFST) {               /* Wait until the source of reference clock is internal clock */
+     }
+#endif
+     /* ICSSC: DRST_DRS=2,DMX32=0 */
+     ICSSC = (ICSSC & (unsigned char)~0x60) | (unsigned char)0x80; /* Initialization of the ICS status and control */
+     while((ICSSC & 0xC0) != 0x80) {      /* Wait until the FLL switches to High range DCO mode */
+     }
+
+     /* INTC_WCR: ENB=1,MASK=0 */
+     // Quando ENB = 1, permite voltar de um wait State
+     // Ainda, configura a mascara de interrupção p/ zero
+     // ou seja, qq interrupção pode retirar o processador do modo Wait
+     INTC_WCR = 0x80;
 #endif
 
-#if 0
+#if ((defined _MCF51MM256_H) || (defined _MCF51JE256_H) || (defined _MCF51JE128_H))
     /*IO configuration*/
     PTAD  = 0x00;       /*PTA0--PTA7 are all available for JE256*/
     PTADD = 0x00;       /*Set input direction*/
@@ -129,6 +202,49 @@ static void Mcu_Init(void)
     PTGPE = 0x00;       /*Pull-up disable    */
     PTGSE = 0x00;       /*slew rate control*/
     PTGDS = 0x00;       /*drive strength */
+#elif (defined _MCF51QE128_H) || (defined _MCF51QE64_H) || (defined _MCF51QE32_H)
+     /* Common initialization of the CPU registers */
+     /* SCGC1: TPM3=1,TPM2=1,TPM1=1,ADC=1,IIC2=0,IIC1=0,SCI2=0,SCI1=0 */
+     SCGC1 = 0xF0;
+     /* SCGC2: FLS=1,IRQ=0,KBI=0,ACMP=0,RTC=0,SPI2=1,SPI1=0 */
+     SCGC2 = 0xC2;
+
+     /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
+     PTASE &= (unsigned char)~0xDF;
+     /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
+     PTBSE = 0x00;
+     /* PTCSE: PTCSE7=0,PTCSE6=0,PTCSE5=0,PTCSE4=0,PTCSE3=0,PTCSE2=0,PTCSE1=0,PTCSE0=0 */
+     PTCSE = 0x00;
+     /* PTDSE: PTDSE7=0,PTDSE6=0,PTDSE5=0,PTDSE4=0,PTDSE3=0,PTDSE2=0,PTDSE1=0,PTDSE0=0 */
+     PTDSE = 0x00;
+     /* PTESE: PTESE7=0,PTESE6=0,PTESE5=0,PTESE4=0,PTESE3=0,PTESE2=0,PTESE1=0,PTESE0=0 */
+     PTESE = 0x00;
+     /* PTFSE: PTFSE7=0,PTFSE6=0,PTFSE5=0,PTFSE4=0,PTFSE3=0,PTFSE2=0,PTFSE1=0,PTFSE0=0 */
+     PTFSE = 0x00;
+     /* PTGSE: PTGSE7=0,PTGSE6=0,PTGSE5=0,PTGSE4=0,PTGSE3=0,PTGSE2=0,PTGSE1=0,PTGSE0=0 */
+     PTGSE = 0x00;
+     /* PTHSE: PTHSE7=0,PTHSE6=0,PTHSE5=0,PTHSE4=0,PTHSE3=0,PTHSE2=0,PTHSE1=0,PTHSE0=0 */
+     PTHSE = 0x00;
+     /* PTJSE: PTJSE7=0,PTJSE6=0,PTJSE5=0,PTJSE4=0,PTJSE3=0,PTJSE2=0,PTJSE1=0,PTJSE0=0 */
+     PTJSE = 0x00;
+     /* PTADS: PTADS7=0,PTADS6=0,PTADS5=0,PTADS4=0,PTADS3=0,PTADS2=0,PTADS1=0,PTADS0=0 */
+     PTADS = 0x00;
+     /* PTBDS: PTBDS7=0,PTBDS6=0,PTBDS5=0,PTBDS4=0,PTBDS3=0,PTBDS2=0,PTBDS1=0,PTBDS0=0 */
+     PTBDS = 0x00;
+     /* PTCDS: PTCDS7=0,PTCDS6=0,PTCDS5=0,PTCDS4=0,PTCDS3=0,PTCDS2=0,PTCDS1=0,PTCDS0=0 */
+     PTCDS = 0x00;
+     /* PTDDS: PTDDS7=0,PTDDS6=0,PTDDS5=0,PTDDS4=0,PTDDS3=0,PTDDS2=0,PTDDS1=0,PTDDS0=0 */
+     PTDDS = 0x00;
+     /* PTEDS: PTEDS7=0,PTEDS6=0,PTEDS5=0,PTEDS4=0,PTEDS3=0,PTEDS2=0,PTEDS1=0,PTEDS0=0 */
+     PTEDS = 0x00;
+     /* PTFDS: PTFDS7=0,PTFDS6=0,PTFDS5=0,PTFDS4=0,PTFDS3=0,PTFDS2=0,PTFDS1=0,PTFDS0=0 */
+     PTFDS = 0x00;
+     /* PTGDS: PTGDS7=0,PTGDS6=0,PTGDS5=0,PTGDS4=0,PTGDS3=0,PTGDS2=0,PTGDS1=0,PTGDS0=0 */
+     PTGDS = 0x00;
+     /* PTHDS: PTHDS7=0,PTHDS6=0,PTHDS5=0,PTHDS4=0,PTHDS3=0,PTHDS2=0,PTHDS1=0,PTHDS0=0 */
+     PTHDS = 0x00;
+     /* PTJDS: PTJDS7=0,PTJDS6=0,PTJDS5=0,PTJDS4=0,PTJDS3=0,PTJDS2=0,PTJDS1=0,PTJDS0=0 */
+     PTJDS = 0x00;
 #endif
 }
 

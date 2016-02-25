@@ -260,6 +260,14 @@ INT8U OSSchedule(void)
   Priority = SAScheduler(OSReadyList & OSBlockedList);
   TaskSelect = PriorityVector[Priority];
   
+  if(*(uint8_t*)(ContextTask[TaskSelect].StackInit-1) != ('0'+TaskSelect))
+  {
+	  while(1)
+	  {
+		  __RESET_WATCHDOG();
+	  }
+  }
+
 	return TaskSelect;
 }
 ////////////////////////////////////////////////////////////

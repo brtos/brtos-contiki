@@ -30,7 +30,7 @@ Copyright (c) <2009-2013> <Universidade Federal de Santa Maria>
 #include "BRTOS.h"
 
 #define ENABLE_SPI1   TRUE
-#define ENABLE_SPI2   FALSE
+#define ENABLE_SPI2   TRUE
 
 void SPI_Init(unsigned char spi);
 

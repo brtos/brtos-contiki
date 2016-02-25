@@ -901,14 +901,16 @@ void MRF24J40_ISR(void)
 
 extern BRTOS_Sem *Contiki_Sem;
 
-
-#if PROCESSOR == COLDFIRE_V1
-#if (NESTING_INT == 1) && __CWCC__
-	#pragma TRAP_PROC SAVE_NO_REGS
+#if !__GNUC__
+#if (NESTING_INT == 1)
+#pragma TRAP_PROC
+#else
+interrupt
+#endif
 #else
 __attribute__ ((__optimize__("omit-frame-pointer")))
 #endif
-#endif
+
 void Radio_Interrupt(void)
 {
 #if PROCESSOR == COLDFIRE_V1

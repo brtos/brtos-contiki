@@ -180,6 +180,28 @@ INT8U SPI1_GetChar(void)
 
 
 #if (ENABLE_SPI2 == TRUE)
+void SPI2_Write(INT8U *data, int size)
+{
+
+	  do{
+
+		  SPI2_SendChar(*data++);
+		  size--;
+	  }while(size);
+
+
+}
+
+void SPI2_Read(INT8U *data, int size)
+{
+
+	do{
+		*data++ = SPI2_GetChar();
+		size--;
+	}while(size);
+
+}
+
 // Função para enviar dados pela porta SPI
 void SPI2_SendChar(INT8U data)
 {

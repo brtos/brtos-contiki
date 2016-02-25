@@ -149,7 +149,7 @@
 #define MRF24J40_SPI_PORT_WRITE 			SPI1_Write
 #define MRF24J40_SPI_PORT_READ  			SPI1_Read
 
-#else
+#elif BRTOS_PLATFORM == BOARD_ROTEADORCFV1
 
 // Defines the radio pins
 #define MRF24J40_CS           	PTDD       ///< CS pin
@@ -176,15 +176,17 @@
 											BITSET(MRF24J40_INTERRUPT,MRF24J40_ISR_PIN);
 
 // Defines activity LED pin
-#define ACTIVITY_LED     PTFD_PTFD3       ///< RF activity LED
-#define ACTIVITY_LED_DD  PTFDD_PTFDD3     ///< activity LED direction
-#define ACTIVITY_LED_DS  PTFDS_PTFDS3     ///< low power activity LED
+#define ACTIVITY_LED     //PTFD_PTFD3       ///< RF activity LED
+#define ACTIVITY_LED_DD  //PTFDD_PTFDD3     ///< activity LED direction
+#define ACTIVITY_LED_DS  //PTFDS_PTFDS3     ///< low power activity LED
 
 /* Spi port Mapping */
-#define MRF24J40_SPI_PORT_INIT()  			SPI_Init(1)
-#define MRF24J40_SPI_PORT_WRITE 			SPI1_Write
-#define MRF24J40_SPI_PORT_READ  			SPI1_Read
+#define MRF24J40_SPI_PORT_INIT()  			SPI_Init(2)
+#define MRF24J40_SPI_PORT_WRITE 			SPI2_Write
+#define MRF24J40_SPI_PORT_READ  			SPI2_Read
 
+#else
+#error "Error: unknown platform"
 #endif
 
 #define MRF24J40_CS_AS_IO 	 	BITSET(MRF24J40_CS_DIR, MRF24J40_CS_PIN);
