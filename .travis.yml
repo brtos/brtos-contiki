@@ -30,6 +30,16 @@ before_script:
   ## Install GCC dependencies
   #- sudo apt-get -qq install libmpc2 libmpc-dev
 
+  ## Install mainline ARM toolchain.  gcc-arm-none-eabi is available
+  ## in Ubuntu >= 14.04, but this external PPA is needed for 12.04.
+  ## Install srecord
+  - if [ ${BUILD_ARCH:-0} = arm-aapcs ] ; then
+      sudo add-apt-repository -y ppa:team-gcc-arm-embedded/ppa &&
+      sudo apt-get -qq update &&
+      sudo apt-get -qq install gcc-arm-embedded srecord &&
+      arm-none-eabi-gcc --version ;
+    fi
+
   ## Install CFV1 GCC toolchain 
   - if [ ${BUILD_ARCH:-0} = cfv1 ] ; then  
       $WGET https://raw.githubusercontent.com/brtos/examples/master/tools/coldfire-gcc.tar.bz2 &&
@@ -51,4 +61,5 @@ env:
   ## - BUILD_TYPE='doxygen'  BUILD_CATEGORY='doxygen'
   ## - BUILD_TYPE='cppcheck' BUILD_CATEGORY='cppcheck'
   - BUILD_TYPE='compile-roteadorcfv1-eclipse' BUILD_CATEGORY='compile' BUILD_ARCH='cfv1'
+  - BUILD_TYPE='compile-arm-eclipse' BUILD_CATEGORY='compile' BUILD_ARCH='arm'
   ##- BUILD_TYPE='compile-avr-port' BUILD_CATEGORY='compile'
