@@ -113,7 +113,7 @@ typedef uint16_t 	uip_stats_t;
 #endif
 
 #ifndef UIP_CONF_IPV6_RPL
-#define UIP_CONF_IPV6_RPL				0
+#define UIP_CONF_IPV6_RPL				1
 #endif
 
 #if BRTOS_PLATFORM == BOARD_NONE
