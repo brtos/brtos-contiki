@@ -5,8 +5,8 @@
  *      Author: Universidade Federal
  */
 
-#ifndef BOARD_ROTEADORCFV1_CONF_H_
-#define BOARD_ROTEADORCFV1_CONF_H_
+#ifndef BOARD_PLATFORM_CONF_H_
+#define BOARD_PLATFORM_CONF_H_
 
 #include "BRTOS.h"
 
@@ -22,7 +22,7 @@
 #define UIP_CONF_TCP                  1
 
 #define UIP_CONF_MAX_LISTENPORTS      2
-#define UIP_CONF_MAX_CONNECTIONS      1
+#define UIP_CONF_MAX_CONNECTIONS      2
 
 #define NETSTACK_CONF_WITH_RIME		  1
 
@@ -69,4 +69,4 @@
 /* Not used but avoids compile errors while sicslowpan.c is being developed */
 #define SICSLOWPAN_CONF_COMPRESSION       SICSLOWPAN_COMPRESSION_HC06
 
-#endif /* BOARD_ROTEADORCFV1_CONF_H_ */
+#endif /* BOARD_PLATFORM_CONF_H_ */

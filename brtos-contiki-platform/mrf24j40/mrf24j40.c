@@ -79,6 +79,7 @@ static volatile uint8_t mrf24j40_last_rssi;
 static volatile uint8_t status_tx;
 static volatile uint8_t pending;
 static volatile uint8_t receive_on;
+static volatile uint8_t is_pan_coordinator;
 
 /*---------------------------------------------------------------------------*/
 static void
@@ -196,6 +197,20 @@ flush_rx_fifo(void)
 {
   set_short_add_mem(MRF24J40_RXFLUSH, get_short_add_mem(MRF24J40_RXFLUSH) | 0b00000001);
 }
+
+/*---------------------------------------------------------------------------*/
+/**
+ * \brief Set node as pan coordinator
+ *
+ *        This routine sets the pan coordinator flag
+ */
+void
+mrf24j40_set_as_pan_coordinator(uint8_t flag)
+{
+	is_pan_coordinator = flag;
+}
+
+
 /*---------------------------------------------------------------------------*/
 /**
  * \brief Set the channel
@@ -638,6 +653,13 @@ mrf24j40_init(void)
   i = i | 0b00001000;
   PRINTF("MRF24J40 Init PAN COORD\n");
   set_short_add_mem(MRF24J40_ORDER, 0b11111111);
+#else
+  if(is_pan_coordinator)
+  {
+	  i = i | 0b00001000;
+	  PRINTF("MRF24J40 Init PAN COORD\n");
+	  set_short_add_mem(MRF24J40_ORDER, 0b11111111);
+  }
 #endif
 
 #ifdef MRF24J40_COORDINATOR
@@ -650,6 +672,7 @@ mrf24j40_init(void)
   PRINTF("MRF24J40 Init Accept Wrong CRC\n");
 #endif
 
+#define MRF24J40_PROMISCUOUS_MODE 1
 #ifdef MRF24J40_PROMISCUOUS_MODE
   i = i | 0b00000001;
   PRINTF("MRF24J40 Init PROMISCUOUS MODE\n");
@@ -910,7 +933,6 @@ interrupt
 #else
 __attribute__ ((__optimize__("omit-frame-pointer")))
 #endif
-
 void Radio_Interrupt(void)
 {
 #if PROCESSOR == COLDFIRE_V1

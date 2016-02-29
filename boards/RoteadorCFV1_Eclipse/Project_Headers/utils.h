@@ -2,6 +2,7 @@
 /*                               Macros                                       */
 /******************************************************************************/
 #define ByteSwap(A)     (A=(A<<8)+(A>>8))
+#define ByteRev(b)      (b) = ((b * 0x0802LU & 0x22110LU) | (b * 0x8020LU & 0x88440LU)) * 0x10101LU >> 16;
 
 #define BIT_SET(slovo, bit)     ((slovo) |= (1 << (bit)))
 #define BIT_CLEAR(slovo, bit)   ((slovo) &= ~( 1 << (bit)))

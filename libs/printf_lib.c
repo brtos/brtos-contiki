@@ -29,7 +29,7 @@
 #include "printf_lib.h"
 #include "platform-conf.h"
 
-#define PRINTF_BUFSIZE 		32
+#define PRINTF_BUFSIZE 		64
 static int printf_idx;
 char printf_buf[PRINTF_BUFSIZE];
 

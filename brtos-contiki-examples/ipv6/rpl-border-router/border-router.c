@@ -415,7 +415,7 @@ PROCESS_THREAD(border_router_process, ev, data)
 #endif
 
   /* Request prefix until it has been received */
-#define REQUEST_PREFIX  0
+#define REQUEST_PREFIX  1
 #if REQUEST_PREFIX
 
   static struct etimer et;

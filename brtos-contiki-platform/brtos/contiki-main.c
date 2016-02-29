@@ -64,13 +64,16 @@ BRTOS_Sem *Contiki_Sem;
 
 int main_win(void); // for simulation on Win32
 int main_minimal_net(void);
+void init_net(uint8_t node_id);  /* to init network using mrf24j40 radio */
 
 void contiki_main(void);
 
 /* for printf support on CW */
+#if (defined __CWCC__)
 extern void InitializeUART(void);
 extern char ReadUARTN(void);
 extern void WriteUARTN(char c);
+#endif
 
 #include "printf_lib.h"
 #define printf(...)		printf_lib(__VA_ARGS__)
@@ -356,29 +359,39 @@ PROCESS_THREAD(border_router_process, ev, data)
 }
 #endif /* RPL_BORDER_ROUTER */
 
-/* declare a LL MAC address */
-const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x32}};
-
 int
 main_minimal_net(void)
 {
 
 	clock_init();
-	
+	process_init();
+
+  /* procinit_init initializes RPL which sets a ctimer for the first DIS */
+  /* We must start etimers and ctimers,before calling it */
+	process_start(&etimer_process, NULL);
+	ctimer_init();
+
+
+#if 0
+	/* declare a LL MAC address */
+	const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x35}};
+
 	linkaddr_set_node_addr((linkaddr_t*)&addr);
 	memcpy(&uip_lladdr.addr, &linkaddr_node_addr.u8, sizeof(uip_lladdr.addr));
-	
-#if 1	
+
   	queuebuf_init();
   	netstack_init();
+#else
+
+#if BRTOS_PLATFORM == BOARD_FRDM_KL25Z
+  	#define PAN_COORDINATOR 			1
+	#define NODE_ID 					1
+#else
+	#define NODE_ID 					2
+#endif
+  	init_net(NODE_ID);
 #endif  	
   	
-  process_init();
-/* procinit_init initializes RPL which sets a ctimer for the first DIS */
-/* We must start etimers and ctimers,before calling it */
-  process_start(&etimer_process, NULL);
-  ctimer_init();
-
   procinit_init();
 
 #if AUTOSTART_ENABLE
@@ -419,7 +432,7 @@ sensors_light1(void)
 #endif
 /*---------------------------------------------------------------------------*/
 
-#if 1
+#if (defined __CWCC__)
 void InitializeUART(void)
 {
 	while(1){
@@ -486,5 +499,123 @@ const struct network_driver null_network_driver = {
 };
 #endif
 
+/*---------------------------------------------------------------------------*/
+void
+init_net(uint8_t node_id)
+{
+  uint16_t shortaddr;
+  uint64_t longaddr;
+  linkaddr_t addr;
+#if NETSTACK_CONF_WITH_IPV6
+  uip_ds6_addr_t *lladdr;
+  uip_ipaddr_t ipaddr;
+#endif
+
+  uint8_t i;
+
+  memset(&shortaddr, 0, sizeof(shortaddr));
+  memset(&longaddr, 0, sizeof(longaddr));
+  *((uint8_t *)&shortaddr) = node_id >> 8;
+  *((uint8_t *)&shortaddr + 1) = node_id;
+  *((uint8_t *)&longaddr) = node_id >> 8;
+  *((uint8_t *)&longaddr + 1) = node_id;
+  for(i = 2; i < sizeof(longaddr); ++i) {
+    ((uint8_t *)&longaddr)[i] = random_rand();
+  }
+
+  PRINTF("SHORT MAC ADDRESS %02x:%02x\n",
+         *((uint8_t *) & shortaddr), *((uint8_t *) & shortaddr + 1));
+
+  PRINTF("EXTENDED MAC ADDRESS %02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x\n",
+         *((uint8_t *)&longaddr),
+         *((uint8_t *)&longaddr + 1),
+         *((uint8_t *)&longaddr + 2),
+         *((uint8_t *)&longaddr + 3),
+         *((uint8_t *)&longaddr + 4),
+         *((uint8_t *)&longaddr + 5),
+         *((uint8_t *)&longaddr + 6),
+         *((uint8_t *)&longaddr + 7));
+
+  memset(&addr, 0, sizeof(linkaddr_t));
+
+  for(i = 0; i < sizeof(addr.u8); ++i) {
+    addr.u8[i] = ((uint8_t *)&longaddr)[i];
+  }
+
+  linkaddr_set_node_addr(&addr);
+
+  PRINTF("Rime started with address: ");
+  for(i = 0; i < sizeof(addr.u8) - 1; ++i) {
+    PRINTF("%d.", addr.u8[i]);
+  }
+  PRINTF("%d\n", addr.u8[i]);
+
+  queuebuf_init();
+
+#include "../mrf24j40/mrf24j40.h"
+#define RF_CHANNEL MRF24J40_DEFAULT_CHANNEL
+
+  if(node_id==1) mrf24j40_set_as_pan_coordinator(1);
+  else mrf24j40_set_as_pan_coordinator(0);
+
+  NETSTACK_RADIO.init();
+
+  mrf24j40_set_channel(RF_CHANNEL);
+  mrf24j40_set_panid(IEEE802154_PANID);
+  mrf24j40_set_short_mac_addr(shortaddr);
+  mrf24j40_set_extended_mac_addr(longaddr);
+
+  NETSTACK_RDC.init();
+  NETSTACK_MAC.init();
+  NETSTACK_NETWORK.init();
+
+  PRINTF("%s %s, channel check rate %d Hz, radio channel %u\n",
+         NETSTACK_MAC.name, NETSTACK_RDC.name,
+         CLOCK_SECOND / (NETSTACK_RDC.channel_check_interval() == 0 ? 1 :
+                         NETSTACK_RDC.channel_check_interval()), RF_CHANNEL);
+
+#if NETSTACK_CONF_WITH_IPV6
+
+#if LINKADDR_CONF_SIZE == 2
+  memset(&uip_lladdr.addr, 0, sizeof(uip_lladdr.addr));
+  uip_lladdr.addr[3] = 0xff;
+  uip_lladdr.addr[4]= 0xfe;
+  memcpy(&uip_lladdr.addr[6], &shortaddr, sizeof(shortaddr));
+#else
+  memcpy(&uip_lladdr.addr, &longaddr, sizeof(uip_lladdr.addr));
+#endif
+
+#if NETSTACK_CONF_WITH_IPV6 || NETSTACK_CONF_WITH_IPV4
+  process_start(&tcpip_process, NULL);
+#endif
+
+  lladdr = uip_ds6_get_link_local(-1);
+
+  PRINTF("Tentative link-local IPv6 address ");
+
+  for(i = 0; i < 7; ++i) {
+    PRINTF("%02x%02x:", lladdr->ipaddr.u8[i * 2], lladdr->ipaddr.u8[i * 2 + 1]);
+  }
+
+  PRINTF("%02x%02x\n", lladdr->ipaddr.u8[14], lladdr->ipaddr.u8[15]);
+
+  #if(!UIP_CONF_IPV6_RPL)
+  {
+    uip_ip6addr(&ipaddr, 0x2001, 0x1418, 0x100, 0x823c, 0, 0, 0, 0);
+    uip_ds6_set_addr_iid(&ipaddr, &uip_lladdr);
+    uip_ds6_addr_add(&ipaddr, 0, ADDR_TENTATIVE);
+
+    PRINTF("Tentative global IPv6 address ");
+
+    for(i = 0; i < 7; ++i) {
+      PRINTF("%02x%02x:", ipaddr.u8[i * 2], ipaddr.u8[i * 2 + 1]);
+    }
+
+    PRINTF("%02x%02x\n", ipaddr.u8[7 * 2], ipaddr.u8[7 * 2 + 1]);
+  }
+  #endif
+#endif
+}
+/*---------------------------------------------------------------------------*/
 
 

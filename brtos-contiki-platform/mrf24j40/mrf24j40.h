@@ -62,6 +62,7 @@ extern const struct radio_driver mrf24j40_driver;
 #define MRF24J40_TX_WAIT                4
 
 /* Functions prototypes */
+void mrf24j40_set_as_pan_coordinator(uint8_t flag);
 void mrf24j40_set_channel(uint16_t ch);
 void mrf24j40_set_panid(uint16_t id);
 void mrf24j40_set_short_mac_addr(uint16_t addr);
@@ -194,8 +195,23 @@ int32_t mrf24j40_get_rxfifo(uint8_t * buf, uint8_t buf_len);
 
 #define MRF24J40_TX_PWR_SET(large_val, small_val) ((large_val << 6) | (small_val << 3))
 
+#if PROCESSOR==COLDFIRE_V1
+#define MSBFIRST 1
+#endif
+
 typedef union _TX_status {
   uint8_t val;
+#if MSBFIRST
+  struct TX_bits {
+	uint8_t TXNRETRY:2;
+	uint8_t CCAFAIL:1;
+	uint8_t TXG2FNT:1;
+	uint8_t TXG1FNT:1;
+	uint8_t TXG2STAT:1;
+	uint8_t TXG1STAT:1;
+    uint8_t TXNSTAT:1;
+  } bits;
+#else
   struct TX_bits {
     uint8_t TXNSTAT:1;
     uint8_t TXG1STAT:1;
@@ -205,10 +221,23 @@ typedef union _TX_status {
     uint8_t CCAFAIL:1;
     uint8_t TXNRETRY:2;
   } bits;
+#endif
 } TX_status;
 
 typedef union _INT_status {
   uint8_t val;
+#if MSBFIRST
+  struct INT_bits {
+	uint8_t SLPIF:1;
+	uint8_t WAKEIF:1;
+	uint8_t HSYMTMRIF:1;
+	uint8_t SECIF:1;
+	uint8_t RXIF:1;
+	uint8_t TXG2IF:1;
+	uint8_t TXG1IF:1;
+	uint8_t TXNIF:1;
+  } bits;
+#else
   struct INT_bits {
     uint8_t TXNIF:1;
     uint8_t TXG1IF:1;
@@ -219,6 +248,7 @@ typedef union _INT_status {
     uint8_t WAKEIF:1;
     uint8_t SLPIF:1;
   } bits;
+#endif
 } INT_status;
 
 #endif /* __MRF24J40_H__ */
