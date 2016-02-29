@@ -356,48 +356,6 @@ PROCESS_THREAD(border_router_process, ev, data)
 }
 #endif /* RPL_BORDER_ROUTER */
 
-#if NETSTACK_CONF_WITH_IPV6
-/*---------------------------------------------------------------------------*/
-static void
-sprint_ip6(uip_ip6addr_t addr)
-{
-  unsigned char i = 0;
-  unsigned char zerocnt = 0;
-  unsigned char numprinted = 0;
-  unsigned char notskipped = 0;
-  char thestring[40];
-  char *result = thestring;
-
-  *result++ = '[';
-  while(numprinted < 8) {
-    if((addr.u16[i] == 0) && (zerocnt == 0)) {
-      while(addr.u16[zerocnt + i] == 0) {
-    	  zerocnt++;
-      }
-      if(zerocnt == 1 && notskipped) {
-        *result++ = '0';
-         numprinted++;
-         notskipped = 1;
-         continue;
-      }
-      i += zerocnt;
-      numprinted += zerocnt;
-    } else {
-      result += sprintf(result, "%x", (unsigned int)(uip_ntohs(addr.u16[i])));
-      i++;
-      numprinted++;
-    }
-    if(numprinted != 8) {
-      *result++ = ':';
-    }
-  }
-  *result++=']';
-  *result=0;
-  PRINTF("%s", thestring);
-}
-#endif /* NETSTACK_CONF_WITH_IPV6 */
-/*---------------------------------------------------------------------------*/
-
 /* declare a LL MAC address */
 const linkaddr_t addr = {{0x00,0x00,0x00,0x06,0x98,0x00,0x02,0x32}};
 

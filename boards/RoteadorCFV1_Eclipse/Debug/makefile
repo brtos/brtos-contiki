@@ -11,18 +11,18 @@ RM := usbdm-rm -rf
 -include Startup_Code/subdir.mk
 -include Sources/libs/subdir.mk
 -include Sources/http-server/subdir.mk
--include Sources/drivers/uart/subdir.mk
--include Sources/drivers/spi/subdir.mk
--include Sources/drivers/pwm/subdir.mk
--include Sources/drivers/gpio/subdir.mk
--include Sources/drivers/flash_eeprom/subdir.mk
--include Sources/drivers/flash/subdir.mk
--include Sources/drivers/adc/subdir.mk
--include Sources/drivers/subdir.mk
 -include Sources/brtos-contiki-platform/mrf24j40/subdir.mk
 -include Sources/brtos-contiki-platform/brtos/cpu/subdir.mk
 -include Sources/brtos-contiki-platform/brtos/subdir.mk
 -include Sources/app/subdir.mk
+-include Sources/DRIVERS/UART/subdir.mk
+-include Sources/DRIVERS/SPI/subdir.mk
+-include Sources/DRIVERS/PWM/subdir.mk
+-include Sources/DRIVERS/GPIO/subdir.mk
+-include Sources/DRIVERS/FLASH_EEPROM/subdir.mk
+-include Sources/DRIVERS/FLASH/subdir.mk
+-include Sources/DRIVERS/ADC/subdir.mk
+-include Sources/DRIVERS/subdir.mk
 -include Sources/CONTIKI/sys/subdir.mk
 -include Sources/CONTIKI/net/rpl/subdir.mk
 -include Sources/CONTIKI/net/mac/sicslowmac/subdir.mk
@@ -72,7 +72,7 @@ all: RoteadorCFV1_Eclipse.elf secondary-outputs
 RoteadorCFV1_Eclipse.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Coldfire C Linker'
-	m68k-elf-gcc -mcpu=51 -g3 -Os -Wl,--gc-sections -L../Project_Settings/Linker_Files -T "Linker-rom.ld" -Xlinker -Map="RoteadorCFV1_Eclipse.map"  -o "RoteadorCFV1_Eclipse.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	m68k-elf-gcc -mcpu=51 -g3 -O1 -Wl,--gc-sections -L../Project_Settings/Linker_Files -T "Linker-rom.ld" -Xlinker -Map="RoteadorCFV1_Eclipse.map"  -o "RoteadorCFV1_Eclipse.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -343,10 +343,52 @@ set_prefix_64(uip_ipaddr_t *prefix_64)
     PRINTF("created a new RPL dag\n");
   }
 }
+
+#if NETSTACK_CONF_WITH_IPV6
+/*---------------------------------------------------------------------------*/
+static void
+sprint_ip6(uip_ip6addr_t addr)
+{
+  unsigned char i = 0;
+  unsigned char zerocnt = 0;
+  unsigned char numprinted = 0;
+  unsigned char notskipped = 0;
+  char thestring[40];
+  char *result = thestring;
+
+  *result++ = '[';
+  while(numprinted < 8) {
+    if((addr.u16[i] == 0) && (zerocnt == 0)) {
+      while(addr.u16[zerocnt + i] == 0) {
+    	  zerocnt++;
+      }
+      if(zerocnt == 1 && notskipped) {
+        *result++ = '0';
+         numprinted++;
+         notskipped = 1;
+         continue;
+      }
+      i += zerocnt;
+      numprinted += zerocnt;
+    } else {
+      result += sprintf(result, "%x", (unsigned int)(uip_ntohs(addr.u16[i])));
+      i++;
+      numprinted++;
+    }
+    if(numprinted != 8) {
+      *result++ = ':';
+    }
+  }
+  *result++=']';
+  *result=0;
+  PRINTF("%s", thestring);
+}
+#endif /* NETSTACK_CONF_WITH_IPV6 */
+/*---------------------------------------------------------------------------*/
+
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(border_router_process, ev, data)
 {
-  static struct etimer et;
   rpl_dag_t *dag;
 
   PROCESS_BEGIN();
@@ -373,19 +415,72 @@ PROCESS_THREAD(border_router_process, ev, data)
 #endif
 
   /* Request prefix until it has been received */
-#if 0
+#define REQUEST_PREFIX  0
+#if REQUEST_PREFIX
+
+  static struct etimer et;
+
   while(!prefix_set) {
     etimer_set(&et, 1000);
     request_prefix();
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&et));
   }
-#endif
 
   dag = rpl_set_root(RPL_DEFAULT_INSTANCE,(uip_ip6addr_t *)dag_id);
-  if(dag != NULL) {
-    rpl_set_prefix(dag, &prefix, 64);
-    PRINTF("created a new RPL dag\n");
-  }
+   if(dag != NULL) {
+     rpl_set_prefix(dag, &prefix, 64);
+     PRINTF("created a new RPL dag\n");
+   }
+
+#else
+  {
+      char buf[sizeof(dag_id)];
+      memcpy(buf,dag_id,sizeof(dag_id));
+      dag = rpl_set_root(RPL_DEFAULT_INSTANCE,(uip_ip6addr_t *)buf);
+
+      /* Assign separate addresses to the uip stack and the host network
+          interface, but with the same prefix E.g. bbbb::ff:fe00:200 to
+          the stack and bbbb::1 to the host *fallback* network interface
+          Otherwise the host will trap packets intended for the stack,
+          just as the stack will trap packets intended for the host
+          $ifconfig usb0 -arp on Ubuntu to skip the neighbor
+          solicitations. Add explicit neighbors on other OSs */
+
+      if(dag != NULL)
+      {
+    	  PRINTF("Created a new RPL dag\n");
+
+  #if UIP_CONF_ROUTER_RECEIVE_RA
+        /* Contiki stack will shut down until assigned an address from the
+  	 interface RA Currently this requires changes in the core
+  	 rpl-icmp6.c to pass the link-local RA broadcast.
+        */
+
+  #else
+        {
+			int i;
+			uip_ip6addr_t ipaddr;
+		  #ifdef HARD_CODED_ADDRESS
+			uiplib_ipaddrconv(HARD_CODED_ADDRESS, &ipaddr);
+		  #else
+			uip_ip6addr(&ipaddr, 0xaaaa, 0, 0, 0, 0, 0, 0, 0x1);
+		  #endif
+			uip_ds6_set_addr_iid(&ipaddr, &uip_lladdr);
+			uip_ds6_addr_add(&ipaddr, 0, ADDR_AUTOCONF);
+			rpl_set_prefix(dag, &ipaddr, 64);
+
+			for(i = 0; i < UIP_DS6_ADDR_NB; i++) {
+			  if(uip_ds6_if.addr_list[i].isused) {
+				PRINTF("IPV6 Address: ");
+				sprint_ip6(uip_ds6_if.addr_list[i].ipaddr);
+				PRINTF("\n");
+			  }
+			}
+        }
+  #endif
+      }
+    }
+#endif
 
   /* Now turn the radio on, but disable radio duty cycling.
    * Since we are the DAG root, reception delays would constrain mesh throughbut.
